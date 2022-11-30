@@ -1,0 +1,4 @@
+{
+  "name": "vitest-environment-nuxt",
+  "main": "index.ts"
+}

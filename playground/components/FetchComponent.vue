@@ -1,7 +1,5 @@
 <template>
-  <div>
-    {{ data }}
-  </div>
+  <div>{{ data.title }}</div>
 </template>
 
 <script setup>

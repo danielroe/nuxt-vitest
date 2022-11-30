@@ -1,16 +1,9 @@
 {
-  "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
+  "name": "nuxt-unit-test",
+  "scripts": {},
   "devDependencies": {
-    "@vue/test-utils": "^2.2.1",
-    "happy-dom": "^7.6.6",
-    "nuxt": "npm:nuxt3@3.0.0-rc.14-27799789.4bbd261",
-    "vitest": "^0.24.5"
+    "nuxt": "3.0.0",
+    "vitest": "0.24.5",
+    "vitest-environment-nuxt": "link:./src/vitest-environment-nuxt"
   }
 }
