@@ -1,12 +1,14 @@
 import type { Environment } from 'vitest'
-import { builtinEnvironments, populateGlobal } from 'vitest/environments'
 import { Window, GlobalWindow } from 'happy-dom'
 import { createFetch } from 'ohmyfetch'
-import { App, createApp, defineEventHandler, toNodeListener } from 'h3'
+import { App, createApp, toNodeListener } from 'h3'
 import {
   createCall,
   createFetch as createLocalFetch,
 } from 'unenv/runtime/fetch/index'
+// @ts-expect-error TODO: add subpath types
+import * as viteEnvironments from 'vitest/environments'
+const { populateGlobal } = viteEnvironments as typeof import('vitest/dist/environments')
 
 export default <Environment> {
   name: 'nuxt',
@@ -14,11 +16,11 @@ export default <Environment> {
     const win = new (GlobalWindow || Window)() as any as (Window & {
       __app: App
       __registry: Set<string>
+      __NUXT__: any
       $fetch: any
       fetch: any
     })
 
-    // @ts-expect-error undeclared property on window
     win.__NUXT__ = {
       serverRendered: false,
       config: {
@@ -30,16 +32,13 @@ export default <Environment> {
     }
 
     const app = win.document.createElement('div')
+    app.id = 'nuxt-test'
     win.document.body.appendChild(app)
 
-    // Workaround for happy-dom bug
-    const { querySelector } = win.document
-    app.id = 'nuxt'
-    function qsWrapper (selectors) {
-      if (selectors === '#__nuxt') selectors = '#nuxt'
-      return querySelector(selectors)
+    // @ts-expect-error
+    win.IntersectionObserver = win.IntersectionObserver || class IntersectionObserver {
+      observe () {}
     }
-    win.document.querySelector = qsWrapper
 
     const h3App = createApp()
 

@@ -9,7 +9,12 @@ async function getViteConfig (rootDir = process.cwd()) {
   const nuxt = await loadNuxt({
     cwd: rootDir,
     dev: false,
-    overrides: { ssr: false },
+    overrides: {
+      ssr: false,
+      app: {
+        rootId: 'nuxt-test'
+      },
+    },
   })
   return new Promise<InlineConfig>((resolve, reject) => {
     nuxt.hook('vite:extendConfig', config => {
