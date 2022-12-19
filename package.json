@@ -43,7 +43,10 @@
     "utils.d.ts"
   ],
   "devDependencies": {
+    "@release-it/conventional-changelog": "latest",
+    "conventional-changelog-conventionalcommits": "latest",
     "nuxt": "3.0.0",
+    "release-it": "latest",
     "unbuild": "^1.0.2",
     "vitest": "0.24.5"
   },
