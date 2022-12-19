@@ -1,5 +1,18 @@
 {
   "name": "vitest-environment-nuxt",
+  "version": "0.0.1",
+  "description": "An in-development vitest environment with support for testing code that needs a Nuxt runtime environment.",
+  "repository": "danielroe/vitest-environment-nuxt",
+  "keywords": [
+    "nuxt",
+    "vitest",
+    "vitest-environment"
+  ],
+  "author": {
+    "name": "Daniel Roe <daniel@roe.dev>",
+    "url": "https://github.com/danielroe"
+  },
+  "license": "MIT",
   "scripts": {
     "build": "unbuild",
     "dev:prepare": "unbuild --stub",
@@ -40,5 +53,6 @@
   "peerDependencies": {
     "nuxt": "3.0.0",
     "vitest": "^0.24.5"
-  }
+  },
+  "packageManager": "pnpm@7.18.0"
 }
