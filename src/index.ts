@@ -1,7 +1,8 @@
 import type { Environment } from 'vitest'
 import { Window, GlobalWindow } from 'happy-dom'
-import { createFetch } from 'ohmyfetch'
-import { App, createApp, toNodeListener } from 'h3'
+import { createFetch } from 'ofetch'
+import { createApp, toNodeListener } from 'h3'
+import type { App } from 'h3'
 import {
   createCall,
   createFetch as createLocalFetch,
@@ -50,7 +51,7 @@ export default <Environment> {
 
     const registry = new Set<string>()
 
-    win.fetch = (init, options) => {
+    win.fetch = (init: string, options?: any) => {
       if (typeof init === 'string' && registry.has(init)) {
         init = '/_' + init
       }
@@ -65,14 +66,15 @@ export default <Environment> {
 
     const { keys, originals } = populateGlobal(global, win, { bindFunctions: true })
 
-    // @ts-expect-error nuxt alias
     await import('#app/entry')
 
     return {
       // called after all tests with this env have been run
       teardown () {
         win.happyDOM.cancelAsync()
+        // @ts-expect-error
         keys.forEach(key => delete global[key])
+        // @ts-expect-error
         originals.forEach((v, k) => global[k] = v)
       }
     }

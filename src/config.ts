@@ -1,6 +1,6 @@
 import { loadNuxt, buildNuxt } from '@nuxt/kit'
-import { InlineConfig as VitestConfig } from 'vitest'
-import { InlineConfig } from 'vite'
+import type { InlineConfig as VitestConfig } from 'vitest'
+import type { InlineConfig } from 'vite'
 
 // https://github.com/nuxt/framework/issues/6496
 async function getViteConfig (rootDir = process.cwd()) {

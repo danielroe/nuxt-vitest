@@ -15,7 +15,7 @@
   "license": "MIT",
   "scripts": {
     "build": "unbuild",
-    "dev:prepare": "unbuild --stub",
+    "dev:prepare": "unbuild --stub && pnpm nuxi prepare playground",
     "test": "cd playground && pnpm vitest"
   },
   "main": "./dist/index.cjs",
@@ -42,20 +42,29 @@
     "config.d.ts",
     "utils.d.ts"
   ],
+  "dependencies": {
+    "@nuxt/kit": "^3.0.0",
+    "@vue/test-utils": "^2.2.6",
+    "h3": "^1.0.2",
+    "happy-dom": "^8.1.0",
+    "ofetch": "^1.0.0",
+    "unenv": "^1.0.0"
+  },
   "devDependencies": {
     "@release-it/conventional-changelog": "latest",
     "conventional-changelog-conventionalcommits": "latest",
     "nuxt": "3.0.0",
     "release-it": "latest",
     "unbuild": "^1.0.2",
-    "vitest": "0.24.5"
+    "vitest": "0.24.5",
+    "vue": "^3.2.45"
   },
   "resolutions": {
     "vitest-environment-nuxt": "workspace:*"
   },
   "peerDependencies": {
-    "nuxt": "3.0.0",
-    "vitest": "^0.24.5"
+    "vitest": "^0.24.5",
+    "vue": "^3.2.45"
   },
   "packageManager": "pnpm@7.18.0"
 }
