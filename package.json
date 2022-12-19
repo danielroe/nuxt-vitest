@@ -1,9 +1,44 @@
 {
-  "name": "nuxt-unit-test",
-  "scripts": {},
+  "name": "vitest-environment-nuxt",
+  "scripts": {
+    "build": "unbuild",
+    "dev:prepare": "unbuild --stub",
+    "test": "cd playground && pnpm vitest"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "exports": {
+    "./config": {
+      "require": "./dist/config.cjs",
+      "import": "./dist/config.mjs",
+      "types": "./dist/config.d.ts"
+    },
+    "./utils": {
+      "require": "./dist/utils.cjs",
+      "import": "./dist/utils.mjs",
+      "types": "./dist/utils.d.ts"
+    },
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "config.d.ts",
+    "utils.d.ts"
+  ],
   "devDependencies": {
     "nuxt": "3.0.0",
-    "vitest": "0.24.5",
-    "vitest-environment-nuxt": "link:./src/vitest-environment-nuxt"
+    "unbuild": "^1.0.2",
+    "vitest": "0.24.5"
+  },
+  "resolutions": {
+    "vitest-environment-nuxt": "workspace:*"
+  },
+  "peerDependencies": {
+    "nuxt": "3.0.0",
+    "vitest": "^0.24.5"
   }
 }

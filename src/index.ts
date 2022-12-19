@@ -1,45 +1,80 @@
-import { loadNuxt, buildNuxt } from '@nuxt/kit'
-import { InlineConfig as VitestConfig } from 'vitest'
-import { join } from 'path'
-import { fileURLToPath } from 'url'
-import { InlineConfig } from 'vite'
+import type { Environment } from 'vitest'
+import { Window, GlobalWindow } from 'happy-dom'
+import { createFetch } from 'ohmyfetch'
+import { App, createApp, toNodeListener } from 'h3'
+import {
+  createCall,
+  createFetch as createLocalFetch,
+} from 'unenv/runtime/fetch/index'
 
-// https://github.com/nuxt/framework/issues/6496
-async function getViteConfig (rootDir = process.cwd()) {
-  const nuxt = await loadNuxt({
-    cwd: rootDir,
-    dev: false,
-    overrides: {
-      ssr: false,
-      app: {
-        rootId: 'nuxt-test'
-      },
-    },
-  })
-  return new Promise<InlineConfig>((resolve, reject) => {
-    nuxt.hook('vite:extendConfig', config => {
-      resolve(config)
-      throw new Error('_stop_')
+// @ts-expect-error TODO: https://github.com/vitest-dev/vitest/pull/2530
+import * as viteEnvironments from 'vitest/environments'
+const { populateGlobal } = viteEnvironments as typeof import('vitest/dist/environments')
+
+export default <Environment> {
+  name: 'nuxt',
+  async setup () {
+    const win = new (GlobalWindow || Window)() as any as (Window & {
+      __app: App
+      __registry: Set<string>
+      __NUXT__: any
+      $fetch: any
+      fetch: any
     })
-    buildNuxt(nuxt).catch(err => {
-      if (!err.toString().includes('_stop_')) {
-        reject(err)
+
+    win.__NUXT__ = {
+      serverRendered: false,
+      config: {
+        public: {},
+        app: { baseURL: '/' },
+      },
+      data: {},
+      state: {},
+    }
+
+    const app = win.document.createElement('div')
+    // this is a workaround for a happy-dom bug with ids beginning with _
+    app.id = 'nuxt-test'
+    win.document.body.appendChild(app)
+
+    // @ts-expect-error
+    win.IntersectionObserver = win.IntersectionObserver || class IntersectionObserver {
+      observe () {}
+    }
+
+    const h3App = createApp()
+
+    // @ts-expect-error TODO: fix in h3
+    const localCall = createCall(toNodeListener(h3App))
+    const localFetch = createLocalFetch(localCall, globalThis.fetch)
+
+    const registry = new Set<string>()
+
+    win.fetch = (init, options) => {
+      if (typeof init === 'string' && registry.has(init)) {
+        init = '/_' + init
       }
-    })
-  }).finally(() => nuxt.close())
-}
+      return localFetch(init, options)
+    }
 
-export async function getVitestConfig (): Promise<InlineConfig & { test: VitestConfig }> {
-  const viteConfig = await getViteConfig()
-  const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
+    // @ts-expect-error
+    win.$fetch = createFetch({ fetch: win.fetch, Headers: win.Headers })
 
-  return {
-    ...viteConfig,
-    test: {
-      environment: 'nuxt',
-      deps: {
-        inline: [/\/(nuxt|nuxt3)\//, /^#/, 'vue'],
-      },
-    },
+    win.__registry = registry
+    win.__app = h3App
+
+    const { keys, originals } = populateGlobal(global, win, { bindFunctions: true })
+
+    // @ts-expect-error nuxt alias
+    await import('#app/entry')
+
+    return {
+      // called after all tests with this env have been run
+      teardown () {
+        win.happyDOM.cancelAsync()
+        keys.forEach(key => delete global[key])
+        originals.forEach((v, k) => global[k] = v)
+      }
+    }
   }
 }
