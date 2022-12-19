@@ -35,7 +35,7 @@ export async function getVitestConfig (): Promise<InlineConfig & { test: VitestC
     test: {
       environment: 'nuxt',
       deps: {
-        inline: [/\/(nuxt|nuxt3)\//, /^#/, 'vue'],
+        inline: [/\/(nuxt|nuxt3)\//, /^#/, 'vue', 'vitest-environment-nuxt'],
       },
     },
   }
