@@ -40,8 +40,6 @@ export async function getVitestConfig (): Promise<InlineConfig & { test: VitestC
     },
   }
 }
-
-
 export async function defineConfigWithNuxtEnv(config: InlineConfig = {}) {
   return defineConfig(async () => {
     return mergeConfig(await getVitestConfig(), config)
