@@ -16,10 +16,12 @@ importers:
       eslint: latest
       eslint-config-prettier: latest
       eslint-plugin-prettier: latest
+      estree-walker: ^3.0.1
       h3: ^1.0.2
       happy-dom: ^8.1.0
       husky: latest
       lint-staged: latest
+      magic-string: ^0.27.0
       nuxt: 3.0.0
       ofetch: ^1.0.0
       pinst: latest
@@ -32,8 +34,10 @@ importers:
     dependencies:
       '@nuxt/kit': 3.0.0
       '@vue/test-utils': 2.2.6_vue@3.2.45
+      estree-walker: 3.0.1
       h3: 1.0.2
       happy-dom: 8.1.0
+      magic-string: 0.27.0
       ofetch: 1.0.0
       unenv: 1.0.0
     devDependencies:
@@ -2255,7 +2259,7 @@ packages:
     dev: true
 
   /concat-map/0.0.1:
-    resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
+    resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
 
   /concat-stream/2.0.0:
@@ -5144,7 +5148,6 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.14
-    dev: true
 
   /make-dir/3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
