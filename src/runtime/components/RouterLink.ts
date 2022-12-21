@@ -7,7 +7,7 @@ export const RouterLink = defineComponent({
     // Not implemented
     activeClass: String,
     exactActiveClass: String,
-    ariaCurrentValue: String
+    ariaCurrentValue: String,
   },
   setup: (props, { slots }) => {
     const navigate = () => {}
@@ -15,7 +15,17 @@ export const RouterLink = defineComponent({
       const route = props.to ? useRouter().resolve(props.to) : {}
       return props.custom
         ? slots.default?.({ href: props.to, navigate, route })
-        : h('a', { href: props.to, onClick: (e: MouseEvent) => { e.preventDefault(); return navigate() } }, slots)
+        : h(
+            'a',
+            {
+              href: props.to,
+              onClick: (e: MouseEvent) => {
+                e.preventDefault()
+                return navigate()
+              },
+            },
+            slots
+          )
     }
-  }
+  },
 })

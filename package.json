@@ -16,6 +16,15 @@
   "scripts": {
     "build": "unbuild",
     "dev:prepare": "unbuild --stub && pnpm nuxi prepare playground",
+    "lint": "pnpm lint:all:eslint && pnpm lint:all:prettier",
+    "lint:all:eslint": "pnpm lint:eslint --ext .ts,.js,.mjs,.cjs .",
+    "lint:all:prettier": "pnpm lint:prettier \"{src,test}/**/*.{js,json,ts}\"",
+    "lint:eslint": "eslint --fix",
+    "lint:prettier": "prettier --write --loglevel warn",
+    "prepare": "husky install && pnpm build",
+    "prepublishOnly": "pnpm test run && pinst --disable",
+    "postinstall": "husky install",
+    "postpublish": "pinst --enable",
     "test": "cd playground && pnpm vitest"
   },
   "main": "./dist/index.cjs",
@@ -51,12 +60,20 @@
     "unenv": "^1.0.0"
   },
   "devDependencies": {
+    "@nuxt/eslint-config": "latest",
     "@release-it/conventional-changelog": "latest",
     "conventional-changelog-conventionalcommits": "latest",
+    "eslint": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-plugin-prettier": "latest",
+    "husky": "latest",
+    "lint-staged": "latest",
     "nuxt": "3.0.0",
+    "pinst": "latest",
+    "prettier": "latest",
     "release-it": "latest",
     "unbuild": "^1.0.2",
-    "vitest": "0.24.5",
+    "vitest": "0.26.1",
     "vue": "^3.2.45"
   },
   "resolutions": {

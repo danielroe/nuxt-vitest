@@ -3,25 +3,23 @@ import { Window, GlobalWindow } from 'happy-dom'
 import { createFetch } from 'ofetch'
 import { createApp, toNodeListener } from 'h3'
 import type { App } from 'h3'
+import { populateGlobal } from 'vitest/environments'
 import {
   createCall,
   createFetch as createLocalFetch,
 } from 'unenv/runtime/fetch/index'
 
-// @ts-expect-error TODO: https://github.com/vitest-dev/vitest/pull/2530
-import * as viteEnvironments from 'vitest/environments'
-const { populateGlobal } = viteEnvironments as typeof import('vitest/dist/environments')
-
-export default <Environment> {
+export default <Environment>{
   name: 'nuxt',
-  async setup () {
-    const win = new (GlobalWindow || Window)() as any as (Window & {
+  async setup() {
+    const win = new (GlobalWindow || Window)() as any as Window & {
       __app: App
       __registry: Set<string>
       __NUXT__: any
       $fetch: any
       fetch: any
-    })
+      IntersectionObserver: any
+    }
 
     win.__NUXT__ = {
       serverRendered: false,
@@ -38,10 +36,11 @@ export default <Environment> {
     app.id = 'nuxt-test'
     win.document.body.appendChild(app)
 
-    // @ts-expect-error
-    win.IntersectionObserver = win.IntersectionObserver || class IntersectionObserver {
-      observe () {}
-    }
+    win.IntersectionObserver =
+      win.IntersectionObserver ||
+      class IntersectionObserver {
+        observe() {}
+      }
 
     const h3App = createApp()
 
@@ -58,25 +57,26 @@ export default <Environment> {
       return localFetch(init, options)
     }
 
-    // @ts-expect-error
-    win.$fetch = createFetch({ fetch: win.fetch, Headers: win.Headers })
+    win.$fetch = createFetch({ fetch: win.fetch, Headers: win.Headers as any })
 
     win.__registry = registry
     win.__app = h3App
 
-    const { keys, originals } = populateGlobal(global, win, { bindFunctions: true })
+    const { keys, originals } = populateGlobal(global, win, {
+      bindFunctions: true,
+    })
 
     await import('#app/entry')
 
     return {
       // called after all tests with this env have been run
-      teardown () {
+      teardown() {
         win.happyDOM.cancelAsync()
         // @ts-expect-error
         keys.forEach(key => delete global[key])
         // @ts-expect-error
-        originals.forEach((v, k) => global[k] = v)
-      }
+        originals.forEach((v, k) => (global[k] = v))
+      },
     }
-  }
+  },
 }
