@@ -1,7 +1,7 @@
 {
   "name": "vitest-environment-nuxt",
   "version": "0.2.0",
-  "description": "An in-development vitest environment with support for testing code that needs a Nuxt runtime environment.",
+  "description": "An vitest environment with support for testing code that needs a Nuxt runtime environment.",
   "repository": "danielroe/vitest-environment-nuxt",
   "keywords": [
     "nuxt",
@@ -16,8 +16,17 @@
   "scripts": {
     "build": "unbuild",
     "dev:prepare": "unbuild --stub && pnpm nuxi prepare playground",
-    "test": "pnpm -C playground test",
-    "dev": "pnpm dev:prepare && pnpm -C playground test:nuxt"
+    "dev": "pnpm dev:prepare && pnpm -C playground test:nuxt",
+    "lint": "pnpm lint:all:eslint && pnpm lint:all:prettier",
+    "lint:all:eslint": "pnpm lint:eslint --ext .ts,.js,.mjs,.cjs .",
+    "lint:all:prettier": "pnpm lint:prettier \"{src,test}/**/*.{js,json,ts}\"",
+    "lint:eslint": "eslint --fix",
+    "lint:prettier": "prettier --write --loglevel warn",
+    "prepare": "husky install && pnpm build",
+    "prepublishOnly": "pnpm test run && pinst --disable",
+    "postinstall": "husky install",
+    "postpublish": "pinst --enable",
+    "test": "pnpm -C playground test"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -52,9 +61,18 @@
     "unenv": "^1.0.0"
   },
   "devDependencies": {
+    "@nuxt/eslint-config": "latest",
     "@release-it/conventional-changelog": "latest",
+    "@vitest/coverage-c8": "latest",
     "conventional-changelog-conventionalcommits": "latest",
+    "eslint": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-plugin-prettier": "latest",
+    "husky": "latest",
+    "lint-staged": "latest",
     "nuxt": "3.0.0",
+    "pinst": "latest",
+    "prettier": "latest",
     "release-it": "latest",
     "unbuild": "^1.0.2",
     "vitest": "0.26.2",

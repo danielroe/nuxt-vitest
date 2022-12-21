@@ -1,32 +1,46 @@
-<h1 align="center">vitest-environment-nuxt</h1>
-<p align="center">An in-development vitest environment with support for testing code that needs a Nuxt runtime environment.</p>
-
-<p align="center">
+# vitest-environment-nuxt
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![Github Actions][github-actions-src]][github-actions-href]
 [![Codecov][codecov-src]][codecov-href]
 
-</p>
+> A vitest environment for testing code that needs a [Nuxt](https://nuxt.com) runtime environment
 
-> An in-development vitest environment with support for testing code that needs a Nuxt runtime environment
+- [✨ &nbsp;Changelog](https://github.com/danielroe/vitest-environment-nuxt/blob/main/CHANGELOG.md)
 
-⚠️ This library is in active development and you should pin the patch version before using.
+> **Warning**
+> This library is in active development and you should pin the patch version before using.
 
-## Quick Start
+## Installation
 
-First install `vitest-environment-nuxt`:
+1. First install `vitest-environment-nuxt`:
 
 ```bash
-yarn add --dev vitest-environment-nuxt
-
-# or npm
-npm i -D vitest-environment-nuxt
-
-# or pnpm
 pnpm add -D vitest-environment-nuxt
+
+# or
+yarn add --dev vitest-environment-nuxt
+npm i -D vitest-environment-nuxt
 ```
+
+2. Then create a `vitest.config.mjs` with the following content:
+
+```js
+import { defineConfigWithNuxtEnv } from 'vitest-environment-nuxt/config'
+
+export default defineConfigWithNuxtEnv({
+  // any custom vitest config you require
+})
+```
+
+That's it. Now when you run `vitest` your Nuxt environment will be available throughout your tests.
+
+## 👉 Important notes
+
+When you run your tests within `vitest-environment-nuxt`, they will be running in a [`happy-dom`](https://github.com/capricorn86/happy-dom) environment. Before your tests run, a global Nuxt app will be initialised (including, for example, running any plugins or code you've defined in your `app.vue`).
+
+This means you should be take particular care not to mutate the global state in your tests (or, if you have, to reset it afterwards).
 
 ## 💻 Development
 
@@ -40,7 +54,7 @@ pnpm add -D vitest-environment-nuxt
 
 Made with ❤️
 
-Published under [MIT License](./LICENCE).
+Published under the [MIT License](./LICENCE).
 
 <!-- Badges -->
 
@@ -48,7 +62,7 @@ Published under [MIT License](./LICENCE).
 [npm-version-href]: https://npmjs.com/package/vitest-environment-nuxt
 [npm-downloads-src]: https://img.shields.io/npm/dm/vitest-environment-nuxt?style=flat-square
 [npm-downloads-href]: https://npmjs.com/package/vitest-environment-nuxt
-[github-actions-src]: https://img.shields.io/github/workflow/status/danielroe/vitest-environment-nuxt/ci/main?style=flat-square
+[github-actions-src]: https://img.shields.io/github/actions/workflow/status/danielroe/vitest-environment-nuxt/ci.yml?branch=main&style=flat-square
 [github-actions-href]: https://github.com/danielroe/vitest-environment-nuxt/actions?query=workflow%3Aci
 [codecov-src]: https://img.shields.io/codecov/c/gh/danielroe/vitest-environment-nuxt/main?style=flat-square
 [codecov-href]: https://codecov.io/gh/danielroe/vitest-environment-nuxt

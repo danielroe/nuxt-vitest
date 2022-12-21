@@ -9,22 +9,22 @@ on:
       - main
 
 jobs:
-  # lint:
-  #   runs-on: ubuntu-latest
+  lint:
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - run: corepack enable
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16
-  #         cache: "pnpm"
+    steps:
+      - uses: actions/checkout@v3
+      - run: corepack enable
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "pnpm"
 
-  #     - name: 📦 Install dependencies
-  #       run: pnpm install
+      - name: 📦 Install dependencies
+        run: pnpm install
 
-  #     - name: 🔠 Lint project
-  #       run: pnpm lint
+      - name: 🔠 Lint project
+        run: pnpm lint
 
   test:
     runs-on: ubuntu-latest

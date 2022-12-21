@@ -3,14 +3,14 @@ import type { InlineConfig as VitestConfig } from 'vitest'
 import { InlineConfig, mergeConfig, defineConfig } from 'vite'
 
 // https://github.com/nuxt/framework/issues/6496
-async function getViteConfig (rootDir = process.cwd()) {
+async function getViteConfig(rootDir = process.cwd()) {
   const nuxt = await loadNuxt({
     cwd: rootDir,
     dev: false,
     overrides: {
       ssr: false,
       app: {
-        rootId: 'nuxt-test'
+        rootId: 'nuxt-test',
       },
     },
   })
@@ -27,7 +27,9 @@ async function getViteConfig (rootDir = process.cwd()) {
   }).finally(() => nuxt.close())
 }
 
-export async function getVitestConfig (): Promise<InlineConfig & { test: VitestConfig }> {
+export async function getVitestConfig(): Promise<
+  InlineConfig & { test: VitestConfig }
+> {
   const viteConfig = await getViteConfig()
 
   return {
