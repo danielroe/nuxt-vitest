@@ -76,9 +76,9 @@
     "pinst": "latest",
     "prettier": "latest",
     "release-it": "latest",
-    "unbuild": "^1.0.2",
+    "unbuild": "1.0.2",
     "vitest": "0.26.2",
-    "vue": "^3.2.45"
+    "vue": "3.2.45"
   },
   "resolutions": {
     "vitest-environment-nuxt": "workspace:*"
