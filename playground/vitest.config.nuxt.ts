@@ -1,6 +1,10 @@
 import { defineConfigWithNuxtEnv } from 'vitest-environment-nuxt/config'
 
 export default defineConfigWithNuxtEnv({
+  test: {
+    name: 'nuxt',
+    dir: 'tests/nuxt',
+  },
   // TODO: fix bug with stubbing root package
   resolve: {
     alias: {

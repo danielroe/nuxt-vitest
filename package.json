@@ -16,7 +16,8 @@
   "scripts": {
     "build": "unbuild",
     "dev:prepare": "unbuild --stub && pnpm nuxi prepare playground",
-    "test": "cd playground && pnpm vitest"
+    "test": "pnpm -C playground test",
+    "dev": "pnpm dev:prepare && pnpm -C playground test:nuxt"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -56,7 +57,7 @@
     "nuxt": "3.0.0",
     "release-it": "latest",
     "unbuild": "^1.0.2",
-    "vitest": "0.24.5",
+    "vitest": "0.26.2",
     "vue": "^3.2.45"
   },
   "resolutions": {
