@@ -42,6 +42,30 @@ When you run your tests within `vitest-environment-nuxt`, they will be running i
 
 This means you should be take particular care not to mutate the global state in your tests (or, if you have, to reset it afterwards).
 
+## 🛠️ Helpers
+
+`vitest-environment-nuxt` provides a number of helpers to make testing Nuxt apps easier.
+
+### `mountSuspended`
+
+// TODO:
+
+### `mockNuxtImport`
+
+`mockNuxtImport` allows you to mock Nuxt's auto import functionality. For example, to mock `useStorage`, you can do so like this:
+
+```ts
+import { mockNuxtImport } from 'vitest-environment-nuxt/utils'
+
+mockNuxtImport('useStorage', () => {
+  return () => {
+    return { value: 'mocked storage' }
+  }
+})
+
+// your tests here
+```
+
 ## 💻 Development
 
 - Clone this repository

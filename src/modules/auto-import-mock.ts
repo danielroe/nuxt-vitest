@@ -15,6 +15,10 @@ export interface MockInfo {
   end: number
 }
 
+/**
+ * This module is a macro that transforms `mockNuxtImport()` to `vi.mock()`,
+ * which make it possible to mock Nuxt imports.
+ */
 export default defineNuxtModule({
   meta: {
     name: 'vitest:auto-import-mock',
@@ -30,7 +34,7 @@ export default defineNuxtModule({
       name: 'nuxt:auto-import-mock',
       transform(code, id) {
         if (!code.includes(HELPER_NAME)) return
-        if (id.includes('node_modules')) return
+        if (id.includes('/node_modules/')) return
 
         let ast: AcornNode
         try {
