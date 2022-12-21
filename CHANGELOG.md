@@ -1,5 +1,12 @@
 
 
+## [0.3.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.2.0...0.3.0) (2022-12-21)
+
+
+### Features
+
+* `mockNuxtImport` utility ([#7](https://github.com/danielroe/vitest-environment-nuxt/issues/7)) ([0b82d14](https://github.com/danielroe/vitest-environment-nuxt/commit/0b82d14d3bdca0e78b7655488e5e3412dc3fedd7))
+
 ## [0.2.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.1.1...0.2.0) (2022-12-20)
 
 
