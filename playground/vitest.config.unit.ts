@@ -4,5 +4,8 @@ export default defineConfig({
   test: {
     name: 'unit',
     dir: 'tests/unit',
+    coverage: {
+      reportsDirectory: 'coverage/unit'
+    }
   }
 })
