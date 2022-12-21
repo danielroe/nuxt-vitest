@@ -16,6 +16,7 @@
   "scripts": {
     "build": "unbuild",
     "dev:prepare": "unbuild --stub && pnpm nuxi prepare playground",
+    "dev": "pnpm dev:prepare && pnpm -C playground test:nuxt",
     "lint": "pnpm lint:all:eslint && pnpm lint:all:prettier",
     "lint:all:eslint": "pnpm lint:eslint --ext .ts,.js,.mjs,.cjs .",
     "lint:all:prettier": "pnpm lint:prettier \"{src,test}/**/*.{js,json,ts}\"",
@@ -25,7 +26,7 @@
     "prepublishOnly": "pnpm test run && pinst --disable",
     "postinstall": "husky install",
     "postpublish": "pinst --enable",
-    "test": "cd playground && pnpm vitest"
+    "test": "pnpm -C playground test"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -74,7 +75,7 @@
     "prettier": "latest",
     "release-it": "latest",
     "unbuild": "^1.0.2",
-    "vitest": "0.26.1",
+    "vitest": "0.26.2",
     "vue": "^3.2.45"
   },
   "resolutions": {
