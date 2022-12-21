@@ -1,4 +1,4 @@
-import { expect, it, vi } from 'vitest'
+import { expect, it } from 'vitest'
 import { mockNuxtImport } from 'vitest-environment-nuxt/utils'
 
 mockNuxtImport<typeof useAutoImportedTarget>('useAutoImportedTarget', () => {
