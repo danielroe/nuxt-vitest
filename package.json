@@ -62,6 +62,7 @@
   "devDependencies": {
     "@nuxt/eslint-config": "latest",
     "@release-it/conventional-changelog": "latest",
+    "@vitest/coverage-c8": "latest",
     "conventional-changelog-conventionalcommits": "latest",
     "eslint": "latest",
     "eslint-config-prettier": "latest",
