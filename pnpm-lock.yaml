@@ -60,7 +60,7 @@ importers:
 
   playground:
     specifiers:
-      nuxt: ^3.0.0
+      nuxt: 3.0.0
       vitest: ^0.26.2
       vitest-environment-nuxt: workspace:*
     devDependencies:
