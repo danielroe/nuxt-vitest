@@ -64,6 +64,7 @@
   },
   "devDependencies": {
     "@nuxt/eslint-config": "latest",
+    "@nuxt/schema": "^3.0.0",
     "@release-it/conventional-changelog": "latest",
     "@vitest/coverage-c8": "latest",
     "conventional-changelog-conventionalcommits": "latest",

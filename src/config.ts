@@ -1,4 +1,5 @@
 import { loadNuxt, buildNuxt } from '@nuxt/kit'
+import type { Nuxt } from '@nuxt/schema'
 import type { InlineConfig as VitestConfig } from 'vitest'
 import { InlineConfig, mergeConfig, defineConfig } from 'vite'
 import autoImportMock from './modules/auto-import-mock'
@@ -19,9 +20,9 @@ async function getViteConfig(rootDir = process.cwd()) {
   nuxt.options.modules.push(autoImportMock)
   await nuxt.ready()
 
-  return new Promise<InlineConfig>((resolve, reject) => {
+  return new Promise<{ nuxt: Nuxt, config: InlineConfig }>((resolve, reject) => {
     nuxt.hook('vite:extendConfig', config => {
-      resolve(config)
+      resolve({ nuxt, config })
       throw new Error('_stop_')
     })
     buildNuxt(nuxt).catch(err => {
@@ -35,14 +36,22 @@ async function getViteConfig(rootDir = process.cwd()) {
 export async function getVitestConfig(): Promise<
   InlineConfig & { test: VitestConfig }
 > {
-  const viteConfig = await getViteConfig()
+  const { config: viteConfig, nuxt } = await getViteConfig()
 
   return {
     ...viteConfig,
     test: {
       environment: 'nuxt',
       deps: {
-        inline: [/\/(nuxt|nuxt3)\//, /^#/, 'vue', 'vitest-environment-nuxt'],
+        inline: [
+          // vite-node defaults
+          /\/(nuxt|nuxt3)\//,
+          /^#/,
+          // additional deps
+          'vue',
+          'vitest-environment-nuxt',
+          ...nuxt.options.build.transpile as string[],
+        ],
       },
     },
   }
