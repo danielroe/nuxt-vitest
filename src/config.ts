@@ -5,7 +5,7 @@ import { InlineConfig, mergeConfig, defineConfig } from 'vite'
 import autoImportMock from './modules/auto-import-mock'
 
 // https://github.com/nuxt/framework/issues/6496
-async function getViteConfig(rootDir = process.cwd()) {
+async function getNuxtAndViteConfig(rootDir = process.cwd()) {
   const nuxt = await loadNuxt({
     cwd: rootDir,
     dev: false,
@@ -36,7 +36,7 @@ async function getViteConfig(rootDir = process.cwd()) {
 export async function getVitestConfig(): Promise<
   InlineConfig & { test: VitestConfig }
 > {
-  const { config: viteConfig, nuxt } = await getViteConfig()
+  const { config: viteConfig, nuxt } = await getNuxtAndViteConfig()
 
   return {
     ...viteConfig,
