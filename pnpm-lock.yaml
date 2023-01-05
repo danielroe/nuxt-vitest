@@ -9,6 +9,7 @@ importers:
     specifiers:
       '@nuxt/eslint-config': latest
       '@nuxt/kit': ^3.0.0
+      '@nuxt/schema': ^3.0.0
       '@release-it/conventional-changelog': latest
       '@vitest/coverage-c8': latest
       '@vue/test-utils': ^2.2.6
@@ -42,13 +43,14 @@ importers:
       unenv: 1.0.0
     devDependencies:
       '@nuxt/eslint-config': 0.1.1_eslint@8.31.0
+      '@nuxt/schema': 3.0.0
       '@release-it/conventional-changelog': 5.1.1_release-it@15.6.0
       '@vitest/coverage-c8': 0.26.3_happy-dom@8.1.0
       conventional-changelog-conventionalcommits: 5.0.0
       eslint: 8.31.0
-      eslint-config-prettier: 8.5.0_eslint@8.31.0
-      eslint-plugin-prettier: 4.2.1_xtjuwoibeoaqavcvkna3ocxxbu
-      husky: 8.0.2
+      eslint-config-prettier: 8.6.0_eslint@8.31.0
+      eslint-plugin-prettier: 4.2.1_32m5uc2milwdw3tnkcq5del26y
+      husky: 8.0.3
       lint-staged: 13.1.0
       nuxt: 3.0.0_eslint@8.31.0
       pinst: 3.0.0
@@ -3194,8 +3196,8 @@ packages:
       source-map: 0.6.1
     dev: true
 
-  /eslint-config-prettier/8.5.0_eslint@8.31.0:
-    resolution: {integrity: sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==}
+  /eslint-config-prettier/8.6.0_eslint@8.31.0:
+    resolution: {integrity: sha512-bAF0eLpLVqP5oEVUFKpMA+NnRFICwn9X8B5jrR9FcqnYBuPbqWEjTEspPWMj5ye6czoSLDweCzSo3Ko7gGrZaA==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -3203,7 +3205,7 @@ packages:
       eslint: 8.31.0
     dev: true
 
-  /eslint-plugin-prettier/4.2.1_xtjuwoibeoaqavcvkna3ocxxbu:
+  /eslint-plugin-prettier/4.2.1_32m5uc2milwdw3tnkcq5del26y:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -3215,7 +3217,7 @@ packages:
         optional: true
     dependencies:
       eslint: 8.31.0
-      eslint-config-prettier: 8.5.0_eslint@8.31.0
+      eslint-config-prettier: 8.6.0_eslint@8.31.0
       prettier: 2.8.1
       prettier-linter-helpers: 1.0.0
     dev: true
@@ -4093,8 +4095,8 @@ packages:
     engines: {node: '>=12.20.0'}
     dev: true
 
-  /husky/8.0.2:
-    resolution: {integrity: sha512-Tkv80jtvbnkK3mYWxPZePGFpQ/tT3HNSs/sasF9P2YfkMezDl3ON37YN6jUUI4eTg5LcyVynlb6r4eyvOmspvg==}
+  /husky/8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
@@ -8122,7 +8124,7 @@ packages:
     dev: true
 
   /xregexp/2.0.0:
-    resolution: {integrity: sha512-xl/50/Cf32VsGq/1R8jJE5ajH1yMCQkpmoS10QbFZWl2Oor4H0Me64Pu2yxvsRWK3m6soJbmGfzSR7BYmDcWAA==}
+    resolution: {integrity: sha1-UqY+VsoLhKfzpfPWGHLxJq16WUM=}
     dev: true
 
   /xtend/4.0.2:
