@@ -1,5 +1,12 @@
 
 
+## [0.3.1](https://github.com/danielroe/vitest-environment-nuxt/compare/0.3.0...0.3.1) (2023-01-05)
+
+
+### Bug Fixes
+
+* inline any deps that need to be transpiled by nuxt ([#13](https://github.com/danielroe/vitest-environment-nuxt/issues/13)) ([011cf34](https://github.com/danielroe/vitest-environment-nuxt/commit/011cf34daa36aebfe7b363a6175333768c115847))
+
 ## [0.3.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.2.0...0.3.0) (2022-12-21)
 
 
