@@ -50,7 +50,7 @@ export async function getVitestConfig(): Promise<
           // additional deps
           'vue',
           'vitest-environment-nuxt',
-          ...nuxt.options.build.transpile as string[],
+          ...nuxt.options.build.transpile.filter(r => typeof r === 'string' || r instanceof RegExp) as Array<string | RegExp>,
         ],
       },
     },
