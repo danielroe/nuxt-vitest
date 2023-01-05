@@ -9,7 +9,7 @@ importers:
     specifiers:
       '@nuxt/eslint-config': latest
       '@nuxt/kit': ^3.0.0
-      '@nuxt/schema': ^3.0.0
+      '@nuxt/schema': 3.0.0
       '@release-it/conventional-changelog': latest
       '@vitest/coverage-c8': latest
       '@vue/test-utils': ^2.2.6
@@ -634,7 +634,7 @@ packages:
       consola: 2.15.3
       create-require: 1.1.1
       defu: 6.1.1
-      destr: 1.2.1
+      destr: 1.2.2
       dotenv: 16.0.3
       fs-extra: 10.1.0
       git-url-parse: 13.1.0
@@ -5198,7 +5198,7 @@ packages:
       consola: 2.15.3
       cookie-es: 0.5.0
       defu: 6.1.1
-      destr: 1.2.1
+      destr: 1.2.2
       dot-prop: 7.2.0
       esbuild: 0.15.18
       escape-string-regexp: 5.0.0
@@ -8124,7 +8124,7 @@ packages:
     dev: true
 
   /xregexp/2.0.0:
-    resolution: {integrity: sha1-UqY+VsoLhKfzpfPWGHLxJq16WUM=}
+    resolution: {integrity: sha512-xl/50/Cf32VsGq/1R8jJE5ajH1yMCQkpmoS10QbFZWl2Oor4H0Me64Pu2yxvsRWK3m6soJbmGfzSR7BYmDcWAA==}
     dev: true
 
   /xtend/4.0.2:
