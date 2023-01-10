@@ -88,5 +88,5 @@
     "vitest": "^0.24.5 || ^0.26.0",
     "vue": "^3.2.45"
   },
-  "packageManager": "pnpm@7.22.0"
+  "packageManager": "pnpm@7.23.0"
 }
