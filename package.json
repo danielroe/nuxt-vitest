@@ -63,13 +63,13 @@
     "h3": "^1.0.2",
     "happy-dom": "^8.1.0",
     "ofetch": "^1.0.0",
-    "@nuxt/schema": "3.0.0",
     "magic-string": "^0.27.0",
     "estree-walker": "^3.0.1",
     "unenv": "^1.0.0"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "latest",
+    "@nuxt/schema": "3.0.0",
     "@release-it/conventional-changelog": "latest",
     "@vitest/coverage-c8": "latest",
     "conventional-changelog-conventionalcommits": "latest",
