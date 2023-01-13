@@ -3,7 +3,7 @@ import type { InlineConfig as VitestConfig } from 'vitest'
 import { InlineConfig, mergeConfig, defineConfig } from 'vite'
 import autoImportMock from './modules/auto-import-mock'
 
-export interface GetVitestConfigOptions {
+interface GetVitestConfigOptions {
   nuxt: Nuxt
   viteConfig: InlineConfig
 }
