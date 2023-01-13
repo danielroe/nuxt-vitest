@@ -41,6 +41,11 @@
       "import": "./dist/utils.mjs",
       "types": "./dist/utils.d.ts"
     },
+    "./module": {
+      "require": "./dist/module.cjs",
+      "import": "./dist/module.mjs",
+      "types": "./dist/module.d.ts"
+    },
     ".": {
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs",

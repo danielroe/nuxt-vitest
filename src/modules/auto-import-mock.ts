@@ -21,7 +21,7 @@ export interface MockInfo {
  */
 export default defineNuxtModule({
   meta: {
-    name: 'vitest:auto-import-mock',
+    name: 'vitest-env:auto-import-mock',
   },
   setup(_, nuxt) {
     let imports: Import[] = []

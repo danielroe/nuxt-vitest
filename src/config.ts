@@ -1,7 +1,7 @@
 import type { Nuxt } from '@nuxt/schema'
 import type { InlineConfig as VitestConfig } from 'vitest'
 import { InlineConfig, mergeConfig, defineConfig } from 'vite'
-import autoImportMock from './modules/auto-import-mock'
+import modules from './module'
 
 interface GetVitestConfigOptions {
   nuxt: Nuxt
@@ -22,7 +22,7 @@ async function getNuxtAndViteConfig(rootDir = process.cwd()) {
       },
     },
   })
-  nuxt.options.modules.push(autoImportMock)
+  nuxt.options.modules.push(modules)
   await nuxt.ready()
 
   return new Promise<GetVitestConfigOptions>((resolve, reject) => {
