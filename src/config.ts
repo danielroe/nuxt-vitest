@@ -2,7 +2,7 @@ import { loadNuxt, buildNuxt } from '@nuxt/kit'
 import type { Nuxt } from '@nuxt/schema'
 import type { InlineConfig as VitestConfig } from 'vitest'
 import { InlineConfig, mergeConfig, defineConfig } from 'vite'
-import autoImportMock from './modules/auto-import-mock'
+import modules from './module'
 
 // https://github.com/nuxt/framework/issues/6496
 async function getNuxtAndViteConfig(rootDir = process.cwd()) {
@@ -17,20 +17,22 @@ async function getNuxtAndViteConfig(rootDir = process.cwd()) {
       },
     },
   })
-  nuxt.options.modules.push(autoImportMock)
+  nuxt.options.modules.push(modules)
   await nuxt.ready()
 
-  return new Promise<{ nuxt: Nuxt, config: InlineConfig }>((resolve, reject) => {
-    nuxt.hook('vite:extendConfig', config => {
-      resolve({ nuxt, config })
-      throw new Error('_stop_')
-    })
-    buildNuxt(nuxt).catch(err => {
-      if (!err.toString().includes('_stop_')) {
-        reject(err)
-      }
-    })
-  }).finally(() => nuxt.close())
+  return new Promise<{ nuxt: Nuxt; config: InlineConfig }>(
+    (resolve, reject) => {
+      nuxt.hook('vite:extendConfig', config => {
+        resolve({ nuxt, config })
+        throw new Error('_stop_')
+      })
+      buildNuxt(nuxt).catch(err => {
+        if (!err.toString().includes('_stop_')) {
+          reject(err)
+        }
+      })
+    }
+  ).finally(() => nuxt.close())
 }
 
 export async function getVitestConfig(): Promise<
@@ -50,7 +52,9 @@ export async function getVitestConfig(): Promise<
           // additional deps
           'vue',
           'vitest-environment-nuxt',
-          ...nuxt.options.build.transpile.filter(r => typeof r === 'string' || r instanceof RegExp) as Array<string | RegExp>,
+          ...(nuxt.options.build.transpile.filter(
+            r => typeof r === 'string' || r instanceof RegExp
+          ) as Array<string | RegExp>),
         ],
       },
     },
