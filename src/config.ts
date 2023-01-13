@@ -1,11 +1,16 @@
-import { loadNuxt, buildNuxt } from '@nuxt/kit'
 import type { Nuxt } from '@nuxt/schema'
 import type { InlineConfig as VitestConfig } from 'vitest'
 import { InlineConfig, mergeConfig, defineConfig } from 'vite'
 import autoImportMock from './modules/auto-import-mock'
 
+export interface GetVitestConfigOptions {
+  nuxt: Nuxt,
+  viteConfig: InlineConfig,
+}
+
 // https://github.com/nuxt/framework/issues/6496
 async function getNuxtAndViteConfig(rootDir = process.cwd()) {
+  const { loadNuxt, buildNuxt } = await import('@nuxt/kit')
   const nuxt = await loadNuxt({
     cwd: rootDir,
     dev: false,
@@ -20,9 +25,9 @@ async function getNuxtAndViteConfig(rootDir = process.cwd()) {
   nuxt.options.modules.push(autoImportMock)
   await nuxt.ready()
 
-  return new Promise<{ nuxt: Nuxt, config: InlineConfig }>((resolve, reject) => {
-    nuxt.hook('vite:extendConfig', config => {
-      resolve({ nuxt, config })
+  return new Promise<GetVitestConfigOptions>((resolve, reject) => {
+    nuxt.hook('vite:extendConfig', viteConfig => {
+      resolve({ nuxt, viteConfig })
       throw new Error('_stop_')
     })
     buildNuxt(nuxt).catch(err => {
@@ -33,13 +38,14 @@ async function getNuxtAndViteConfig(rootDir = process.cwd()) {
   }).finally(() => nuxt.close())
 }
 
-export async function getVitestConfig(): Promise<
+export async function getVitestConfig(options?: GetVitestConfigOptions): Promise<
   InlineConfig & { test: VitestConfig }
 > {
-  const { config: viteConfig, nuxt } = await getNuxtAndViteConfig()
+  if (!options)
+    options = await getNuxtAndViteConfig()
 
   return {
-    ...viteConfig,
+    ...options.viteConfig,
     test: {
       environment: 'nuxt',
       deps: {
@@ -50,12 +56,13 @@ export async function getVitestConfig(): Promise<
           // additional deps
           'vue',
           'vitest-environment-nuxt',
-          ...nuxt.options.build.transpile.filter(r => typeof r === 'string' || r instanceof RegExp) as Array<string | RegExp>,
+          ...options.nuxt.options.build.transpile.filter(r => typeof r === 'string' || r instanceof RegExp) as Array<string | RegExp>,
         ],
       },
     },
   }
 }
+  
 export async function defineConfigWithNuxtEnv(config: InlineConfig = {}) {
   return defineConfig(async () => {
     return mergeConfig(await getVitestConfig(), config)
