@@ -1,5 +1,18 @@
 
 
+## [0.4.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.3.1...0.4.0) (2023-01-13)
+
+
+### Features
+
+* expose modules ([#23](https://github.com/danielroe/vitest-environment-nuxt/issues/23)) ([19d103d](https://github.com/danielroe/vitest-environment-nuxt/commit/19d103dfef084ba473609586071906e327710e55))
+* **getVitestConfig:** pass custom nuxt instance and config to `getVitestConfig` ([#22](https://github.com/danielroe/vitest-environment-nuxt/issues/22)) ([3e5b470](https://github.com/danielroe/vitest-environment-nuxt/commit/3e5b4708a3cd985cefc2b1f318cea7dfdf97c7c2))
+
+
+### Bug Fixes
+
+* explicitly import apis for RouterLink mock ([#24](https://github.com/danielroe/vitest-environment-nuxt/issues/24)) ([b1763e7](https://github.com/danielroe/vitest-environment-nuxt/commit/b1763e71ee5fc8ed32bd7b6a1ec77368b161bc1a))
+
 ## [0.3.1](https://github.com/danielroe/vitest-environment-nuxt/compare/0.3.0...0.3.1) (2023-01-05)
 
 
