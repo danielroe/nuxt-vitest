@@ -20,19 +20,17 @@ async function getNuxtAndViteConfig(rootDir = process.cwd()) {
   nuxt.options.modules.push(modules)
   await nuxt.ready()
 
-  return new Promise<{ nuxt: Nuxt; config: InlineConfig }>(
-    (resolve, reject) => {
-      nuxt.hook('vite:extendConfig', config => {
-        resolve({ nuxt, config })
-        throw new Error('_stop_')
-      })
-      buildNuxt(nuxt).catch(err => {
-        if (!err.toString().includes('_stop_')) {
-          reject(err)
-        }
-      })
-    }
-  ).finally(() => nuxt.close())
+  return new Promise<{ nuxt: Nuxt, config: InlineConfig }>((resolve, reject) => {
+    nuxt.hook('vite:extendConfig', config => {
+      resolve({ nuxt, config })
+      throw new Error('_stop_')
+    })
+    buildNuxt(nuxt).catch(err => {
+      if (!err.toString().includes('_stop_')) {
+        reject(err)
+      }
+    })
+  }).finally(() => nuxt.close())
 }
 
 export async function getVitestConfig(): Promise<
@@ -52,9 +50,7 @@ export async function getVitestConfig(): Promise<
           // additional deps
           'vue',
           'vitest-environment-nuxt',
-          ...(nuxt.options.build.transpile.filter(
-            r => typeof r === 'string' || r instanceof RegExp
-          ) as Array<string | RegExp>),
+          ...nuxt.options.build.transpile.filter(r => typeof r === 'string' || r instanceof RegExp) as Array<string | RegExp>,
         ],
       },
     },
