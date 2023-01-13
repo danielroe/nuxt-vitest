@@ -1,3 +1,5 @@
+import { defineComponent, useRouter } from '#imports'
+
 export const RouterLink = defineComponent({
   functional: true,
   props: {
