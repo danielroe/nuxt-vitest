@@ -4,8 +4,8 @@ import { InlineConfig, mergeConfig, defineConfig } from 'vite'
 import autoImportMock from './modules/auto-import-mock'
 
 export interface GetVitestConfigOptions {
-  nuxt: Nuxt,
-  viteConfig: InlineConfig,
+  nuxt: Nuxt
+  viteConfig: InlineConfig
 }
 
 // https://github.com/nuxt/framework/issues/6496
@@ -38,11 +38,10 @@ async function getNuxtAndViteConfig(rootDir = process.cwd()) {
   }).finally(() => nuxt.close())
 }
 
-export async function getVitestConfig(options?: GetVitestConfigOptions): Promise<
-  InlineConfig & { test: VitestConfig }
-> {
-  if (!options)
-    options = await getNuxtAndViteConfig()
+export async function getVitestConfig(
+  options?: GetVitestConfigOptions
+): Promise<InlineConfig & { test: VitestConfig }> {
+  if (!options) options = await getNuxtAndViteConfig()
 
   return {
     ...options.viteConfig,
@@ -56,13 +55,15 @@ export async function getVitestConfig(options?: GetVitestConfigOptions): Promise
           // additional deps
           'vue',
           'vitest-environment-nuxt',
-          ...options.nuxt.options.build.transpile.filter(r => typeof r === 'string' || r instanceof RegExp) as Array<string | RegExp>,
+          ...(options.nuxt.options.build.transpile.filter(
+            r => typeof r === 'string' || r instanceof RegExp
+          ) as Array<string | RegExp>),
         ],
       },
     },
   }
 }
-  
+
 export async function defineConfigWithNuxtEnv(config: InlineConfig = {}) {
   return defineConfig(async () => {
     return mergeConfig(await getVitestConfig(), config)
