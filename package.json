@@ -59,7 +59,6 @@
   ],
   "dependencies": {
     "@nuxt/kit": "^3.0.0",
-    "@nuxt/schema": "3.0.0",
     "@vue/test-utils": "^2.2.6",
     "estree-walker": "^3.0.1",
     "h3": "^1.0.2",
@@ -70,6 +69,7 @@
   },
   "devDependencies": {
     "@nuxt/eslint-config": "latest",
+    "@nuxt/schema": "3.0.0",
     "@release-it/conventional-changelog": "latest",
     "@vitest/coverage-c8": "latest",
     "conventional-changelog-conventionalcommits": "latest",

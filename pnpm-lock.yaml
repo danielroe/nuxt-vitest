@@ -34,7 +34,6 @@ importers:
       vue: 3.2.45
     dependencies:
       '@nuxt/kit': 3.0.0
-      '@nuxt/schema': 3.0.0
       '@vue/test-utils': 2.2.6_vue@3.2.45
       estree-walker: 3.0.1
       h3: 1.0.2
@@ -44,6 +43,7 @@ importers:
       unenv: 1.0.0
     devDependencies:
       '@nuxt/eslint-config': 0.1.1_eslint@8.31.0
+      '@nuxt/schema': 3.0.0
       '@release-it/conventional-changelog': 5.1.1_release-it@15.6.0
       '@vitest/coverage-c8': 0.27.1_happy-dom@8.1.0
       conventional-changelog-conventionalcommits: 5.0.0
