@@ -82,7 +82,7 @@
     "pinst": "latest",
     "prettier": "latest",
     "release-it": "latest",
-    "unbuild": "1.0.2",
+    "unbuild": "1.1.1",
     "vitest": "0.27.1",
     "vue": "3.2.45"
   },
