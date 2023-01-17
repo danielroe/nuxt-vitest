@@ -1,5 +1,12 @@
 
 
+## [0.4.1](https://github.com/danielroe/vitest-environment-nuxt/compare/0.4.0...0.4.1) (2023-01-17)
+
+
+### Bug Fixes
+
+* wait a tick for `mountSuspended` ([#28](https://github.com/danielroe/vitest-environment-nuxt/issues/28)) ([704b808](https://github.com/danielroe/vitest-environment-nuxt/commit/704b808e0054c2b581d095290a05ff102c19a979))
+
 ## [0.4.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.3.1...0.4.0) (2023-01-13)
 
 
