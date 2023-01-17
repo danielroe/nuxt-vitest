@@ -1,5 +1,5 @@
 import { mount, VueWrapper } from '@vue/test-utils'
-import { h, DefineComponent, Suspense } from 'vue'
+import { h, DefineComponent, Suspense, nextTick } from 'vue'
 
 import { RouterLink } from './components/RouterLink'
 
@@ -16,7 +16,7 @@ export async function mountSuspended<
         render: () =>
           h(
             Suspense,
-            { onResolve: () => resolve(vm as any) },
+            { onResolve: () => nextTick().then(() => resolve(vm as any)) },
             { default: () => h(component) }
           ),
       },
