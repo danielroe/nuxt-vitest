@@ -51,24 +51,27 @@ export async function getVitestConfig(
       environment: 'nuxt',
       deps: {
         ...options.viteConfig.test?.deps,
-        inline: options.viteConfig.test?.deps?.inline === true ? true : [
-          // vite-node defaults
-          /\/(nuxt|nuxt3)\//,
-          /^#/,
-          // additional deps
-          'vue',
-          'vitest-environment-nuxt',
-          ...(options.nuxt.options.build.transpile.filter(
-            r => typeof r === 'string' || r instanceof RegExp
-          ) as Array<string | RegExp>),
-          ...(options.viteConfig.test?.deps?.inline || []),
-        ],
+        inline:
+          options.viteConfig.test?.deps?.inline === true
+            ? true
+            : [
+                // vite-node defaults
+                /\/(nuxt|nuxt3)\//,
+                /^#/,
+                // additional deps
+                'vue',
+                'vitest-environment-nuxt',
+                ...(options.nuxt.options.build.transpile.filter(
+                  r => typeof r === 'string' || r instanceof RegExp
+                ) as Array<string | RegExp>),
+                ...(options.viteConfig.test?.deps?.inline || []),
+              ],
       },
     },
   }
 }
 
-export async function defineConfigWithNuxtEnv(config: InlineConfig = {}) {
+export function defineConfigWithNuxtEnv(config: InlineConfig = {}) {
   return defineConfig(async () => {
     return mergeConfig(await getVitestConfig(), config)
   })
