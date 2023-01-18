@@ -46,10 +46,12 @@ export async function getVitestConfig(
   return {
     ...options.viteConfig,
     test: {
+      ...options.viteConfig.test,
       dir: options.nuxt.options.rootDir,
       environment: 'nuxt',
       deps: {
-        inline: [
+        ...options.viteConfig.test?.deps,
+        inline: options.viteConfig.test?.deps?.inline === true ? true : [
           // vite-node defaults
           /\/(nuxt|nuxt3)\//,
           /^#/,
@@ -59,6 +61,7 @@ export async function getVitestConfig(
           ...(options.nuxt.options.build.transpile.filter(
             r => typeof r === 'string' || r instanceof RegExp
           ) as Array<string | RegExp>),
+          ...(options.viteConfig.test?.deps?.inline || []),
         ],
       },
     },
