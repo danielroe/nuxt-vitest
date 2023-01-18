@@ -1,5 +1,17 @@
 
 
+## [0.4.2](https://github.com/danielroe/vitest-environment-nuxt/compare/0.4.1...0.4.2) (2023-01-18)
+
+
+### Features
+
+* support passing custom test options to `getVitestConfig` ([53a1b68](https://github.com/danielroe/vitest-environment-nuxt/commit/53a1b683fcef58447eaada6faa89420230d40ec5))
+
+
+### Bug Fixes
+
+* support nuxt projects with custom `srcDir` ([f8d8d86](https://github.com/danielroe/vitest-environment-nuxt/commit/f8d8d86c5059a170a5d8db68207e2c9004b2a8aa))
+
 ## [0.4.1](https://github.com/danielroe/vitest-environment-nuxt/compare/0.4.0...0.4.1) (2023-01-17)
 
 
