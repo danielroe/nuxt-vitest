@@ -48,7 +48,6 @@ export async function getVitestConfig(
     test: {
       ...options.viteConfig.test,
       dir: options.nuxt.options.rootDir,
-      environment: 'nuxt',
       deps: {
         ...options.viteConfig.test?.deps,
         inline: options.viteConfig.test?.deps?.inline === true ? true : [
