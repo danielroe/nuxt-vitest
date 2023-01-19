@@ -1,0 +1,64 @@
+{
+  "name": "vitest-environment-nuxt",
+  "version": "0.4.2",
+  "description": "An vitest environment with support for testing code that needs a Nuxt runtime environment.",
+  "repository": "danielroe/vitest-environment-nuxt",
+  "keywords": [
+    "nuxt",
+    "vitest",
+    "vitest-environment"
+  ],
+  "author": {
+    "name": "Daniel Roe <daniel@roe.dev>",
+    "url": "https://github.com/danielroe"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "unbuild",
+    "prepublishOnly": "pnpm test run && pinst --disable",
+    "postpublish": "pinst --enable"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "exports": {
+    "./config": {
+      "types": "./dist/config.d.ts",
+      "require": "./dist/config.cjs",
+      "import": "./dist/config.mjs"
+    },
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "require": "./dist/utils.cjs",
+      "import": "./dist/utils.mjs"
+    },
+    "./module": {
+      "types": "./dist/module.d.ts",
+      "require": "./dist/module.cjs",
+      "import": "./dist/module.mjs"
+    },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist",
+    "config.d.ts",
+    "utils.d.ts"
+  ],
+  "dependencies": {
+    "@nuxt/kit": "^3.0.0",
+    "@vue/test-utils": "^2.2.7",
+    "estree-walker": "^3.0.2",
+    "h3": "^1.0.2",
+    "happy-dom": "^8.1.4",
+    "magic-string": "^0.27.0",
+    "ofetch": "^1.0.0",
+    "unenv": "^1.0.1"
+  },
+  "peerDependencies": {
+    "vitest": "^0.24.5 || ^0.26.0 || ^0.27.0",
+    "vue": "^3.2.45"
+  }
+}

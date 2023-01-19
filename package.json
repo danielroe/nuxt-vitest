@@ -1,97 +1,41 @@
 {
-  "name": "vitest-environment-nuxt",
-  "version": "0.4.2",
-  "description": "An vitest environment with support for testing code that needs a Nuxt runtime environment.",
-  "repository": "danielroe/vitest-environment-nuxt",
-  "keywords": [
-    "nuxt",
-    "vitest",
-    "vitest-environment"
-  ],
-  "author": {
-    "name": "Daniel Roe <daniel@roe.dev>",
-    "url": "https://github.com/danielroe"
-  },
-  "license": "MIT",
+  "private": true,
+  "packageManager": "pnpm@7.25.0",
   "scripts": {
-    "build": "unbuild",
+    "build": "pnpm run -r build",
     "dev:prepare": "unbuild --stub && pnpm nuxi prepare playground",
     "dev": "pnpm dev:prepare && pnpm -C playground test:nuxt",
     "lint": "pnpm lint:all:eslint && pnpm lint:all:prettier",
     "lint:all:eslint": "pnpm lint:eslint --ext .ts,.js,.mjs,.cjs .",
-    "lint:all:prettier": "pnpm lint:prettier \"{src,test}/**/*.{js,json,ts}\"",
+    "lint:all:prettier": "pnpm lint:prettier \"**/*.{js,json,ts}\"",
     "lint:eslint": "eslint --fix",
+    "postinstall": "husky install",
     "lint:prettier": "prettier --write --loglevel warn",
     "prepare": "husky install && pnpm build",
-    "prepublishOnly": "pnpm test run && pinst --disable",
-    "postinstall": "husky install",
-    "postpublish": "pinst --enable",
     "test": "pnpm -C playground test"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "exports": {
-    "./config": {
-      "require": "./dist/config.cjs",
-      "import": "./dist/config.mjs",
-      "types": "./dist/config.d.ts"
-    },
-    "./utils": {
-      "require": "./dist/utils.cjs",
-      "import": "./dist/utils.mjs",
-      "types": "./dist/utils.d.ts"
-    },
-    "./module": {
-      "require": "./dist/module.cjs",
-      "import": "./dist/module.mjs",
-      "types": "./dist/module.d.ts"
-    },
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "files": [
-    "dist",
-    "config.d.ts",
-    "utils.d.ts"
-  ],
-  "dependencies": {
-    "@nuxt/kit": "^3.0.0",
-    "@vue/test-utils": "^2.2.6",
-    "estree-walker": "^3.0.1",
-    "h3": "^1.0.2",
-    "happy-dom": "^8.1.0",
-    "magic-string": "^0.27.0",
-    "ofetch": "^1.0.0",
-    "unenv": "^1.0.0"
-  },
   "devDependencies": {
-    "@nuxt/eslint-config": "latest",
+    "@nuxt/eslint-config": "^0.1.1",
     "@nuxt/schema": "3.0.0",
-    "@release-it/conventional-changelog": "latest",
-    "@vitest/coverage-c8": "latest",
-    "conventional-changelog-conventionalcommits": "latest",
-    "eslint": "latest",
-    "eslint-config-prettier": "latest",
-    "eslint-plugin-prettier": "latest",
-    "husky": "latest",
-    "lint-staged": "latest",
+    "@release-it/conventional-changelog": "^5.1.1",
+    "@vitest/coverage-c8": "^0.27.2",
+    "conventional-changelog-conventionalcommits": "^5.0.0",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
     "nuxt": "3.0.0",
-    "pinst": "latest",
-    "prettier": "latest",
-    "release-it": "latest",
+    "pinst": "^3.0.0",
+    "prettier": "^2.8.3",
+    "release-it": "^15.6.0",
     "unbuild": "1.1.1",
-    "vitest": "0.27.1",
+    "vitest": "^0.27.2",
     "vue": "3.2.45"
   },
-  "resolutions": {
-    "vitest-environment-nuxt": "workspace:*"
-  },
-  "peerDependencies": {
-    "vitest": "^0.24.5 || ^0.26.0 || ^0.27.0",
-    "vue": "^3.2.45"
-  },
-  "packageManager": "pnpm@7.25.0"
+  "pnpm": {
+    "overrides": {
+      "vitest-environment-nuxt": "workspace:*"
+    }
+  }
 }
