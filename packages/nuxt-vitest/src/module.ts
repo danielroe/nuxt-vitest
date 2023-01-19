@@ -14,36 +14,31 @@ export interface NuxtVitestOptions {
  * List of plugins that are not compatible with text env.
  * Hard-coded for now, should remove by PR to upstream.
  */
-const vitePluginBlocklist = [
-  'vite-plugin-vue-inspector',
-]
+const vitePluginBlocklist = ['vite-plugin-vue-inspector']
 
 export default defineNuxtModule<NuxtVitestOptions>({
   meta: {
     name: 'nuxt-vitest',
-    configKey: 'vitest'
+    configKey: 'vitest',
   },
   defaults: {
     startOnBoot: false,
-    logToConsole: false
+    logToConsole: false,
   },
   async setup(options, nuxt) {
-
     process.env.__NUXT_VITEST__ = 'true'
 
     // await installModule('vitest-environment-nuxt/module')
 
-    if (!nuxt.options.dev)
-      return
+    if (!nuxt.options.dev) return
 
     // the nuxt instance is used by a standalone Vitest env, we skip this module
-    if (process.env.TEST || process.env.VITE_TEST)
-      return
+    if (process.env.TEST || process.env.VITE_TEST) return
 
     const PORT = await getPort({ port: 15555 })
     const URL = `http://localhost:${PORT}/__vitest__/`
 
-    const rawViteConfig = new Promise<InlineConfig>((resolve) => {
+    const rawViteConfig = new Promise<InlineConfig>(resolve => {
       nuxt.hook('vite:extendConfig', resolve)
     })
 
@@ -54,7 +49,7 @@ export default defineNuxtModule<NuxtVitestOptions>({
           server: {
             middlewareMode: false,
           },
-        },
+        }
       )
 
       config.plugins = (config.plugins || []).filter((p: any) => {
@@ -74,7 +69,7 @@ export default defineNuxtModule<NuxtVitestOptions>({
             port: PORT,
           },
         },
-        config,
+        config
       )
 
       logger.info(`Vitest UI starting on ${URL}`)
@@ -85,7 +80,7 @@ export default defineNuxtModule<NuxtVitestOptions>({
     let promise: Promise<any> | undefined
 
     // @ts-ignore
-    nuxt.hook('devtools:customTabs', (iframeTabs) => {
+    nuxt.hook('devtools:customTabs', iframeTabs => {
       iframeTabs.push({
         title: 'Vitest',
         name: 'vitest',

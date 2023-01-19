@@ -11,9 +11,8 @@
     "lint:all:prettier": "pnpm lint:prettier \"**/*.{js,json,ts}\"",
     "lint:eslint": "eslint --fix",
     "play:dev": "pnpm -C playground dev",
-    "postinstall": "husky install",
     "lint:prettier": "prettier --write --loglevel warn",
-    "prepare": "husky install && pnpm build",
+    "prepare": "husky install",
     "test": "pnpm -C playground test"
   },
   "devDependencies": {

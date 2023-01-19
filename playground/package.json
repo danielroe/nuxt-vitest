@@ -6,7 +6,6 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
     "test:nuxt": "vitest -c vitest.config.nuxt.ts",
     "test:unit": "vitest -c vitest.config.unit.ts",
     "test": "pnpm test:unit --run && pnpm test:nuxt --run"
