@@ -3,7 +3,6 @@ import type { UserConfig } from 'vitest/config'
 import { mergeConfig, InlineConfig } from 'vite'
 import { getVitestConfig } from './config'
 import { getPort } from 'get-port-please'
-import { Reporter } from 'vitest'
 
 export interface NuxtVitestOptions {
   startOnBoot?: boolean
