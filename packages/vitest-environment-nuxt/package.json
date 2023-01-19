@@ -22,24 +22,24 @@
   "module": "./dist/index.mjs",
   "exports": {
     "./config": {
+      "types": "./dist/config.d.ts",
       "require": "./dist/config.cjs",
-      "import": "./dist/config.mjs",
-      "types": "./dist/config.d.ts"
+      "import": "./dist/config.mjs"
     },
     "./utils": {
+      "types": "./dist/utils.d.ts",
       "require": "./dist/utils.cjs",
-      "import": "./dist/utils.mjs",
-      "types": "./dist/utils.d.ts"
+      "import": "./dist/utils.mjs"
     },
     "./module": {
+      "types": "./dist/module.d.ts",
       "require": "./dist/module.cjs",
-      "import": "./dist/module.mjs",
-      "types": "./dist/module.d.ts"
+      "import": "./dist/module.mjs"
     },
     ".": {
+      "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.mjs"
     }
   },
   "files": [
