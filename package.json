@@ -2,13 +2,15 @@
   "private": true,
   "packageManager": "pnpm@7.25.0",
   "scripts": {
-    "build": "pnpm run -r build",
-    "dev:prepare": "unbuild --stub && pnpm nuxi prepare playground",
-    "dev": "pnpm dev:prepare && pnpm -C playground test:nuxt",
+    "build": "pnpm run --filter=./packages/* -r build",
+    "stub": "pnpm run --filter=./packages/* -r stub",
+    "dev:prepare": "pnpm nuxi prepare playground",
+    "dev": "pnpm run build && pnpm -C playground test:nuxt",
     "lint": "pnpm lint:all:eslint && pnpm lint:all:prettier",
     "lint:all:eslint": "pnpm lint:eslint --ext .ts,.js,.mjs,.cjs .",
     "lint:all:prettier": "pnpm lint:prettier \"**/*.{js,json,ts}\"",
     "lint:eslint": "eslint --fix",
+    "play:dev": "pnpm -C playground dev",
     "postinstall": "husky install",
     "lint:prettier": "prettier --write --loglevel warn",
     "prepare": "husky install && pnpm build",
@@ -35,7 +37,9 @@
   },
   "pnpm": {
     "overrides": {
-      "vitest-environment-nuxt": "workspace:*"
+      "vitest-environment-nuxt": "workspace:*",
+      "nuxt-vitest": "workspace:*",
+      "nuxt": "npm:nuxt3@latest"
     }
   }
 }

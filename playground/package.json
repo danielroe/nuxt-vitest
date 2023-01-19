@@ -12,7 +12,9 @@
     "test": "pnpm test:unit --run && pnpm test:nuxt --run"
   },
   "devDependencies": {
+    "@nuxt/devtools-edge": "0.0.0-27900927.8ae20ce",
     "nuxt": "3.0.0",
+    "nuxt-vitest": "latest",
     "vitest": "0.27.2",
     "vitest-environment-nuxt": "latest"
   }

@@ -15,17 +15,13 @@
   "license": "MIT",
   "scripts": {
     "build": "unbuild",
+    "stub": "unbuild --stub",
     "prepublishOnly": "pnpm test run && pinst --disable",
     "postpublish": "pinst --enable"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "exports": {
-    "./config": {
-      "types": "./dist/config.d.ts",
-      "require": "./dist/config.cjs",
-      "import": "./dist/config.mjs"
-    },
     "./utils": {
       "types": "./dist/utils.d.ts",
       "require": "./dist/utils.cjs",
