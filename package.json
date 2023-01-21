@@ -2,16 +2,17 @@
   "private": true,
   "packageManager": "pnpm@7.25.0",
   "scripts": {
-    "build": "pnpm run -r build",
-    "dev:prepare": "pnpm run -r build --stub && pnpm nuxi prepare playground",
-    "dev": "pnpm dev:prepare && pnpm -C playground test:nuxt",
+    "build": "pnpm run --filter=./packages/* -r build",
+    "stub": "pnpm run --filter=./packages/* -r stub",
+    "dev:prepare": "pnpm nuxi prepare playground",
+    "dev": "pnpm run build && pnpm -C playground test:nuxt",
     "lint": "pnpm lint:all:eslint && pnpm lint:all:prettier",
     "lint:all:eslint": "pnpm lint:eslint --ext .ts,.js,.mjs,.cjs .",
     "lint:all:prettier": "pnpm lint:prettier \"**/*.{js,json,ts}\"",
     "lint:eslint": "eslint --fix",
-    "postinstall": "husky install",
+    "play:dev": "pnpm -C playground dev",
     "lint:prettier": "prettier --write --loglevel warn",
-    "prepare": "husky install && pnpm build",
+    "prepare": "husky install",
     "test": "pnpm -C playground test"
   },
   "devDependencies": {
