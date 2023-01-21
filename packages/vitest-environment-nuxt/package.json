@@ -15,7 +15,7 @@
   "license": "MIT",
   "scripts": {
     "build": "unbuild",
-    "prepare": "pnpm build",
+    "stub": "unbuild --stub",
     "prepublishOnly": "pnpm -w run test && pinst --disable",
     "postpublish": "pinst --enable"
   },
