@@ -15,7 +15,8 @@
   "license": "MIT",
   "scripts": {
     "build": "unbuild",
-    "prepublishOnly": "pnpm test run && pinst --disable",
+    "prepare": "pnpm build",
+    "prepublishOnly": "pnpm -w run test && pinst --disable",
     "postpublish": "pinst --enable"
   },
   "main": "./dist/index.cjs",
