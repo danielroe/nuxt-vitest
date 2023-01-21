@@ -38,5 +38,6 @@
     "overrides": {
       "vitest-environment-nuxt": "workspace:*"
     }
-  }
+  },
+  "version": "0.4.3"
 }
