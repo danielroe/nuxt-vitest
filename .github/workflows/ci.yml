@@ -55,6 +55,9 @@ jobs:
       - name: 🧪 Playground Nuxt Test
         run: pnpm -C playground run test:nuxt --coverage
 
+      - name: 🧪 Playground Nuxt Test on Dev
+        run: pnpm -C playground run test:dev
+
       - name: 🟩 Coverage
         uses: codecov/codecov-action@v3
         with:
