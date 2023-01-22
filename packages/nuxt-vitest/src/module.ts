@@ -35,13 +35,16 @@ export default defineNuxtModule<NuxtVitestOptions>({
     const PORT = await getPort({ port: 15555 })
     const URL = `http://localhost:${PORT}/__vitest__/`
 
-    const rawViteConfig = new Promise<InlineConfig>(resolve => {
+    const rawViteConfigPromise = new Promise<InlineConfig>(resolve => {
       nuxt.hook('vite:extendConfig', resolve)
     })
 
+
     async function start() {
+      const rawViteConfig = mergeConfig({}, await rawViteConfigPromise)
+
       const config = mergeConfig(
-        await getVitestConfig({ nuxt, viteConfig: await rawViteConfig }),
+        await getVitestConfig({ nuxt, viteConfig: rawViteConfig }),
         <UserConfig>{
           server: {
             middlewareMode: false,
