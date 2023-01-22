@@ -47,7 +47,11 @@ export default defineNuxtModule<NuxtVitestOptions>({
         <UserConfig>{
           server: {
             middlewareMode: false,
+            hmr: false,
           },
+          build: {
+            ssr: false
+          }
         }
       )
 

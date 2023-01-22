@@ -5,6 +5,8 @@ export default defineNuxtConfig({
     '@nuxt/devtools-edge',
     '~/modules/custom'
   ],
+  ssr: false,
+  dev: false,
   vitest: {
     startOnBoot: true,
     logToConsole: true

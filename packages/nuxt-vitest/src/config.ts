@@ -13,7 +13,6 @@ async function getNuxtAndViteConfig(rootDir = process.cwd()) {
   const nuxt = await loadNuxt({
     cwd: rootDir,
     dev: false,
-    ready: false,
     overrides: {
       ssr: false,
       app: {
@@ -21,7 +20,6 @@ async function getNuxtAndViteConfig(rootDir = process.cwd()) {
       },
     },
   })
-  await nuxt.ready()
 
   if (
     !nuxt.options._installedModules.find(i => i.meta.name === 'nuxt-vitest')
@@ -31,7 +29,7 @@ async function getNuxtAndViteConfig(rootDir = process.cwd()) {
     )
   }
 
-  return new Promise<GetVitestConfigOptions>((resolve, reject) => {
+  const promise = new Promise<GetVitestConfigOptions>((resolve, reject) => {
     nuxt.hook('vite:extendConfig', viteConfig => {
       resolve({ nuxt, viteConfig })
       throw new Error('_stop_')
@@ -42,6 +40,8 @@ async function getNuxtAndViteConfig(rootDir = process.cwd()) {
       }
     })
   }).finally(() => nuxt.close())
+
+  return promise
 }
 
 export async function getVitestConfig(
