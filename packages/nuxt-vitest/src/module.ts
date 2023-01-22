@@ -1,4 +1,4 @@
-import { defineNuxtModule, logger } from '@nuxt/kit'
+import { defineNuxtModule, installModule, logger } from '@nuxt/kit'
 import type { UserConfig } from 'vitest/config'
 import { mergeConfig, InlineConfig } from 'vite'
 import { getVitestConfig } from './config'
@@ -25,9 +25,7 @@ export default defineNuxtModule<NuxtVitestOptions>({
     logToConsole: false,
   },
   async setup(options, nuxt) {
-    process.env.__NUXT_VITEST__ = 'true'
-
-    // await installModule('vitest-environment-nuxt/module')
+    await installModule('vitest-environment-nuxt/module')
 
     if (!nuxt.options.dev) return
 
@@ -50,8 +48,8 @@ export default defineNuxtModule<NuxtVitestOptions>({
             hmr: false,
           },
           build: {
-            ssr: false
-          }
+            ssr: false,
+          },
         }
       )
 
@@ -59,21 +57,55 @@ export default defineNuxtModule<NuxtVitestOptions>({
         return !vitePluginBlocklist.includes(p?.name)
       })
 
+      config.plugins.push({
+        name: 'nuxt:vitest:client-stub',
+        enforce: 'post',
+        transform(_: string, id: string) {
+          // replace vite client with stub
+          if (id.endsWith('/vite/dist/client/client.mjs'))
+            return `
+export const injectQuery = id => id
+  
+export function createHotContext() {
+  return {
+    accept: () => {},
+    prune: () => {},
+    dispose: () => {},
+    decline: () => {},
+    invalidate: () => {},
+    on: () => {},
+  }
+}
+
+export function updateStyle() {}`
+        },
+      })
+
       process.env.__NUXT_VITEST_RESOLVED__ = 'true'
       const { startVitest } = await import('vitest/node')
       const promise = startVitest(
         'test',
         [],
-        {
-          reporters: options.logToConsole ? undefined : [{}], // do not report to console
-          ui: true,
-          open: false,
-          api: {
-            port: PORT,
-          },
-        },
+        // For testing dev mode, maybe expose an option to user later 
+        process.env.NUXT_VITEST_DEV_TEST
+          ? {
+              watch: false,
+            }
+          : {
+              reporters: options.logToConsole ? undefined : [{}], // do not report to console
+              ui: true,
+              open: false,
+              api: {
+                port: PORT,
+              },
+            },
         config
       )
+
+      if (process.env.NUXT_VITEST_DEV_TEST) {
+        promise.then(v => v?.close()).then(() => process.exit())
+        promise.catch(() => process.exit(1))
+      }
 
       logger.info(`Vitest UI starting on ${URL}`)
 

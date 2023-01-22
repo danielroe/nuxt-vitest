@@ -64,6 +64,8 @@ export async function getVitestConfig(
                 // vite-node defaults
                 /\/(nuxt|nuxt3)\//,
                 /^#/,
+                'vitest',
+                'vite',
                 // additional deps
                 'vue',
                 'vitest-environment-nuxt',
