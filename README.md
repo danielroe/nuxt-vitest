@@ -38,9 +38,9 @@ export default defineNuxtConfig({
 3. Then create a `vitest.config.mjs` with the following content:
 
 ```js
-import { defineConfigWithNuxt } from 'nuxt-vitest/config'
+import { extendVitestConfigForNuxt } from 'nuxt-vitest/config'
 
-export default defineConfigWithNuxt({
+export default extendVitestConfigForNuxt({
   // any custom vitest config you require
 })
 ```
@@ -55,22 +55,22 @@ Or you can add `@vitest-environment nuxt` in your test file as a comment to opt-
 
 ```js
 // @vitest-environment nuxt
-import { test } from 'nuxt-vitest'
+import { test } from 'vitest'
 
 test('my test', () => {
   // ... test with Nuxt environment!
 })
 ```
 
-Finally, you can set `envoironment: 'nuxt'`, to enable Nuxt environment for **all tests**.
+Finally, you can set `environment: 'nuxt'`, to enable Nuxt environment for **all tests**.
 
 ```js
 // vitest.config.ts
-import { defineConfigWithNuxt } from 'nuxt-vitest'
+import { extendVitestConfigForNuxt } from 'nuxt-vitest/config'
 
-export default defineConfigWithNuxt({
+export default extendVitestConfigForNuxt({
   test: {
-    envoironment: 'nuxt'
+    environment: 'nuxt'
   }
 })
 ```

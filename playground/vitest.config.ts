@@ -1,6 +1,6 @@
-import { defineConfigWithNuxt } from 'nuxt-vitest/config'
+import { extendVitestConfigForNuxt } from 'nuxt-vitest/config'
 
-export default defineConfigWithNuxt({
+export default extendVitestConfigForNuxt({
   test: {
     dir: 'tests',
     coverage: {
