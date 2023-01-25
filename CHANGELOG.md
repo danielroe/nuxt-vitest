@@ -1,5 +1,16 @@
 
 
+## [0.5.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.4.3...0.5.0) (2023-01-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* add `nuxt-vitest` module (#34)
+
+### Features
+
+* add `nuxt-vitest` module ([#34](https://github.com/danielroe/vitest-environment-nuxt/issues/34)) ([328098d](https://github.com/danielroe/vitest-environment-nuxt/commit/328098d2e9ea66f7351766b40191e57520d3084e))
+
 ## [0.4.3](https://github.com/danielroe/vitest-environment-nuxt/compare/0.4.2...0.4.3) (2023-01-21)
 
 
