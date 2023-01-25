@@ -38,7 +38,7 @@ export default defineNuxtConfig({
 3. Then create a `vitest.config.mjs` with the following content:
 
 ```js
-import { defineConfigWithNuxt } from 'nuxt-vitest'
+import { defineConfigWithNuxt } from 'nuxt-vitest/config'
 
 export default defineConfigWithNuxt({
   // any custom vitest config you require
