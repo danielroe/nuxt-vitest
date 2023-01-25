@@ -1,19 +1,21 @@
-import { defineNuxtModule, installModule, logger } from '@nuxt/kit'
-import type { UserConfig } from 'vitest/config'
-import { mergeConfig, InlineConfig } from 'vite'
+import { defineNuxtModule, installModule, logger, resolvePath } from '@nuxt/kit'
+import type { UserConfig as VitestConfig } from 'vitest'
+import { mergeConfig, InlineConfig as ViteConfig } from 'vite'
 import { getVitestConfig } from './config'
 import { getPort } from 'get-port-please'
 
 export interface NuxtVitestOptions {
   startOnBoot?: boolean
   logToConsole?: boolean
+  configFile?: string
+  vitestConfig?: VitestConfig
 }
 
 /**
  * List of plugins that are not compatible with text env.
  * Hard-coded for now, should remove by PR to upstream.
  */
-const vitePluginBlocklist = ['vite-plugin-vue-inspector']
+const vitePluginBlocklist = ['vite-plugin-vue-inspector', 'vite-plugin-inspect']
 
 export default defineNuxtModule<NuxtVitestOptions>({
   meta: {
@@ -32,20 +34,21 @@ export default defineNuxtModule<NuxtVitestOptions>({
     // the nuxt instance is used by a standalone Vitest env, we skip this module
     if (process.env.TEST || process.env.VITE_TEST) return
 
-    const PORT = await getPort({ port: 15555 })
-    const URL = `http://localhost:${PORT}/__vitest__/`
-
-    const rawViteConfigPromise = new Promise<InlineConfig>(resolve => {
-      nuxt.hook('vite:extendConfig', resolve)
+    const rawViteConfigPromise = new Promise<ViteConfig>(resolve => {
+      nuxt.hook('vite:extendConfig', config => {
+        resolve(config)
+      })
     })
 
+    const PORT = await getPort({ port: 15555 })
+    const URL = `http://localhost:${PORT}/__vitest__/`
 
     async function start() {
       const rawViteConfig = mergeConfig({}, await rawViteConfigPromise)
 
-      const config = mergeConfig(
+      const viteConfig = mergeConfig(
         await getVitestConfig({ nuxt, viteConfig: rawViteConfig }),
-        <UserConfig>{
+        <ViteConfig>{
           server: {
             middlewareMode: false,
             hmr: false,
@@ -56,11 +59,11 @@ export default defineNuxtModule<NuxtVitestOptions>({
         }
       )
 
-      config.plugins = (config.plugins || []).filter((p: any) => {
+      viteConfig.plugins = (viteConfig.plugins || []).filter((p: any) => {
         return !vitePluginBlocklist.includes(p?.name)
       })
 
-      config.plugins.push({
+      viteConfig.plugins.push({
         name: 'nuxt:vitest:client-stub',
         enforce: 'post',
         transform(_: string, id: string) {
@@ -85,25 +88,30 @@ export function updateStyle() {}`
       })
 
       process.env.__NUXT_VITEST_RESOLVED__ = 'true'
-      const { startVitest } = await import('vitest/node')
-      const promise = startVitest(
-        'test',
-        [],
-        // For testing dev mode, maybe expose an option to user later 
-        process.env.NUXT_VITEST_DEV_TEST
-          ? {
-              watch: false,
-            }
-          : {
-              reporters: options.logToConsole ? undefined : [{}], // do not report to console
-              ui: true,
-              open: false,
-              api: {
-                port: PORT,
-              },
+      const { startVitest } = (await import(
+        await resolvePath('vitest/node')
+      )) as typeof import('vitest/node')
+
+      // For testing dev mode in CI, maybe expose an option to user later
+      const vitestConfig = process.env.NUXT_VITEST_DEV_TEST
+        ? {
+            ...options.vitestConfig,
+            watch: false,
+            config: options.configFile,
+          }
+        : {
+            ...options.vitestConfig,
+            reporters: options.logToConsole ? undefined : [{}], // do not report to console
+            ui: true,
+            open: false,
+            api: {
+              port: PORT,
             },
-        config
-      )
+            config: options.configFile,
+          }
+
+      // Start Vitest
+      const promise = startVitest('test', [], vitestConfig, viteConfig)
 
       if (process.env.NUXT_VITEST_DEV_TEST) {
         promise.then(v => v?.close()).then(() => process.exit())

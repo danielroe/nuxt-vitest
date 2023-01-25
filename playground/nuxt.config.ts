@@ -1,11 +1,12 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: ['nuxt-vitest', '@nuxt/devtools-edge', '~/modules/custom'],
-  ssr: false,
-  dev: false,
   vitest: {
     startOnBoot: true,
     logToConsole: true,
+    vitestConfig: {
+      dir: 'tests/nuxt',
+    }
   },
   vite: {
     // TODO: fix bug with stubbing root package

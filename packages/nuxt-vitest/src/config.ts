@@ -79,7 +79,7 @@ export async function getVitestConfig(
 }
 
 export function defineConfigWithNuxt(config: InlineConfig = {}) {
- return defineConfig(async () => {
+  return defineConfig(async () => {
     // When Nuxt module calls `startVitest`, we don't need to call `getVitestConfig` again
     if (process.env.__NUXT_VITEST_RESOLVED__) return config
     return mergeConfig(await getVitestConfig(), config)
