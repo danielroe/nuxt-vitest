@@ -30,9 +30,11 @@ async function getNuxtAndViteConfig(rootDir = process.cwd()) {
   }
 
   const promise = new Promise<GetVitestConfigOptions>((resolve, reject) => {
-    nuxt.hook('vite:extendConfig', viteConfig => {
-      resolve({ nuxt, viteConfig })
-      throw new Error('_stop_')
+    nuxt.hook('vite:extendConfig', (viteConfig, { isClient }) => {
+      if (isClient) {
+        resolve({ nuxt, viteConfig })
+        throw new Error('_stop_')
+      }
     })
     buildNuxt(nuxt).catch(err => {
       if (!err.toString().includes('_stop_')) {

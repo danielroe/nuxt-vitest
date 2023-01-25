@@ -35,8 +35,11 @@ export default defineNuxtModule<NuxtVitestOptions>({
     if (process.env.TEST || process.env.VITE_TEST) return
 
     const rawViteConfigPromise = new Promise<ViteConfig>(resolve => {
-      nuxt.hook('vite:extendConfig', config => {
-        resolve(config)
+      // Wrap with app:resolve to ensure we got the final vite config
+      nuxt.hook('app:resolve', () => {
+        nuxt.hook('vite:extendConfig', (config, { isClient }) => {
+          if (isClient) resolve(config)
+        })
       })
     })
 
@@ -58,7 +61,7 @@ export default defineNuxtModule<NuxtVitestOptions>({
       viteConfig.plugins = (viteConfig.plugins || []).filter((p: any) => {
         return !vitePluginBlocklist.includes(p?.name)
       })
-    
+
       process.env.__NUXT_VITEST_RESOLVED__ = 'true'
       const { startVitest } = (await import(
         await resolvePath('vitest/node')
