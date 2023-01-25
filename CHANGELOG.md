@@ -1,5 +1,23 @@
 
 
+## [0.6.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.5.0...0.6.0) (2023-01-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* rename `defineConfigWithNuxt` to `defineVitestConfig` (#45)
+* remove nuxt as default test environment (#30)
+
+### Features
+
+* rename `defineConfigWithNuxt` to `defineVitestConfig` ([#45](https://github.com/danielroe/vitest-environment-nuxt/issues/45)) ([eb8dc41](https://github.com/danielroe/vitest-environment-nuxt/commit/eb8dc4190d325d98774f24141430b90757fb7341))
+
+
+### Bug Fixes
+
+* modules' meta can be optional ([12b41ca](https://github.com/danielroe/vitest-environment-nuxt/commit/12b41ca1c24c49fbe5bec63e6cbfe6202c3573f2))
+* remove nuxt as default test environment ([#30](https://github.com/danielroe/vitest-environment-nuxt/issues/30)) ([3b8e16e](https://github.com/danielroe/vitest-environment-nuxt/commit/3b8e16e36c50c39b552a594e78126bfe3218862e))
+
 ## [0.5.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.4.3...0.5.0) (2023-01-25)
 
 
