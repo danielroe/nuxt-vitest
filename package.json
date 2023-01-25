@@ -13,7 +13,8 @@
     "play": "pnpm run stub && pnpm -C playground dev",
     "lint:prettier": "prettier --write --loglevel warn",
     "prepare": "husky install",
-    "test": "pnpm -C playground test"
+    "test": "pnpm -C playground test",
+    "release": "release-it"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",
