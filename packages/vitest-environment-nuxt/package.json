@@ -39,8 +39,7 @@
   },
   "files": [
     "dist",
-    "config.d.ts",
-    "utils.d.ts"
+    "*.d.ts"
   ],
   "dependencies": {
     "@nuxt/kit": "^3.1.0",
