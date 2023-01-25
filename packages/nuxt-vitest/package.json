@@ -1,7 +1,7 @@
 {
   "name": "nuxt-vitest",
   "type": "module",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "license": "MIT",
   "exports": {
     "./module": {
@@ -43,7 +43,7 @@
     "@vitest/ui": "^0.28.1",
     "get-port-please": "^3.0.1",
     "vitest": "^0.28.1",
-    "vitest-environment-nuxt": "0.6.0"
+    "vitest-environment-nuxt": "0.6.1"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.2.1",

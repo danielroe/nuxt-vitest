@@ -1,5 +1,12 @@
 
 
+## [0.6.1](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.0...0.6.1) (2023-01-25)
+
+
+### Bug Fixes
+
+* build on prepublish ([df57aaf](https://github.com/danielroe/vitest-environment-nuxt/commit/df57aaf52d9a39f1884ef960285f547e2b77a571))
+
 ## [0.6.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.5.0...0.6.0) (2023-01-25)
 
 
