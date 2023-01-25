@@ -51,10 +51,6 @@ export default defineNuxtModule<NuxtVitestOptions>({
         <ViteConfig>{
           server: {
             middlewareMode: false,
-            hmr: false,
-          },
-          build: {
-            ssr: false,
           },
         }
       )
@@ -62,31 +58,7 @@ export default defineNuxtModule<NuxtVitestOptions>({
       viteConfig.plugins = (viteConfig.plugins || []).filter((p: any) => {
         return !vitePluginBlocklist.includes(p?.name)
       })
-
-      viteConfig.plugins.push({
-        name: 'nuxt:vitest:client-stub',
-        enforce: 'post',
-        transform(_: string, id: string) {
-          // replace vite client with stub
-          if (id.endsWith('/vite/dist/client/client.mjs'))
-            return `
-export const injectQuery = id => id
-  
-export function createHotContext() {
-  return {
-    accept: () => {},
-    prune: () => {},
-    dispose: () => {},
-    decline: () => {},
-    invalidate: () => {},
-    on: () => {},
-  }
-}
-
-export function updateStyle() {}`
-        },
-      })
-
+    
       process.env.__NUXT_VITEST_RESOLVED__ = 'true'
       const { startVitest } = (await import(
         await resolvePath('vitest/node')
