@@ -45,12 +45,39 @@ export default defineConfigWithNuxt({
 })
 ```
 
+4. Setting environment for your tests
 
-That's it. Now when you run `vitest` your Nuxt environment will be available throughout your tests.
+By default, `nuxt-vitest` will not change your default Vitest environment, so you can do fine-grain opt-in and run Nuxt tests together with other unit tests.
+
+We provided a filename convention that test files contains `.nuxt.`, like `*.nuxt.test.{js,ts}` and `*.nuxt.spec.{js,ts}`, will be run in Nuxt environment automatically.
+
+Or you can add `@vitest-environment nuxt` in your test file as a comment to opt-in per test file.
+
+```js
+// @vitest-environment nuxt
+import { test } from 'nuxt-vitest'
+
+test('my test', () => {
+  // ... test with Nuxt environment!
+})
+```
+
+Finallty, you can set `envoironment: 'nuxt'`, to enable Nuxt environment for **all tests**.
+
+```js
+// vitest.config.ts
+import { defineConfigWithNuxt } from 'nuxt-vitest'
+
+export default defineConfigWithNuxt({
+  test: {
+    envoironment: 'nuxt'
+  }
+})
+```
 
 ## 👉 Important notes
 
-When you run your tests within `nuxt-vitest`, they will be running in a [`happy-dom`](https://github.com/capricorn86/happy-dom) environment. Before your tests run, a global Nuxt app will be initialised (including, for example, running any plugins or code you've defined in your `app.vue`).
+When you run your tests within the Nuxt environment, they will be running in a [`happy-dom`](https://github.com/capricorn86/happy-dom) environment. Before your tests run, a global Nuxt app will be initialised (including, for example, running any plugins or code you've defined in your `app.vue`).
 
 This means you should be take particular care not to mutate the global state in your tests (or, if you have, to reset it afterwards).
 

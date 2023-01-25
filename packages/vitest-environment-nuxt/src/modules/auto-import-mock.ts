@@ -99,10 +99,8 @@ export default defineNuxtModule({
         const mockCode = [...mockMap.entries()]
           .map(([from, mocks]) => {
             const lines = [
-              `vi.mock(${JSON.stringify(from)}, async () => {`,
-              `  const mod = { ...await vi.importActual(${JSON.stringify(
-                from
-              )}) }`,
+              `vi.mock(${JSON.stringify(from)}, async (importOriginal) => {`,
+              `  const mod = { ...await importOriginal() }`,
             ]
             for (const mock of mocks) {
               lines.push(
@@ -115,7 +113,7 @@ export default defineNuxtModule({
           })
           .join('\n')
 
-        s.append('\nimport {vi} from "vitest";\n' + mockCode)
+        s.prepend('\nimport {vi} from "vitest";\n' + mockCode + '\n\n')
 
         return {
           code: s.toString(),

@@ -7,7 +7,6 @@ import { getPort } from 'get-port-please'
 export interface NuxtVitestOptions {
   startOnBoot?: boolean
   logToConsole?: boolean
-  configFile?: string
   vitestConfig?: VitestConfig
 }
 
@@ -38,7 +37,8 @@ export default defineNuxtModule<NuxtVitestOptions>({
       // Wrap with app:resolve to ensure we got the final vite config
       nuxt.hook('app:resolve', () => {
         nuxt.hook('vite:extendConfig', (config, { isClient }) => {
-          if (isClient) resolve(config)
+          if (isClient) 
+          resolve(config)
         })
       })
     })
@@ -68,11 +68,10 @@ export default defineNuxtModule<NuxtVitestOptions>({
       )) as typeof import('vitest/node')
 
       // For testing dev mode in CI, maybe expose an option to user later
-      const vitestConfig = process.env.NUXT_VITEST_DEV_TEST
+      const vitestConfig: VitestConfig = process.env.NUXT_VITEST_DEV_TEST
         ? {
             ...options.vitestConfig,
             watch: false,
-            config: options.configFile,
           }
         : {
             ...options.vitestConfig,
@@ -81,9 +80,11 @@ export default defineNuxtModule<NuxtVitestOptions>({
             open: false,
             api: {
               port: PORT,
-            },
-            config: options.configFile,
+            }
           }
+
+      // TODO: Investigate segfault when loading config file in Nuxt
+      viteConfig.configFile = false
 
       // Start Vitest
       const promise = startVitest('test', [], vitestConfig, viteConfig)

@@ -56,6 +56,11 @@ export async function getVitestConfig(
     test: {
       ...options.viteConfig.test,
       dir: options.nuxt.options.rootDir,
+      environmentMatchGlobs: [
+        ['**/*.nuxt.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}', 'nuxt'],
+        ['{test,tests}/nuxt/**.*', 'nuxt'],
+        ...(options.viteConfig.test?.environmentMatchGlobs || [])
+      ],
       deps: {
         ...options.viteConfig.test?.deps,
         inline:
