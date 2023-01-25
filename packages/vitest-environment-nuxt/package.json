@@ -22,11 +22,6 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "exports": {
-    "./config": {
-      "types": "./dist/config.d.ts",
-      "require": "./dist/config.cjs",
-      "import": "./dist/config.mjs"
-    },
     "./utils": {
       "types": "./dist/utils.d.ts",
       "require": "./dist/utils.cjs",
@@ -49,11 +44,11 @@
     "utils.d.ts"
   ],
   "dependencies": {
-    "@nuxt/kit": "^3.0.0",
+    "@nuxt/kit": "^3.1.0",
     "@vue/test-utils": "^2.2.7",
-    "estree-walker": "^3.0.2",
+    "estree-walker": "^3.0.3",
     "h3": "^1.0.2",
-    "happy-dom": "^8.1.4",
+    "happy-dom": "^8.1.5",
     "magic-string": "^0.27.0",
     "ofetch": "^1.0.0",
     "unenv": "^1.0.1"

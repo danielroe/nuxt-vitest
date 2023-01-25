@@ -10,15 +10,15 @@
     "lint:all:eslint": "pnpm lint:eslint --ext .ts,.js,.mjs,.cjs .",
     "lint:all:prettier": "pnpm lint:prettier \"**/*.{js,json,ts}\"",
     "lint:eslint": "eslint --fix",
-    "play:dev": "pnpm -C playground dev",
+    "play": "pnpm run stub && pnpm -C playground dev",
     "lint:prettier": "prettier --write --loglevel warn",
     "prepare": "husky install",
     "test": "pnpm -C playground test"
   },
   "devDependencies": {
-    "@nuxt/eslint-config": "0.1.1",
-    "@nuxt/schema": "3.0.0",
-    "@release-it-plugins/workspaces": "3.2.0",
+    "@nuxt/eslint-config": "^0.1.1",
+    "@nuxt/schema": "3.1.0",
+    "@release-it-plugins/workspaces": "^3.2.0",
     "@release-it/conventional-changelog": "5.1.1",
     "@vitest/coverage-c8": "0.28.1",
     "conventional-changelog-conventionalcommits": "5.0.0",
@@ -27,7 +27,7 @@
     "eslint-plugin-prettier": "4.2.1",
     "husky": "8.0.3",
     "lint-staged": "13.1.0",
-    "nuxt": "3.0.0",
+    "nuxt": "3.1.0",
     "pinst": "3.0.0",
     "prettier": "2.8.3",
     "release-it": "15.6.0",
@@ -37,7 +37,9 @@
   },
   "pnpm": {
     "overrides": {
-      "vitest-environment-nuxt": "workspace:*"
+      "vitest-environment-nuxt": "workspace:*",
+      "nuxt-vitest": "workspace:*",
+      "nuxt": "npm:nuxt3@latest"
     }
   },
   "version": "0.4.3"
