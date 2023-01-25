@@ -62,7 +62,7 @@ test('my test', () => {
 })
 ```
 
-Finallty, you can set `envoironment: 'nuxt'`, to enable Nuxt environment for **all tests**.
+Finally, you can set `envoironment: 'nuxt'`, to enable Nuxt environment for **all tests**.
 
 ```js
 // vitest.config.ts
