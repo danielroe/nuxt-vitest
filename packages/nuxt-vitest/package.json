@@ -1,0 +1,53 @@
+{
+  "name": "nuxt-vitest",
+  "type": "module",
+  "version": "0.0.0",
+  "license": "MIT",
+  "exports": {
+    "./module": {
+      "types": "./dist/module.d.ts",
+      "import": "./dist/module.mjs"
+    },
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "import": "./dist/utils.mjs"
+    },
+    "./config": {
+      "types": "./dist/config.d.ts",
+      "import": "./dist/config.mjs"
+    },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist",
+    "*.d.ts"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build",
+    "build": "nuxt-module-build",
+    "prepublishOnly": "pnpm build",
+    "lint": "eslint .",
+    "stub": "nuxt-module-build --stub"
+  },
+  "peerDependencies": {
+    "vite": "*"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.1.0",
+    "@vitest/ui": "^0.28.1",
+    "get-port-please": "^3.0.1",
+    "vitest": "^0.28.1",
+    "vitest-environment-nuxt": "workspace:*"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "^0.2.1",
+    "@nuxt/schema": "^3.1.0",
+    "nuxt": "3.1.0"
+  }
+}

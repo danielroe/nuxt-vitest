@@ -40,6 +40,12 @@ jobs:
       - name: 📦 Install dependencies
         run: pnpm install
 
+      - name: 🚧 Stub project dependencies
+        run: pnpm stub
+
+      - name: 💪 Generate types
+        run: pnpm dev:prepare
+
       - name: 🛠 Build project
         run: pnpm build
 
@@ -48,6 +54,9 @@ jobs:
 
       - name: 🧪 Playground Nuxt Test
         run: pnpm -C playground run test:nuxt --coverage
+
+      - name: 🧪 Playground Nuxt Test on Dev
+        run: pnpm -C playground run test:dev
 
       - name: 🟩 Coverage
         uses: codecov/codecov-action@v3

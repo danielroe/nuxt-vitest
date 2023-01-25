@@ -1,12 +1,5 @@
 
 
-## [0.4.3](https://github.com/danielroe/vitest-environment-nuxt/compare/0.4.2...0.4.3) (2023-01-21)
-
-
-### Bug Fixes
-
-* import explicitly h ([#37](https://github.com/danielroe/vitest-environment-nuxt/issues/37)) ([880de94](https://github.com/danielroe/vitest-environment-nuxt/commit/880de94b03b239f15bac7f73b049b3f1e083d056))
-
 ## [0.4.2](https://github.com/danielroe/vitest-environment-nuxt/compare/0.4.1...0.4.2) (2023-01-18)
 
 

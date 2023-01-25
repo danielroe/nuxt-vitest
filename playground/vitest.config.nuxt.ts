@@ -1,19 +1,11 @@
-import { defineConfigWithNuxtEnv } from 'vitest-environment-nuxt/config'
+import { defineConfigWithNuxt } from 'nuxt-vitest/config'
 
-export default defineConfigWithNuxtEnv({
+export default defineConfigWithNuxt({
   test: {
     name: 'nuxt',
     dir: 'tests/nuxt',
     coverage: {
-      reportsDirectory: 'coverage/nuxt'
-    }
-  },
-  // TODO: fix bug with stubbing root package
-  resolve: {
-    alias: {
-      'vitest-environment-nuxt/utils': '../src/utils',
-      'vitest-environment-nuxt/config': '../src/config',
-      'vitest-environment-nuxt': '../src/index',
+      reportsDirectory: 'coverage/nuxt',
     },
   },
 })
