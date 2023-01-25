@@ -37,8 +37,7 @@ export default defineNuxtModule<NuxtVitestOptions>({
       // Wrap with app:resolve to ensure we got the final vite config
       nuxt.hook('app:resolve', () => {
         nuxt.hook('vite:extendConfig', (config, { isClient }) => {
-          if (isClient) 
-          resolve(config)
+          if (isClient) resolve(config)
         })
       })
     })
@@ -80,7 +79,7 @@ export default defineNuxtModule<NuxtVitestOptions>({
             open: false,
             api: {
               port: PORT,
-            }
+            },
           }
 
       // TODO: Investigate segfault when loading config file in Nuxt

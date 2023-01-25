@@ -53,13 +53,17 @@ export async function getVitestConfig(
 
   return {
     ...options.viteConfig,
+    server: {
+      ...options.viteConfig.server,
+      middlewareMode: false,
+    },
     test: {
       ...options.viteConfig.test,
       dir: options.nuxt.options.rootDir,
       environmentMatchGlobs: [
         ['**/*.nuxt.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}', 'nuxt'],
         ['{test,tests}/nuxt/**.*', 'nuxt'],
-        ...(options.viteConfig.test?.environmentMatchGlobs || [])
+        ...(options.viteConfig.test?.environmentMatchGlobs || []),
       ],
       deps: {
         ...options.viteConfig.test?.deps,
