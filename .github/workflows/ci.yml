@@ -49,13 +49,10 @@ jobs:
       - name: 🛠 Build project
         run: pnpm build
 
-      - name: 🧪 Playground Unit Test
+      - name: 🧪 Playground Test
         run: pnpm -C playground run test:unit --coverage
 
-      - name: 🧪 Playground Nuxt Test
-        run: pnpm -C playground run test:nuxt --coverage
-
-      - name: 🧪 Playground Nuxt Test on Dev
+      - name: 🧪 Playground Test on Dev
         run: pnpm -C playground run test:dev
 
       - name: 🟩 Coverage
