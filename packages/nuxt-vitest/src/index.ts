@@ -1,2 +1,2 @@
-export { extendVitestConfigForNuxt } from './config'
+export { defineVitestConfig } from './config'
 export { default } from './module'

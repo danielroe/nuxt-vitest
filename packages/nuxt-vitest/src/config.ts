@@ -46,7 +46,7 @@ async function startNuxtAndGetViteConfig(rootDir = process.cwd()) {
   return promise
 }
 
-export async function getVitestConfigForNuxt(
+export async function getVitestConfigFromNuxt(
   options?: GetVitestConfigOptions
 ): Promise<InlineConfig & { test: VitestConfig }> {
   if (!options) options = await startNuxtAndGetViteConfig()
@@ -88,10 +88,10 @@ export async function getVitestConfigForNuxt(
   }
 }
 
-export function extendVitestConfigForNuxt(config: InlineConfig = {}) {
+export function defineVitestConfig(config: InlineConfig = {}) {
   return defineConfig(async () => {
-    // When Nuxt module calls `startVitest`, we don't need to call `getVitestConfigForNuxt` again
+    // When Nuxt module calls `startVitest`, we don't need to call `getVitestConfigFromNuxt` again
     if (process.env.__NUXT_VITEST_RESOLVED__) return config
-    return mergeConfig(await getVitestConfigForNuxt(), config)
+    return mergeConfig(await getVitestConfigFromNuxt(), config)
   })
 }
