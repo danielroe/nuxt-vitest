@@ -42,14 +42,14 @@
     "*.d.ts"
   ],
   "dependencies": {
-    "@nuxt/kit": "^3.1.0",
+    "@nuxt/kit": "^3.1.1",
     "@vue/test-utils": "^2.2.7",
     "estree-walker": "^3.0.3",
-    "h3": "^1.0.2",
+    "h3": "^1.1.0",
     "happy-dom": "^8.1.5",
     "magic-string": "^0.27.0",
     "ofetch": "^1.0.0",
-    "unenv": "^1.0.1"
+    "unenv": "^1.0.2"
   },
   "peerDependencies": {
     "vitest": "^0.24.5 || ^0.26.0 || ^0.27.0 || ^0.28.0",
