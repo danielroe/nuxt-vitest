@@ -1,5 +1,13 @@
 
 
+## [0.6.2](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.1...0.6.2) (2023-01-26)
+
+
+### Features
+
+* add `mockComponent` utility ([#47](https://github.com/danielroe/vitest-environment-nuxt/issues/47)) ([af33fa0](https://github.com/danielroe/vitest-environment-nuxt/commit/af33fa040bc26ecde6221a77a7a4eabc7d686b36))
+* adopt new tab interface ([074dde9](https://github.com/danielroe/vitest-environment-nuxt/commit/074dde91934386fa441043e838d2cec5a3e01923))
+
 ## [0.6.1](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.0...0.6.1) (2023-01-25)
 
 
