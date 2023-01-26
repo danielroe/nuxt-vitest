@@ -8,7 +8,6 @@ import type {
   ComponentOptionsWithoutProps,
   ComponentPropsOptions,
   ComputedOptions,
-  DefineComponent,
   EmitsOptions,
   MethodOptions,
   RenderFunction,
@@ -28,10 +27,12 @@ export function registerEndpoint(url: string, handler: EventHandler) {
 }
 
 export function mockNuxtImport<T = any>(
-  name: string,
-  factory: () => T | Promise<T>
+  _name: string,
+  _factory: () => T | Promise<T>
 ): void {
-  throw new Error('mockNuxtImport() is a macro and it did not get transpiled, this may be an internal bug of nuxt-vitest.')
+  throw new Error(
+    'mockNuxtImport() is a macro and it did not get transpiled, this may be an internal bug of nuxt-vitest.'
+  )
 }
 
 /**
@@ -133,6 +134,8 @@ export function mockComponent<
     >
   >
 ): void
-export function mockComponent(path: string, component: any): void {
-  throw new Error('mockComponent() is a macro and it did not get transpiled, this may be an internal bug of nuxt-vitest.')
+export function mockComponent(_path: string, _component: any): void {
+  throw new Error(
+    'mockComponent() is a macro and it did not get transpiled, this may be an internal bug of nuxt-vitest.'
+  )
 }
