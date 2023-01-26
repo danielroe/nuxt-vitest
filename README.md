@@ -105,6 +105,58 @@ mockNuxtImport('useStorage', () => {
 // your tests here
 ```
 
+
+### `mockComponent`
+
+`mockComponent` allows you to mock Nuxt's component. 
+The first argument can be the component name in PascalCase, or the relative path of the component.
+The second argument can is a factory function that returns the mocked component.
+
+For example, to mock `MyComponent`, you can:
+
+```ts
+import { mockComponent } from 'nuxt-vitest/utils'
+
+mockComponent('MyComponent', {
+  props: {
+    value: String
+  },
+  setup(props) {
+    // ...
+  }
+})
+
+// relative path or alias also works
+mockComponent('~/components/my-component.vue', async () => {
+  // or a factory function
+  return {
+    setup(props) {
+      // ...
+    }
+  }
+})
+
+// or you can use SFC for redirecting to a mock component
+mockComponent('MyComponent', () => import('./MockComponent.vue'))
+
+// your tests here
+```
+
+> **Note**: You can't reference to local variables in the factory function since they are hoisted. If you need to access Vue APIs or other variables, you need to import them in your factory function.
+
+```ts
+mockComponent('MyComponent', async () => {
+  const { ref, h } = await import('vue')
+
+  return {
+    setup(props) {
+      const counter = ref(0)
+      return () => h('div', null, counter.value)
+    }
+  }
+})
+```
+
 ## 💻 Development
 
 - Clone this repository
