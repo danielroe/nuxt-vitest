@@ -39,8 +39,7 @@
   "pnpm": {
     "overrides": {
       "vitest-environment-nuxt": "workspace:*",
-      "nuxt-vitest": "workspace:*",
-      "nuxt": "npm:nuxt3@latest"
+      "nuxt-vitest": "workspace:*"
     }
   },
   "version": "0.6.2"
