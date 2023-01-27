@@ -6,14 +6,17 @@
   "exports": {
     "./module": {
       "types": "./dist/module.d.ts",
+      "require": "./dist/module.cjs",
       "import": "./dist/module.mjs"
     },
     "./utils": {
       "types": "./dist/utils.d.ts",
+      "require": "./dist/utils.cjs",
       "import": "./dist/utils.mjs"
     },
     "./config": {
       "types": "./dist/config.d.ts",
+      "require": "./dist/config.cjs",
       "import": "./dist/config.mjs"
     },
     ".": {
@@ -22,7 +25,8 @@
       "import": "./dist/index.mjs"
     }
   },
-  "main": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/types.d.ts",
   "files": [
     "dist",
