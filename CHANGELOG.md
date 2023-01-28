@@ -1,5 +1,18 @@
 
 
+## [0.6.3](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.2...0.6.3) (2023-01-28)
+
+
+### Features
+
+* basic devtools indicator ([34884e4](https://github.com/danielroe/vitest-environment-nuxt/commit/34884e4e9960bc296a89fd3100609eeb33dc345f))
+
+
+### Bug Fixes
+
+* **dev:** do not terminate the process even if no tests ([86fe91e](https://github.com/danielroe/vitest-environment-nuxt/commit/86fe91ea0967a0012ed264b95ed5760a5a7897d6))
+* **nuxt-vitest:** add cjs exports to `package.json` ([a9b3088](https://github.com/danielroe/vitest-environment-nuxt/commit/a9b30885037d8e191061124cb165556494bd49e9)), closes [#48](https://github.com/danielroe/vitest-environment-nuxt/issues/48)
+
 ## [0.6.2](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.1...0.6.2) (2023-01-26)
 
 
