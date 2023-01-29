@@ -23,7 +23,7 @@
     "@release-it/conventional-changelog": "5.1.1",
     "@vitest/coverage-c8": "0.28.3",
     "conventional-changelog-conventionalcommits": "5.0.0",
-    "eslint": "8.32.0",
+    "eslint": "8.33.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-prettier": "4.2.1",
     "husky": "8.0.3",
