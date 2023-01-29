@@ -1,5 +1,13 @@
 
 
+## [0.6.4](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.3...0.6.4) (2023-01-29)
+
+
+### Bug Fixes
+
+* avoid duplication vi injection ([7d8f493](https://github.com/danielroe/vitest-environment-nuxt/commit/7d8f4935d32995592262b405642168dce428b8b1))
+* **ui:** wait for Vitest UI to initiate ([3090ccf](https://github.com/danielroe/vitest-environment-nuxt/commit/3090ccf5152351e704486b3c2b79e20e361bf5dc))
+
 ## [0.6.3](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.2...0.6.3) (2023-01-28)
 
 
