@@ -1,5 +1,12 @@
 
 
+## [0.6.5](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.4...0.6.5) (2023-02-01)
+
+
+### Bug Fixes
+
+* accept object syntax for `to` prop in router mock ([#55](https://github.com/danielroe/vitest-environment-nuxt/issues/55)) ([129b8f4](https://github.com/danielroe/vitest-environment-nuxt/commit/129b8f4b5c911c7923de54860e8984c98627b60d))
+
 ## [0.6.4](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.3...0.6.4) (2023-01-29)
 
 
