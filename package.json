@@ -34,7 +34,7 @@
     "release-it": "15.6.0",
     "unbuild": "1.1.1",
     "vitest": "0.28.3",
-    "vue": "3.2.45"
+    "vue": "3.2.47"
   },
   "pnpm": {
     "overrides": {
