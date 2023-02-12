@@ -78,7 +78,7 @@ importers:
       estree-walker: ^3.0.3
       h3: ^1.1.0
       happy-dom: ^8.2.0
-      magic-string: ^0.27.0
+      magic-string: ^0.29.0
       ofetch: ^1.0.0
       unenv: ^1.0.2
     dependencies:
@@ -87,7 +87,7 @@ importers:
       estree-walker: 3.0.3
       h3: 1.4.0
       happy-dom: 8.2.6
-      magic-string: 0.27.0
+      magic-string: 0.29.0
       ofetch: 1.0.0
       unenv: 1.1.1
 
@@ -5628,6 +5628,13 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.14
+
+  /magic-string/0.29.0:
+    resolution: {integrity: sha512-WcfidHrDjMY+eLjlU+8OvwREqHwpgCeKVBUpQ3OhYYuvfaYCUgcbuBzappNzZvg/v8onU3oQj+BYpkOJe9Iw4Q==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.4.14
+    dev: false
 
   /make-dir/3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
