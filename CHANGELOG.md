@@ -1,5 +1,12 @@
 
 
+## [0.6.6](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.5...0.6.6) (2023-02-12)
+
+
+### Bug Fixes
+
+* **nuxt-vitest:** exclude import protection plugin ([6b9ac3e](https://github.com/danielroe/vitest-environment-nuxt/commit/6b9ac3e580459fb87b059ff6e671b4a87b455ba5))
+
 ## [0.6.5](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.4...0.6.5) (2023-02-01)
 
 
