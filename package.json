@@ -21,7 +21,7 @@
     "@nuxt/schema": "3.2.0",
     "@release-it-plugins/workspaces": "^3.2.0",
     "@release-it/conventional-changelog": "5.1.1",
-    "@vitest/coverage-c8": "0.28.4",
+    "@vitest/coverage-c8": "0.28.5",
     "conventional-changelog-conventionalcommits": "5.0.0",
     "eslint": "8.34.0",
     "eslint-config-prettier": "8.6.0",
@@ -33,7 +33,7 @@
     "prettier": "2.8.4",
     "release-it": "15.6.0",
     "unbuild": "1.1.1",
-    "vitest": "0.28.4",
+    "vitest": "0.28.5",
     "vue": "3.2.47"
   },
   "pnpm": {
