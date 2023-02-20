@@ -93,13 +93,13 @@ importers:
 
   playground:
     specifiers:
-      '@nuxt/devtools-edge': 0.1.4-27943098.66b534e
+      '@nuxt/devtools-edge': 0.1.4-27948187.70907e0
       nuxt: 3.2.2
       nuxt-vitest: workspace:*
       vitest: 0.28.5
       vitest-environment-nuxt: workspace:*
     devDependencies:
-      '@nuxt/devtools-edge': 0.1.4-27943098.66b534e_nuxt@3.2.2
+      '@nuxt/devtools-edge': 0.1.4-27948187.70907e0_nuxt@3.2.2
       nuxt: 3.2.2
       nuxt-vitest: link:../packages/nuxt-vitest
       vitest: 0.28.5
@@ -1037,8 +1037,8 @@ packages:
     resolution: {integrity: sha512-YBI/6o2EBz02tdEJRBK8xkt3zvOFOWlLBf7WKYGBsSYSRtjjgrqPe2skp6VLLmKx5WbHHDNcW+6oACaurxGzeA==}
     dev: true
 
-  /@nuxt/devtools-edge/0.1.4-27943098.66b534e_nuxt@3.2.2:
-    resolution: {integrity: sha512-5c2XPBSAdCVMbxnsnzjLIooYQ+Um5NsJa8XGfQuwd+5sCJZthoWEbRvP9pKn5EKsltxHvAR9ap4QMKPwK0TWWQ==}
+  /@nuxt/devtools-edge/0.1.4-27948187.70907e0_nuxt@3.2.2:
+    resolution: {integrity: sha512-1ttkgM+LLKWPrI67TPY6B8oF8eYLPORUVV958cO9Vdj0IK3UiSLRniCAGe+lFftEgfvxax+9l9IM8rUG7i+iXw==}
     hasBin: true
     peerDependencies:
       nuxt: ^3.2.0
@@ -5620,11 +5620,6 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lru-cache/7.16.0:
-    resolution: {integrity: sha512-VJBdeMa9Bz27NNlx+DI/YXGQtXdjUU+9gdfN1rYfra7vtTjhodl5tVNmR42bo+ORHuDqDT+lGAUAb+lzvY42Bw==}
-    engines: {node: '>=12'}
-    dev: true
-
   /lru-cache/7.16.1:
     resolution: {integrity: sha512-9kkuMZHnLH/8qXARvYSjNvq8S1GYFFzynQTAfKeaJ0sIrR3PUPuu37Z+EiIANiZBvpfTf2B5y8ecDLSMWlLv+w==}
     engines: {node: '>=12'}
@@ -8716,7 +8711,7 @@ packages:
       h3: 1.5.0
       ioredis: 5.3.1
       listhen: 1.0.2
-      lru-cache: 7.16.0
+      lru-cache: 7.16.1
       mkdir: 0.0.2
       mri: 1.2.0
       node-fetch-native: 1.0.2
