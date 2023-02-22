@@ -47,7 +47,7 @@
     "estree-walker": "^3.0.3",
     "h3": "^1.1.0",
     "happy-dom": "^8.4.4",
-    "magic-string": "^0.29.0",
+    "magic-string": "^0.30.0",
     "ofetch": "^1.0.0",
     "unenv": "^1.0.2"
   },
