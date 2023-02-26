@@ -44,11 +44,11 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.2.0",
-    "@vitest/ui": "^0.28.5",
+    "@vitest/ui": "^0.29.0",
     "get-port-please": "^3.0.1",
     "perfect-debounce": "^0.1.3",
     "std-env": "^3.3.1",
-    "vitest": "^0.28.3",
+    "vitest": "^0.29.0",
     "vitest-environment-nuxt": "0.6.6"
   },
   "devDependencies": {
