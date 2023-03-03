@@ -19,7 +19,7 @@
   "devDependencies": {
     "@nuxt/eslint-config": "0.1.1",
     "@nuxt/schema": "3.2.2",
-    "@release-it-plugins/workspaces": "^3.2.0",
+    "@release-it-plugins/workspaces": "3.2.0",
     "@release-it/conventional-changelog": "5.1.1",
     "@vitest/coverage-c8": "0.29.2",
     "conventional-changelog-conventionalcommits": "5.0.0",
@@ -31,7 +31,7 @@
     "nuxt": "3.2.2",
     "pinst": "3.0.0",
     "prettier": "2.8.4",
-    "release-it": "15.6.0",
+    "release-it": "15.7.0",
     "unbuild": "1.1.2",
     "vitest": "0.29.2",
     "vue": "3.2.47"
