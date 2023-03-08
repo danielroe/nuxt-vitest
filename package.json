@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@nuxt/eslint-config": "0.1.1",
-    "@nuxt/schema": "3.2.2",
+    "@nuxt/schema": "3.2.3",
     "@release-it-plugins/workspaces": "3.2.0",
     "@release-it/conventional-changelog": "5.1.1",
     "@vitest/coverage-c8": "0.29.2",
@@ -28,7 +28,7 @@
     "eslint-plugin-prettier": "4.2.1",
     "husky": "8.0.3",
     "lint-staged": "13.1.2",
-    "nuxt": "3.2.2",
+    "nuxt": "3.2.3",
     "pinst": "3.0.0",
     "prettier": "2.8.4",
     "release-it": "15.7.0",
