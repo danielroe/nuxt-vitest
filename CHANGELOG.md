@@ -1,5 +1,13 @@
 
 
+## [0.6.7](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.6...0.6.7) (2023-03-08)
+
+
+### Bug Fixes
+
+* correct type of `defineVitestConfig` ([#72](https://github.com/danielroe/vitest-environment-nuxt/issues/72)) ([f3ac427](https://github.com/danielroe/vitest-environment-nuxt/commit/f3ac4274654be7053da3a675c6affeaded37eec0))
+* mock core nuxt composables ([#83](https://github.com/danielroe/vitest-environment-nuxt/issues/83)) ([dfbfbf3](https://github.com/danielroe/vitest-environment-nuxt/commit/dfbfbf3a1a53d32925753fcacf93b068a193c62d))
+
 ## [0.6.6](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.5...0.6.6) (2023-02-12)
 
 
