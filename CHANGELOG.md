@@ -1,5 +1,12 @@
 
 
+## [0.6.8](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.7...0.6.8) (2023-03-09)
+
+
+### Bug Fixes
+
+* revert type change to `defineVitestConfig` ([#86](https://github.com/danielroe/vitest-environment-nuxt/issues/86)) ([43c0f36](https://github.com/danielroe/vitest-environment-nuxt/commit/43c0f36bad052af17a7abc2317cfad676180990f))
+
 ## [0.6.7](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.6...0.6.7) (2023-03-08)
 
 
