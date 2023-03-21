@@ -1,5 +1,12 @@
 
 
+## [0.6.9](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.8...0.6.9) (2023-03-21)
+
+
+### Bug Fixes
+
+* pass resolved `runtimeConfig` into nuxt environment ([#101](https://github.com/danielroe/vitest-environment-nuxt/issues/101)) ([6dce4dc](https://github.com/danielroe/vitest-environment-nuxt/commit/6dce4dca542c3807c158d3f1c5ac6c950263b4ff))
+
 ## [0.6.8](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.7...0.6.8) (2023-03-09)
 
 
