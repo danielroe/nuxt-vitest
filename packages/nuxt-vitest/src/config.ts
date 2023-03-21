@@ -61,6 +61,9 @@ export async function getVitestConfigFromNuxt(
     test: {
       ...options.viteConfig.test,
       dir: options.nuxt.options.rootDir,
+      environmentOptions: {
+        nuxtRuntimeConfig: options.nuxt.options.runtimeConfig,
+      },
       environmentMatchGlobs: [
         ['**/*.nuxt.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}', 'nuxt'],
         ['{test,tests}/nuxt/**.*', 'nuxt'],
