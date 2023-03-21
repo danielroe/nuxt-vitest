@@ -62,7 +62,7 @@ export async function getVitestConfigFromNuxt(
       ...options.viteConfig.test,
       dir: options.nuxt.options.rootDir,
       environmentOptions: {
-        ...options.viteConfig.test.environmentOptions,
+        ...options.viteConfig.test?.environmentOptions,
         nuxtRuntimeConfig: options.nuxt.options.runtimeConfig,
       },
       environmentMatchGlobs: [
