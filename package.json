@@ -2,9 +2,9 @@
   "private": true,
   "packageManager": "pnpm@7.30.3",
   "scripts": {
-    "build": "pnpm stub && pnpm dev:prepare && pnpm run --filter=./packages/* -r build",
+    "build": "pnpm dev:prepare && pnpm run --filter=./packages/* -r build",
     "stub": "pnpm run --filter=./packages/* -r stub",
-    "dev:prepare": "pnpm nuxi prepare playground",
+    "dev:prepare": "pnpm stub && pnpm nuxi prepare playground",
     "dev": "pnpm run build && pnpm -C playground test:unit",
     "lint": "pnpm lint:all:eslint && pnpm lint:all:prettier",
     "lint:all:eslint": "pnpm lint:eslint --ext .ts,.js,.mjs,.cjs .",
