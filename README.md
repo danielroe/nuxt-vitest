@@ -107,7 +107,7 @@ mockNuxtImport('useStorage', () => {
 
 > **Note**: `mockNuxtImport` can only be used once per test file. It is actually a macro that gets transformed to `vi.mock` and `vi.mock` is hoisted, as described [here](https://vitest.dev/api/vi.html#vi-mock).
 
-If you need to mock a Nuxt import and provide different implementations between tests, you can do it by using a global variable as the returned value of your mock function and change its implementation within each test. Be carefull to [restore mocks](https://vitest.dev/api/mock.html#mockrestore) before or after each test to undo mock state changes between runs.
+If you need to mock a Nuxt import and provide different implementations between tests, you can do it by using a global variable as the returned value of your mock function and change its implementation within each test. Be careful to [restore mocks](https://vitest.dev/api/mock.html#mockrestore) before or after each test to undo mock state changes between runs.
 
 ```ts
 // useStorageMock.ts
