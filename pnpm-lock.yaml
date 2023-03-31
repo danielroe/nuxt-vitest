@@ -12,7 +12,7 @@ importers:
       '@nuxt/schema': 3.3.2
       '@release-it-plugins/workspaces': 3.2.0
       '@release-it/conventional-changelog': 5.1.1
-      '@vitest/coverage-c8': 0.29.7
+      '@vitest/coverage-c8': 0.29.8
       conventional-changelog-conventionalcommits: 5.0.0
       eslint: 8.36.0
       eslint-config-prettier: 8.8.0
@@ -24,14 +24,14 @@ importers:
       prettier: 2.8.7
       release-it: 15.9.3
       unbuild: 1.1.2
-      vitest: 0.29.7
+      vitest: 0.29.8
       vue: 3.2.47
     devDependencies:
       '@nuxt/eslint-config': 0.1.1_eslint@8.36.0
       '@nuxt/schema': 3.3.2
       '@release-it-plugins/workspaces': 3.2.0_release-it@15.9.3
       '@release-it/conventional-changelog': 5.1.1_release-it@15.9.3
-      '@vitest/coverage-c8': 0.29.7_vitest@0.29.7
+      '@vitest/coverage-c8': 0.29.8_vitest@0.29.8
       conventional-changelog-conventionalcommits: 5.0.0
       eslint: 8.36.0
       eslint-config-prettier: 8.8.0_eslint@8.36.0
@@ -43,7 +43,7 @@ importers:
       prettier: 2.8.7
       release-it: 15.9.3
       unbuild: 1.1.2
-      vitest: 0.29.7
+      vitest: 0.29.8
       vue: 3.2.47
 
   packages/nuxt-vitest:
@@ -96,13 +96,13 @@ importers:
       '@nuxt/devtools-edge': 0.1.4-27948187.70907e0
       nuxt: 3.3.2
       nuxt-vitest: workspace:*
-      vitest: 0.29.7
+      vitest: 0.29.8
       vitest-environment-nuxt: workspace:*
     devDependencies:
       '@nuxt/devtools-edge': 0.1.4-27948187.70907e0_nuxt@3.3.2
       nuxt: 3.3.2
       nuxt-vitest: link:../packages/nuxt-vitest
-      vitest: 0.29.7
+      vitest: 0.29.8
       vitest-environment-nuxt: link:../packages/vitest-environment-nuxt
 
 packages:
@@ -1779,15 +1779,15 @@ packages:
       vue: 3.2.47
     dev: true
 
-  /@vitest/coverage-c8/0.29.7_vitest@0.29.7:
-    resolution: {integrity: sha512-TSubtP9JFBuI/wuApxwknHe40VDkX8hFbBak0OXj4/jCeXrEu5B5GPWcxzyk9YvzXgCaDvoiZV79I7AvhNI9YQ==}
+  /@vitest/coverage-c8/0.29.8_vitest@0.29.8:
+    resolution: {integrity: sha512-y+sEMQMctWokjnSqm3FCQEYFkjLrYaznsxEZHxcx8z2aftpYg3A5tvI1S5himfdEFo7o+OeHzh40bPSWZHW4oQ==}
     peerDependencies:
       vitest: '>=0.29.0 <1'
     dependencies:
       c8: 7.13.0
       picocolors: 1.0.0
       std-env: 3.3.2
-      vitest: 0.29.7
+      vitest: 0.29.8
     dev: true
 
   /@vitest/expect/0.29.7:
@@ -1796,6 +1796,15 @@ packages:
       '@vitest/spy': 0.29.7
       '@vitest/utils': 0.29.7
       chai: 4.3.7
+    dev: false
+
+  /@vitest/expect/0.29.8:
+    resolution: {integrity: sha512-xlcVXn5I5oTq6NiZSY3ykyWixBxr5mG8HYtjvpgg6KaqHm0mvhX18xuwl5YGxIRNt/A5jidd7CWcNHrSvgaQqQ==}
+    dependencies:
+      '@vitest/spy': 0.29.8
+      '@vitest/utils': 0.29.8
+      chai: 4.3.7
+    dev: true
 
   /@vitest/runner/0.29.7:
     resolution: {integrity: sha512-Yt0+csM945+odOx4rjZSjibQfl2ymxqVsmYz6sO2fiO5RGPYDFCo60JF6tLL9pz4G/kjY4irUxadeB1XT+H1jg==}
@@ -1803,11 +1812,27 @@ packages:
       '@vitest/utils': 0.29.7
       p-limit: 4.0.0
       pathe: 1.1.0
+    dev: false
+
+  /@vitest/runner/0.29.8:
+    resolution: {integrity: sha512-FzdhnRDwEr/A3Oo1jtIk/B952BBvP32n1ObMEb23oEJNO+qO5cBet6M2XWIDQmA7BDKGKvmhUf2naXyp/2JEwQ==}
+    dependencies:
+      '@vitest/utils': 0.29.8
+      p-limit: 4.0.0
+      pathe: 1.1.0
+    dev: true
 
   /@vitest/spy/0.29.7:
     resolution: {integrity: sha512-IalL0iO6A6Xz8hthR8sctk6ZS//zVBX48EiNwQguYACdgdei9ZhwMaBFV70mpmeYAFCRAm+DpoFHM5470Im78A==}
     dependencies:
       tinyspy: 1.1.1
+    dev: false
+
+  /@vitest/spy/0.29.8:
+    resolution: {integrity: sha512-VdjBe9w34vOMl5I5mYEzNX8inTxrZ+tYUVk9jxaZJmHFwmDFC/GV3KBFTA/JKswr3XHvZL+FE/yq5EVhb6pSAw==}
+    dependencies:
+      tinyspy: 1.1.1
+    dev: true
 
   /@vitest/ui/0.29.1:
     resolution: {integrity: sha512-CtcFlqcxNFT+5geTYfjOMOje4iae2DGsOnW1//7cre2xc43mFVOJYG7ZPq1wOUisDqSCyPLP2+zvAAlFJxBiUA==}
@@ -1826,6 +1851,16 @@ packages:
       diff: 5.1.0
       loupe: 2.3.6
       pretty-format: 27.5.1
+    dev: false
+
+  /@vitest/utils/0.29.8:
+    resolution: {integrity: sha512-qGzuf3vrTbnoY+RjjVVIBYfuWMjn3UMUqyQtdGNZ6ZIIyte7B37exj6LaVkrZiUTvzSadVvO/tJm8AEgbGCBPg==}
+    dependencies:
+      cli-truncate: 3.1.0
+      diff: 5.1.0
+      loupe: 2.3.6
+      pretty-format: 27.5.1
+    dev: true
 
   /@vue/babel-helper-vue-transform-on/1.0.2:
     resolution: {integrity: sha512-hz4R8tS5jMn8lDq6iD+yWL6XNB699pGIVLk7WSJnn1dbpjaazsjZQkieJoRX6gW5zpYSCFqQ7jUquPNY65tQYA==}
@@ -8692,6 +8727,28 @@ packages:
       - sugarss
       - supports-color
       - terser
+    dev: false
+
+  /vite-node/0.29.8_@types+node@18.13.0:
+    resolution: {integrity: sha512-b6OtCXfk65L6SElVM20q5G546yu10/kNrhg08afEoWlFRJXFq9/6glsvSVY+aI6YeC1tu2TtAqI2jHEQmOmsFw==}
+    engines: {node: '>=v14.16.0'}
+    hasBin: true
+    dependencies:
+      cac: 6.7.14
+      debug: 4.3.4
+      mlly: 1.2.0
+      pathe: 1.1.0
+      picocolors: 1.0.0
+      vite: 4.2.1_@types+node@18.13.0
+    transitivePeerDependencies:
+      - '@types/node'
+      - less
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: true
 
   /vite-plugin-checker/0.5.6_eslint@8.36.0+vite@4.2.1:
     resolution: {integrity: sha512-ftRyON0gORUHDxcDt2BErmsikKSkfvl1i2DoP6Jt2zDO9InfvM6tqO1RkXhSjkaXEhKPea6YOnhFaZxW3BzudQ==}
@@ -8896,67 +8953,6 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /vitest/0.29.7:
-    resolution: {integrity: sha512-aWinOSOu4jwTuZHkb+cCyrqQ116Q9TXaJrNKTHudKBknIpR0VplzeaOUuDF9jeZcrbtQKZQt6yrtd+eakbaxHg==}
-    engines: {node: '>=v14.16.0'}
-    hasBin: true
-    peerDependencies:
-      '@edge-runtime/vm': '*'
-      '@vitest/browser': '*'
-      '@vitest/ui': '*'
-      happy-dom: '*'
-      jsdom: '*'
-      safaridriver: '*'
-      webdriverio: '*'
-    peerDependenciesMeta:
-      '@edge-runtime/vm':
-        optional: true
-      '@vitest/browser':
-        optional: true
-      '@vitest/ui':
-        optional: true
-      happy-dom:
-        optional: true
-      jsdom:
-        optional: true
-      safaridriver:
-        optional: true
-      webdriverio:
-        optional: true
-    dependencies:
-      '@types/chai': 4.3.4
-      '@types/chai-subset': 1.3.3
-      '@types/node': 18.13.0
-      '@vitest/expect': 0.29.7
-      '@vitest/runner': 0.29.7
-      '@vitest/spy': 0.29.7
-      '@vitest/utils': 0.29.7
-      acorn: 8.8.2
-      acorn-walk: 8.2.0
-      cac: 6.7.14
-      chai: 4.3.7
-      debug: 4.3.4
-      local-pkg: 0.4.3
-      pathe: 1.1.0
-      picocolors: 1.0.0
-      source-map: 0.6.1
-      std-env: 3.3.2
-      strip-literal: 1.0.1
-      tinybench: 2.3.1
-      tinypool: 0.4.0
-      tinyspy: 1.1.1
-      vite: 4.2.1_@types+node@18.13.0
-      vite-node: 0.29.7_@types+node@18.13.0
-      why-is-node-running: 2.2.2
-    transitivePeerDependencies:
-      - less
-      - sass
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-    dev: true
-
   /vitest/0.29.7_@vitest+ui@0.29.1:
     resolution: {integrity: sha512-aWinOSOu4jwTuZHkb+cCyrqQ116Q9TXaJrNKTHudKBknIpR0VplzeaOUuDF9jeZcrbtQKZQt6yrtd+eakbaxHg==}
     engines: {node: '>=v14.16.0'}
@@ -9018,6 +9014,70 @@ packages:
       - supports-color
       - terser
     dev: false
+
+  /vitest/0.29.8:
+    resolution: {integrity: sha512-JIAVi2GK5cvA6awGpH0HvH/gEG9PZ0a/WoxdiV3PmqK+3CjQMf8c+J/Vhv4mdZ2nRyXFw66sAg6qz7VNkaHfDQ==}
+    engines: {node: '>=v14.16.0'}
+    hasBin: true
+    peerDependencies:
+      '@edge-runtime/vm': '*'
+      '@vitest/browser': '*'
+      '@vitest/ui': '*'
+      happy-dom: '*'
+      jsdom: '*'
+      playwright: '*'
+      safaridriver: '*'
+      webdriverio: '*'
+    peerDependenciesMeta:
+      '@edge-runtime/vm':
+        optional: true
+      '@vitest/browser':
+        optional: true
+      '@vitest/ui':
+        optional: true
+      happy-dom:
+        optional: true
+      jsdom:
+        optional: true
+      playwright:
+        optional: true
+      safaridriver:
+        optional: true
+      webdriverio:
+        optional: true
+    dependencies:
+      '@types/chai': 4.3.4
+      '@types/chai-subset': 1.3.3
+      '@types/node': 18.13.0
+      '@vitest/expect': 0.29.8
+      '@vitest/runner': 0.29.8
+      '@vitest/spy': 0.29.8
+      '@vitest/utils': 0.29.8
+      acorn: 8.8.2
+      acorn-walk: 8.2.0
+      cac: 6.7.14
+      chai: 4.3.7
+      debug: 4.3.4
+      local-pkg: 0.4.3
+      pathe: 1.1.0
+      picocolors: 1.0.0
+      source-map: 0.6.1
+      std-env: 3.3.2
+      strip-literal: 1.0.1
+      tinybench: 2.3.1
+      tinypool: 0.4.0
+      tinyspy: 1.1.1
+      vite: 4.2.1_@types+node@18.13.0
+      vite-node: 0.29.8_@types+node@18.13.0
+      why-is-node-running: 2.2.2
+    transitivePeerDependencies:
+      - less
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: true
 
   /vm2/3.9.14:
     resolution: {integrity: sha512-HgvPHYHeQy8+QhzlFryvSteA4uQLBCOub02mgqdR+0bN/akRZ48TGB1v0aCv7ksyc0HXx16AZtMHKS38alc6TA==}
