@@ -32,7 +32,7 @@
     "pinst": "3.0.0",
     "prettier": "2.8.7",
     "release-it": "15.9.3",
-    "unbuild": "1.1.2",
+    "unbuild": "1.2.0",
     "vitest": "0.29.8",
     "vue": "3.2.47"
   },
