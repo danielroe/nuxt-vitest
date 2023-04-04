@@ -44,9 +44,6 @@ importers:
       nuxt:
         specifier: 3.3.2
         version: 3.3.2(eslint@8.37.0)(rollup@3.20.2)(typescript@5.0.3)
-      pinst:
-        specifier: 3.0.0
-        version: 3.0.0
       prettier:
         specifier: 2.8.7
         version: 2.8.7
@@ -6942,12 +6939,6 @@ packages:
   /pify@3.0.0:
     resolution: {integrity: sha512-C3FsVNH1udSEX48gGX1xfvwTWfsYWj5U+8/uK15BGzIGrKoUpghX8hWZwa/OFnakBiiVNmBvemTJR5mcy7iPcg==}
     engines: {node: '>=4'}
-    dev: true
-
-  /pinst@3.0.0:
-    resolution: {integrity: sha512-cengSmBxtCyaJqtRSvJorIIZXMXg+lJ3sIljGmtBGUVonMnMsVJbnzl6jGN1HkOWwxNuJynCJ2hXxxqCQrFDdw==}
-    engines: {node: '>=12.0.0'}
-    hasBin: true
     dev: true
 
   /pkg-types@1.0.2:
