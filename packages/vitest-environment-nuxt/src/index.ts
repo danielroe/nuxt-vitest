@@ -1,25 +1,23 @@
 import type { Environment } from 'vitest'
-import { Window, GlobalWindow } from 'happy-dom'
+// import { Window, GlobalWindow } from 'happy-dom'
 import { createFetch } from 'ofetch'
 import { createApp, toNodeListener } from 'h3'
-import type { App } from 'h3'
 import { populateGlobal } from 'vitest/environments'
 import {
   createCall,
   createFetch as createLocalFetch,
 } from 'unenv/runtime/fetch/index'
+import type { NuxtBuiltinEnvironment } from './types'
+import happyDom from './env/happy-dom'
+import jsdom from './env/jsdom'
 
 export default <Environment>{
   name: 'nuxt',
-  async setup(_, environmentOptions) {
-    const win = new (GlobalWindow || Window)() as any as Window & {
-      __app: App
-      __registry: Set<string>
-      __NUXT__: any
-      $fetch: any
-      fetch: any
-      IntersectionObserver: any
-    }
+  async setup(global, environmentOptions) {
+    const { window: win, teardown } = await {
+      'happy-dom': happyDom,
+      jsdom
+    }[environmentOptions.nuxtDomEnvironment as NuxtBuiltinEnvironment || 'happy-dom'](global, environmentOptions)
 
     win.__NUXT__ = {
       serverRendered: false,
@@ -73,7 +71,7 @@ export default <Environment>{
     return {
       // called after all tests with this env have been run
       teardown() {
-        win.happyDOM.cancelAsync()
+        teardown()
         // @ts-expect-error
         keys.forEach(key => delete global[key])
         // @ts-expect-error
