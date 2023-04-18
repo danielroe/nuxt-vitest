@@ -1,5 +1,12 @@
 
 
+## [0.6.10](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.9...0.6.10) (2023-04-18)
+
+
+### Bug Fixes
+
+* **nuxt-vitest:** inject vue plugins if missing ([#130](https://github.com/danielroe/vitest-environment-nuxt/issues/130)) ([eb152f4](https://github.com/danielroe/vitest-environment-nuxt/commit/eb152f492e72f4ecfe5e9f5d1170b36edefbb0eb))
+
 ## [0.6.9](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.8...0.6.9) (2023-03-21)
 
 
