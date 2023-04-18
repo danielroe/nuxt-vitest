@@ -40,6 +40,8 @@
     "stub": "nuxt-module-build --stub"
   },
   "peerDependencies": {
+    "@vitejs/plugin-vue": "*",
+    "@vitejs/plugin-vue-jsx": "*",
     "vite": "*"
   },
   "dependencies": {
