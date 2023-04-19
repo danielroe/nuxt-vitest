@@ -1,5 +1,48 @@
 
 
+## [0.6.10](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.9...0.6.10) (2023-04-18)
+
+
+### Bug Fixes
+
+* **nuxt-vitest:** inject vue plugins if missing ([#130](https://github.com/danielroe/vitest-environment-nuxt/issues/130)) ([eb152f4](https://github.com/danielroe/vitest-environment-nuxt/commit/eb152f492e72f4ecfe5e9f5d1170b36edefbb0eb))
+
+## [0.6.9](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.8...0.6.9) (2023-03-21)
+
+
+### Bug Fixes
+
+* pass resolved `runtimeConfig` into nuxt environment ([#101](https://github.com/danielroe/vitest-environment-nuxt/issues/101)) ([6dce4dc](https://github.com/danielroe/vitest-environment-nuxt/commit/6dce4dca542c3807c158d3f1c5ac6c950263b4ff))
+
+## [0.6.8](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.7...0.6.8) (2023-03-09)
+
+
+### Bug Fixes
+
+* revert type change to `defineVitestConfig` ([#86](https://github.com/danielroe/vitest-environment-nuxt/issues/86)) ([43c0f36](https://github.com/danielroe/vitest-environment-nuxt/commit/43c0f36bad052af17a7abc2317cfad676180990f))
+
+## [0.6.7](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.6...0.6.7) (2023-03-08)
+
+
+### Bug Fixes
+
+* correct type of `defineVitestConfig` ([#72](https://github.com/danielroe/vitest-environment-nuxt/issues/72)) ([f3ac427](https://github.com/danielroe/vitest-environment-nuxt/commit/f3ac4274654be7053da3a675c6affeaded37eec0))
+* mock core nuxt composables ([#83](https://github.com/danielroe/vitest-environment-nuxt/issues/83)) ([dfbfbf3](https://github.com/danielroe/vitest-environment-nuxt/commit/dfbfbf3a1a53d32925753fcacf93b068a193c62d))
+
+## [0.6.6](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.5...0.6.6) (2023-02-12)
+
+
+### Bug Fixes
+
+* **nuxt-vitest:** exclude import protection plugin ([6b9ac3e](https://github.com/danielroe/vitest-environment-nuxt/commit/6b9ac3e580459fb87b059ff6e671b4a87b455ba5))
+
+## [0.6.5](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.4...0.6.5) (2023-02-01)
+
+
+### Bug Fixes
+
+* accept object syntax for `to` prop in router mock ([#55](https://github.com/danielroe/vitest-environment-nuxt/issues/55)) ([129b8f4](https://github.com/danielroe/vitest-environment-nuxt/commit/129b8f4b5c911c7923de54860e8984c98627b60d))
+
 ## [0.6.4](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.3...0.6.4) (2023-01-29)
 
 
