@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "@nuxt/module-builder": "0.3.0",
-    "@nuxt/schema": "3.4.1",
-    "nuxt": "3.4.1"
+    "@nuxt/schema": "3.4.3",
+    "nuxt": "3.4.3"
   }
 }
