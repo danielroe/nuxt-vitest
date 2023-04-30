@@ -46,7 +46,7 @@
     "@vue/test-utils": "^2.2.8",
     "estree-walker": "^3.0.3",
     "h3": "^1.1.0",
-    "happy-dom": "^9.0.0",
+    "happy-dom": "^9.10.1",
     "magic-string": "^0.30.0",
     "ofetch": "^1.0.0",
     "unenv": "^1.0.2"
