@@ -58,13 +58,17 @@ export async function getVitestConfigFromNuxt(
 ): Promise<InlineConfig & { test: VitestConfig }> {
   if (!options) options = await startNuxtAndGetViteConfig()
   options.viteConfig.plugins = options.viteConfig.plugins || []
-  options.viteConfig.plugins = options.viteConfig.plugins.filter(p => (p as any)?.name !== 'nuxt:import-protection')
-  
+  options.viteConfig.plugins = options.viteConfig.plugins.filter(
+    p => (p as any)?.name !== 'nuxt:import-protection'
+  )
+
   for (const name in vuePlugins) {
     if (!options.viteConfig.plugins?.some(p => (p as any)?.name === name)) {
       const [plugin, key] = vuePlugins[name as keyof typeof vuePlugins]
-      // @ts-expect-error mismatching component options
-      options.viteConfig.plugins.push(plugin((options.viteConfig as ViteConfig)[key]))
+      options.viteConfig.plugins.push(
+        // @ts-expect-error mismatching component options
+        plugin((options.viteConfig as ViteConfig)[key])
+      )
     }
   }
 
@@ -74,6 +78,22 @@ export async function getVitestConfigFromNuxt(
       ...options.viteConfig.server,
       middlewareMode: false,
     },
+    plugins: [
+      ...options.viteConfig.plugins,
+      // TODO: https://github.com/nuxt/nuxt/pull/20639
+      {
+        name: 'disable-auto-execute',
+        enforce: 'pre',
+        transform(code, id) {
+          if (id.match(/nuxt3?\/.*\/entry\./)) {
+            return code.replace(
+              /(?<!app = )entry\(\)\.catch/,
+              'Promise.resolve().catch'
+            )
+          }
+        },
+      },
+    ],
     test: {
       ...options.viteConfig.test,
       dir: options.nuxt.options.rootDir,
