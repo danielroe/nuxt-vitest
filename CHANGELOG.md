@@ -1,5 +1,12 @@
 
 
+## [0.6.11](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.10...0.6.11) (2023-05-02)
+
+
+### Bug Fixes
+
+* **nuxt-vitest:** unshift vue plugins in newer nuxts ([#148](https://github.com/danielroe/vitest-environment-nuxt/issues/148)) ([1ce3e0e](https://github.com/danielroe/vitest-environment-nuxt/commit/1ce3e0e49301e5f9fece54eb85f4bfcf51905477))
+
 ## [0.6.10](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.9...0.6.10) (2023-04-18)
 
 

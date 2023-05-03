@@ -65,7 +65,7 @@ export async function getVitestConfigFromNuxt(
   for (const name in vuePlugins) {
     if (!options.viteConfig.plugins?.some(p => (p as any)?.name === name)) {
       const [plugin, key] = vuePlugins[name as keyof typeof vuePlugins]
-      options.viteConfig.plugins.push(
+      options.viteConfig.plugins.unshift(
         // @ts-expect-error mismatching component options
         plugin((options.viteConfig as ViteConfig)[key])
       )
