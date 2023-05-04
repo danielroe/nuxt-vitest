@@ -8,6 +8,7 @@
 > A vitest environment for testing code that needs a [Nuxt](https://nuxt.com) runtime environment
 
 - [✨ &nbsp;Changelog](https://github.com/danielroe/nuxt-vitest/blob/main/CHANGELOG.md)
+- [▶️ &nbsp;Playground](https://stackblitz.com/edit/nuxt-vitest)
 
 > **Warning**
 > This library is in active development and you should pin the patch version before using.
@@ -181,6 +182,39 @@ mockComponent('MyComponent', async () => {
   }
 })
 ```
+
+### Conflict with @nuxt/test-utils
+
+`nuxt-vitest` and `@nuxt/test-utils` need to run in different testing environments and so can't be used in the same file.
+
+If you would like to use `@nuxt/test-utils` to conduct end-to-end tests on your Nuxt app, you can split your tests into separate files. You then either specify a test environment per-file with the special `// @vitest-environment nuxt` comment, or name your `nuxt-vitest` files with the `.nuxt.spec.ts` extension.
+
+`app.nuxt.spec.js`
+
+```ts
+import { mockNuxtImport } from "nuxt-vitest/utils";
+
+mockNuxtImport('useStorage', () => {
+  return () => {
+    return { value: 'mocked storage' }
+  }
+})
+
+```
+
+`app.e2e.spec.js`
+
+```ts
+import { setup, $fetch } from '@nuxt/test-utils';
+
+await setup({
+  setupTimeout: 10000,
+});
+
+// ...
+```
+
+
 
 ## 💻 Development
 

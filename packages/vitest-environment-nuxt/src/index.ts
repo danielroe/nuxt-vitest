@@ -26,7 +26,7 @@ export default <Environment>{
       config: {
         public: {},
         app: { baseURL: '/' },
-        ...environmentOptions?.nuxtRuntimeConfig
+        ...environmentOptions?.nuxtRuntimeConfig,
       },
       data: {},
       state: {},
@@ -41,6 +41,7 @@ export default <Environment>{
       win.IntersectionObserver ||
       class IntersectionObserver {
         observe() {}
+        unobserve() {}
       }
 
     const h3App = createApp()
@@ -68,7 +69,7 @@ export default <Environment>{
     })
 
     // @ts-ignore
-    await import('#app/entry')
+    await import('#app/entry').then(r => r.default())
 
     return {
       // called after all tests with this env have been run
