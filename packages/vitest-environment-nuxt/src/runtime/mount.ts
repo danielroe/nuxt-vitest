@@ -9,6 +9,8 @@ import NuxtRoot from '#build/root-component.mjs'
 export async function mountSuspended<
   T extends DefineComponent<any, any, any, any>
 >(component: T) {
+  // @ts-expect-error untyped global __unctx__
+  const vueApp = globalThis.__unctx__.get('nuxt-app').tryUse().vueApp
   return new Promise<VueWrapper<InstanceType<T>>>(resolve => {
     const vm = mount(
       {
@@ -22,6 +24,10 @@ export async function mountSuspended<
       },
       {
         global: {
+          config: {
+            globalProperties: vueApp.config.globalProperties,
+          },
+          provide: vueApp._context.provides,
           components: {
             RouterLink,
           },
