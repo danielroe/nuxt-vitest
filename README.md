@@ -8,6 +8,7 @@
 > A vitest environment for testing code that needs a [Nuxt](https://nuxt.com) runtime environment
 
 - [✨ &nbsp;Changelog](https://github.com/danielroe/nuxt-vitest/blob/main/CHANGELOG.md)
+- [▶️ &nbsp;Playground](https://stackblitz.com/edit/nuxt-vitest)
 
 > **Warning**
 > This library is in active development and you should pin the patch version before using.
