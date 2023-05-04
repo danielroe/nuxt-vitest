@@ -39,8 +39,8 @@ describe('test utils', () => {
     expect(component.html()).toMatchInlineSnapshot(`
       "<div>This is an auto-imported component</div>
       <div> I am a global component </div>
-      <!-- TODO: <NuxtPage /> -->
-      <a href=\\"/test\\">Test link</a>"
+      <div>/blank</div>
+      <a href=\\"/test\\"> Test link </a>"
     `)
   })
 
