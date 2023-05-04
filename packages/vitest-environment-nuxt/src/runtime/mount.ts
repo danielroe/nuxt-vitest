@@ -1,14 +1,20 @@
 import { mount, VueWrapper } from '@vue/test-utils'
 import { h, DefineComponent, Suspense, nextTick } from 'vue'
+import { RouteLocationRaw } from 'vue-router'
 
 import { RouterLink } from './components/RouterLink'
 
 // @ts-expect-error virtual file
 import NuxtRoot from '#build/root-component.mjs'
+import { useRouter } from '#imports'
+
+interface MountSuspendedOptions {
+  route?: RouteLocationRaw
+}
 
 export async function mountSuspended<
   T extends DefineComponent<any, any, any, any>
->(component: T) {
+>(component: T, options?: MountSuspendedOptions) {
   // @ts-expect-error untyped global __unctx__
   const vueApp = globalThis.__unctx__.get('nuxt-app').tryUse().vueApp
   return new Promise<VueWrapper<InstanceType<T>>>(resolve => {
@@ -19,7 +25,16 @@ export async function mountSuspended<
           h(
             Suspense,
             { onResolve: () => nextTick().then(() => resolve(vm as any)) },
-            { default: () => h(component) }
+            {
+              default: () =>
+                h({
+                  async setup() {
+                    const router = useRouter()
+                    await router.replace(options?.route || '/')
+                    return () => h(component)
+                  },
+                }),
+            }
           ),
       },
       {
