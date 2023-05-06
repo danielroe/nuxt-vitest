@@ -43,16 +43,17 @@
   ],
   "dependencies": {
     "@nuxt/kit": "^3.2.0",
-    "@vue/test-utils": "^2.2.8",
+    "@vue/test-utils": "^2.3.2",
     "estree-walker": "^3.0.3",
-    "h3": "^1.1.0",
-    "happy-dom": "^9.10.1",
+    "h3": "^1.6.5",
+    "happy-dom": "^9.10.9",
     "magic-string": "^0.30.0",
     "ofetch": "^1.0.0",
     "unenv": "^1.0.2"
   },
   "peerDependencies": {
     "vitest": "^0.24.5 || ^0.26.0 || ^0.27.0 || ^0.28.0 || ^0.29.0 || ^0.30.0",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-router": "^4.0.0"
   }
 }
