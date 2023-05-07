@@ -9,15 +9,13 @@ import { RouterLink } from './components/RouterLink'
 import NuxtRoot from '#build/root-component.mjs'
 import { useRouter } from '#imports'
 
-interface MountSuspendedOptions {
+interface MountSuspendedOptions extends MountingOptions<any, any> {
   route?: RouteLocationRaw
 }
 
-interface Options extends MountSuspendedOptions, MountingOptions<any, any> {}
-
 export async function mountSuspended<
   T extends DefineComponent<any, any, any, any>
->(component: T, options?: Options) {
+> (component: T, options?: MountSuspendedOptions) {
   const {
     props = {},
     attrs = {},
