@@ -17,7 +17,7 @@ interface Options extends MountSuspendedOptions, MountingOptions<any, any> {}
 
 export async function mountSuspended<
   T extends DefineComponent<any, any, any, any>
-> (component: T, options?: Options) {
+>(component: T, options?: Options) {
   const {
     props = {},
     attrs = {},
@@ -39,7 +39,7 @@ export async function mountSuspended<
             {
               default: () =>
                 h({
-                  async setup () {
+                  async setup() {
                     const router = useRouter()
                     await router.replace(route)
                     return () => h(component, { ...props, ...attrs }, slots)

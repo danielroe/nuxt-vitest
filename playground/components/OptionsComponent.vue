@@ -7,12 +7,8 @@
 
 <script setup lang="ts">
 withDefaults(
-    defineProps<{
-        title?: string
-    }>(),
-    {
-        title: 'The original',
-    }
+  defineProps<{ title?: string }>(),
+  { title: 'The original' }
 )
 
 await new Promise(resolve => setTimeout(resolve, 1))
