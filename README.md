@@ -76,6 +76,17 @@ export default defineVitestConfig({
 })
 ```
 
+If you have set `environment: 'nuxt'` by default, you can then opt-out [of the default environment](https://vitest.dev/guide/environment.html#test-environment) per test file as needed.
+
+```js
+// @vitest-environment node
+import { test } from 'vitest'
+
+test('my test', () => {
+  // ... test without Nuxt environment!
+})
+```
+
 ## 👉 Important notes
 
 When you run your tests within the Nuxt environment, they will be running in a [`happy-dom`](https://github.com/capricorn86/happy-dom) environment. Before your tests run, a global Nuxt app will be initialised (including, for example, running any plugins or code you've defined in your `app.vue`).
