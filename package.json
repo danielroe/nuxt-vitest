@@ -1,6 +1,6 @@
 {
   "private": true,
-  "packageManager": "pnpm@8.1.1",
+  "packageManager": "pnpm@8.4.0",
   "scripts": {
     "build": "pnpm dev:prepare && pnpm run --filter=./packages/* -r build",
     "stub": "pnpm run --filter=./packages/* -r stub",
@@ -18,23 +18,21 @@
   },
   "devDependencies": {
     "@nuxt/eslint-config": "0.1.1",
-    "@nuxt/schema": "3.3.2",
+    "@nuxt/schema": "3.4.3",
     "@release-it-plugins/workspaces": "3.2.0",
     "@release-it/conventional-changelog": "5.1.1",
-    "@types/jsdom": "^21.1.1",
-    "@vitest/coverage-c8": "0.29.8",
+    "@vitest/coverage-c8": "0.30.1",
     "conventional-changelog-conventionalcommits": "5.0.0",
-    "eslint": "8.37.0",
+    "eslint": "8.40.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-prettier": "4.2.1",
     "husky": "8.0.3",
-    "jsdom": "^21.1.1",
-    "lint-staged": "13.2.0",
-    "nuxt": "3.3.2",
-    "prettier": "2.8.7",
-    "release-it": "15.10.0",
-    "unbuild": "1.2.0",
-    "vitest": "0.29.8",
+    "lint-staged": "13.2.2",
+    "nuxt": "3.4.3",
+    "prettier": "2.8.8",
+    "release-it": "15.10.3",
+    "unbuild": "1.2.1",
+    "vitest": "0.30.1",
     "vue": "3.2.47"
   },
   "pnpm": {
@@ -43,5 +41,5 @@
       "nuxt-vitest": "workspace:*"
     }
   },
-  "version": "0.6.9"
+  "version": "0.6.12"
 }

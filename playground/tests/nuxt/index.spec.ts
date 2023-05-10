@@ -4,6 +4,7 @@ import { mountSuspended, registerEndpoint } from 'vitest-environment-nuxt/utils'
 
 import App from '~/app.vue'
 import FetchComponent from '~/components/FetchComponent.vue'
+import OptionsComponent from '~/components/OptionsComponent.vue'
 
 describe('client-side nuxt features', () => {
   it('can use core nuxt composables within test file', () => {
@@ -24,12 +25,18 @@ describe('client-side nuxt features', () => {
     expect(app.$router).toBeDefined()
   })
 
-  it.todo('defaults to index page', async () => {
+  it('defaults to index page', async () => {
     expect(useRoute().matched[0].meta).toMatchInlineSnapshot(`
-    {}
-  `)
-    expect(useRoute().fullPath).toMatchInlineSnapshot('"/blank"')
+      {
+        "slug": "foo",
+      }
+    `)
     // TODO: should it be possible to push to other routes?
+  })
+
+  it('allows pushing to other pages', async () => {
+    await useRouter().push('/something')
+    expect(useRoute().fullPath).toMatchInlineSnapshot('"/something"')
   })
 })
 
@@ -38,9 +45,39 @@ describe('test utils', () => {
     const component = await mountSuspended(App)
     expect(component.html()).toMatchInlineSnapshot(`
       "<div>This is an auto-imported component</div>
-      <!-- TODO: <NuxtPage /> -->
-      <a href=\\"/test\\">Test link</a>"
+      <div> I am a global component </div>
+      <div>Index page</div>
+      <a href=\\"/test\\"> Test link </a>"
     `)
+  })
+
+  it('should render default props within nuxt suspense', async () => {
+    const component = await mountSuspended(OptionsComponent)
+    expect(component.find('h2').html()).toMatchInlineSnapshot(
+      '"<h2>The original</h2>"'
+    )
+  })
+
+  it('should render passed props within nuxt suspense', async () => {
+    const component = await mountSuspended(OptionsComponent, {
+      props: {
+        title: 'title from mount suspense props',
+      },
+    })
+    expect(component.find('h2').html()).toMatchInlineSnapshot(
+      '"<h2>title from mount suspense props</h2>"'
+    )
+  })
+
+  it('can pass slots to mounted components within nuxt suspense', async () => {
+    const component = await mountSuspended(OptionsComponent, {
+      slots: {
+        default: () => 'slot from mount suspense',
+      },
+    })
+    expect(component.find('div').html()).toMatchInlineSnapshot(
+      '"<div>slot from mount suspense</div>"'
+    )
   })
 
   it('can mock fetch requests', async () => {
@@ -53,7 +90,13 @@ describe('test utils', () => {
     )
   })
 
-  // TODO: make working with router - currently router components are not
-  // registered and route symbol is not injected
-  it.todo('handles nuxt routing')
+  it('handles nuxt routing', async () => {
+    const component = await mountSuspended(App, { route: '/test' })
+    expect(component.html()).toMatchInlineSnapshot(`
+      "<div>This is an auto-imported component</div>
+      <div> I am a global component </div>
+      <div>/</div>
+      <a href=\\"/test\\"> Test link </a>"
+    `)
+  })
 })

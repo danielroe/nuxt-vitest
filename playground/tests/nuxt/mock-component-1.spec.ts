@@ -15,7 +15,8 @@ it('should mock', async () => {
   const component = await mountSuspended(App)
   expect(component.html()).toMatchInlineSnapshot(`
     "<div>Mocked</div>
-    <!-- TODO: <NuxtPage /> -->
-    <a href=\\"/test\\">Test link</a>"
+    <div> I am a global component </div>
+    <div>Index page</div>
+    <a href=\\"/test\\"> Test link </a>"
   `)
 })

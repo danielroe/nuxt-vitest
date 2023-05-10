@@ -1,5 +1,26 @@
 
 
+## [0.6.12](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.11...0.6.12) (2023-05-03)
+
+
+### Bug Fixes
+
+* support awaiting nuxt app promises ([#147](https://github.com/danielroe/vitest-environment-nuxt/issues/147)) ([156850e](https://github.com/danielroe/vitest-environment-nuxt/commit/156850e39a6a2fb38a2200b89060cc1858fbd983))
+
+## [0.6.11](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.10...0.6.11) (2023-05-02)
+
+
+### Bug Fixes
+
+* **nuxt-vitest:** unshift vue plugins in newer nuxts ([#148](https://github.com/danielroe/vitest-environment-nuxt/issues/148)) ([1ce3e0e](https://github.com/danielroe/vitest-environment-nuxt/commit/1ce3e0e49301e5f9fece54eb85f4bfcf51905477))
+
+## [0.6.10](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.9...0.6.10) (2023-04-18)
+
+
+### Bug Fixes
+
+* **nuxt-vitest:** inject vue plugins if missing ([#130](https://github.com/danielroe/vitest-environment-nuxt/issues/130)) ([eb152f4](https://github.com/danielroe/vitest-environment-nuxt/commit/eb152f492e72f4ecfe5e9f5d1170b36edefbb0eb))
+
 ## [0.6.9](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.8...0.6.9) (2023-03-21)
 
 
