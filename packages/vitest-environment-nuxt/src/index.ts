@@ -1,5 +1,4 @@
 import type { Environment } from 'vitest'
-// import { Window, GlobalWindow } from 'happy-dom'
 import { createFetch } from 'ofetch'
 import { createApp, toNodeListener } from 'h3'
 import { populateGlobal } from 'vitest/environments'
@@ -14,6 +13,7 @@ import jsdom from './env/jsdom'
 export default <Environment>{
   name: 'nuxt',
   async setup(global, environmentOptions) {
+    console.log('----environmentOptions.nuxtDomEnvironment', environmentOptions.nuxtDomEnvironment)
     const { window: win, teardown } = await {
       'happy-dom': happyDom,
       jsdom
@@ -59,6 +59,7 @@ export default <Environment>{
     }
 
     win.$fetch = createFetch({ fetch: win.fetch, Headers: win.Headers as any })
+    win.scrollTo = () => {}
 
     win.__registry = registry
     win.__app = h3App

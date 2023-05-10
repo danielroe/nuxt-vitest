@@ -8,10 +8,14 @@
     "preview": "nuxt preview",
     "test:unit": "vitest",
     "test:dev": "NUXT_VITEST_DEV_TEST=true nuxt dev",
-    "test": "pnpm test:unit --run && pnpm test:dev"
+    "test:jsdom": "VITEST_DOM_ENV=jsdom pnpm test:unit --run",
+    "test:happy-dom": "VITEST_DOM_ENV=happy-dom pnpm test:unit --run",
+    "test": "pnpm test:happy-dom && pnpm test:jsdom && pnpm test:dev"
   },
   "devDependencies": {
     "@nuxt/devtools": "0.4.6",
+    "happy-dom": "^9.10.9",
+    "jsdom": "^22.0.0",
     "nuxt": "3.4.3",
     "nuxt-vitest": "0.6.12",
     "vitest": "0.30.1",

@@ -6,5 +6,8 @@ export default defineVitestConfig({
     coverage: {
       reportsDirectory: 'coverage',
     },
+    environmentOptions: {
+      nuxtDomEnvironment: process.env.VITEST_DOM_ENV
+    }
   },
 })
