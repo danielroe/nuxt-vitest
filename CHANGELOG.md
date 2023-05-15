@@ -1,5 +1,18 @@
 
 
+## [0.7.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.12...0.7.0) (2023-05-15)
+
+
+### Features
+
+* allow passing mount options in `mountSuspended` ([#159](https://github.com/danielroe/vitest-environment-nuxt/issues/159)) ([b0c478a](https://github.com/danielroe/vitest-environment-nuxt/commit/b0c478a98c8a423dacf45a264c1dc5decc1e01f8))
+* support injects, global properties (and routing!) ([#154](https://github.com/danielroe/vitest-environment-nuxt/issues/154)) ([82cdd0b](https://github.com/danielroe/vitest-environment-nuxt/commit/82cdd0b361b5e50d26d79946d5530ceede81c98f))
+
+
+### Bug Fixes
+
+* support `unobserve` method in mocked IntersectionObserver ([#150](https://github.com/danielroe/vitest-environment-nuxt/issues/150)) ([c094878](https://github.com/danielroe/vitest-environment-nuxt/commit/c0948789be59934af60b2b6f302de29a90c0655f))
+
 ## [0.6.12](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.11...0.6.12) (2023-05-03)
 
 
