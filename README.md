@@ -130,7 +130,7 @@ export default useStorageMock
 ```
 
 ```ts
-import { useStorageMock } from './useStorageMock'
+import useStorageMock from './useStorageMock'
 import { mockNuxtImport } from 'nuxt-vitest/utils'
 
 mockNuxtImport('useStorage', () => {
