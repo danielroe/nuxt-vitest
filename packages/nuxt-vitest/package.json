@@ -42,7 +42,8 @@
   "peerDependencies": {
     "@vitejs/plugin-vue": "*",
     "@vitejs/plugin-vue-jsx": "*",
-    "vite": "*"
+    "vite": "*",
+    "vitest": "^0.30.0"
   },
   "dependencies": {
     "@nuxt/kit": "^3.2.0",
@@ -50,13 +51,13 @@
     "get-port-please": "^3.0.1",
     "perfect-debounce": "^1.0.0",
     "std-env": "^3.3.3",
-    "vitest": "^0.30.0",
     "vitest-environment-nuxt": "0.7.0"
   },
   "devDependencies": {
     "@nuxt/module-builder": "0.3.1",
     "@nuxt/kit": "3.5.0",
     "@nuxt/schema": "3.5.0",
-    "nuxt": "3.5.0"
+    "nuxt": "3.5.0",
+    "vitest": "^0.30.0"
   }
 }

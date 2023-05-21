@@ -86,9 +86,6 @@ importers:
       vite:
         specifier: '*'
         version: 4.3.7(@types/node@18.16.3)
-      vitest:
-        specifier: ^0.30.0
-        version: 0.30.1(@vitest/ui@0.30.0)
       vitest-environment-nuxt:
         specifier: workspace:*
         version: link:../vitest-environment-nuxt
@@ -102,6 +99,9 @@ importers:
       nuxt:
         specifier: 3.5.0
         version: 3.5.0(@types/node@18.16.3)(eslint@8.41.0)(rollup@3.21.8)(typescript@5.0.4)
+      vitest:
+        specifier: ^0.30.0
+        version: 0.30.1(@vitest/ui@0.30.0)
 
   packages/vitest-environment-nuxt:
     dependencies:
@@ -1851,7 +1851,6 @@ packages:
       pathe: 1.1.0
       picocolors: 1.0.0
       sirv: 2.0.3
-    dev: false
 
   /@vitest/utils@0.30.0:
     resolution: {integrity: sha512-qFZgoOKQ+rJV9xG4BBxgOSilnLQ2gkfG4I+z1wBuuQ3AD33zQrnB88kMFfzsot1E1AbF3dNK1e4CU7q3ojahRA==}
@@ -1859,7 +1858,6 @@ packages:
       concordance: 5.0.4
       loupe: 2.3.6
       pretty-format: 27.5.1
-    dev: false
 
   /@vitest/utils@0.30.1:
     resolution: {integrity: sha512-/c8Xv2zUVc+rnNt84QF0Y0zkfxnaGhp87K2dYJMLtLOIckPzuxLVzAtFCicGFdB4NeBHNzTRr1tNn7rCtQcWFA==}
@@ -4024,7 +4022,6 @@ packages:
 
   /fflate@0.7.4:
     resolution: {integrity: sha512-5u2V/CDW15QM1XbbgS+0DfPxVB+jUKhWEKuuFuHncbk3tEEqzmoXL+2KyOFuKGqOnmdIy0/davWF1CkuwtibCw==}
-    dev: false
 
   /figures@5.0.0:
     resolution: {integrity: sha512-ej8ksPF4x6e5wvK9yevct0UCXh8TTFlWGVLlgjZuoBH1HwjIfKE/IdL5mq89sFA7zELi1VhKpmtDnrs7zWyeyg==}
@@ -9189,7 +9186,7 @@ packages:
       - sugarss
       - supports-color
       - terser
-    dev: false
+    dev: true
 
   /vitest@0.30.1(happy-dom@9.10.9):
     resolution: {integrity: sha512-y35WTrSTlTxfMLttgQk4rHcaDkbHQwDP++SNwPb+7H8yb13Q3cu2EixrtHzF27iZ8v0XCciSsLg00RkPAzB/aA==}
