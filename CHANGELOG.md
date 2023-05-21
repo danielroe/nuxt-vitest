@@ -1,5 +1,12 @@
 
 
+## [0.7.1](https://github.com/danielroe/vitest-environment-nuxt/compare/0.7.0...0.7.1) (2023-05-21)
+
+
+### Bug Fixes
+
+* move `vitest` to peer dependency ([616b721](https://github.com/danielroe/vitest-environment-nuxt/commit/616b72133d99ddb06fd7cd0699554d9834edfa3f))
+
 ## [0.7.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.12...0.7.0) (2023-05-15)
 
 
