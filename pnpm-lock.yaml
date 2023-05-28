@@ -74,6 +74,9 @@ importers:
       '@vitest/ui':
         specifier: ^0.30.0
         version: 0.30.0
+      defu:
+        specifier: ^6.1.2
+        version: 6.1.2
       get-port-please:
         specifier: ^3.0.1
         version: 3.0.1
