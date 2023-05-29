@@ -1,5 +1,13 @@
 
 
+## [0.7.2](https://github.com/danielroe/vitest-environment-nuxt/compare/0.7.1...0.7.2) (2023-05-28)
+
+
+### Bug Fixes
+
+* allow mocking more nuxt auto-imports ([8806143](https://github.com/danielroe/vitest-environment-nuxt/commit/88061434dae082fd31e2228419ad830404b0323a)), closes [#153](https://github.com/danielroe/vitest-environment-nuxt/issues/153)
+* narrow down vitest inline patterns ([eb66dd9](https://github.com/danielroe/vitest-environment-nuxt/commit/eb66dd9495a89e23fd5948b4ac1c583ddb65765c))
+
 ## [0.7.1](https://github.com/danielroe/vitest-environment-nuxt/compare/0.7.0...0.7.1) (2023-05-21)
 
 
