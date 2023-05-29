@@ -1,5 +1,17 @@
 
 
+## [0.8.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.7.2...0.8.0) (2023-05-29)
+
+
+### Features
+
+* **nuxt-vitest:** allow configuring nuxt rootDir and overrides ([#187](https://github.com/danielroe/vitest-environment-nuxt/issues/187)) ([914cee4](https://github.com/danielroe/vitest-environment-nuxt/commit/914cee4bd801d7443094b4f593024410b886ac44))
+
+
+### Bug Fixes
+
+* move nuxt overrides to `environmentOptions` ([2cc5038](https://github.com/danielroe/vitest-environment-nuxt/commit/2cc5038d58e02bb0a3ca4617da4a9f46060e7003))
+
 ## [0.7.2](https://github.com/danielroe/vitest-environment-nuxt/compare/0.7.1...0.7.2) (2023-05-28)
 
 
