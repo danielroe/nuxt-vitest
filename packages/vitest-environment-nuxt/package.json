@@ -53,7 +53,7 @@
     "unenv": "^1.0.2"
   },
   "devDependencies": {
-    "@nuxt/kit": "3.5.0",
+    "@nuxt/kit": "3.5.1",
     "vue": "3.3.4"
   },
   "peerDependencies": {
