@@ -1,5 +1,12 @@
 
 
+## [0.8.2](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.1...0.8.2) (2023-05-30)
+
+
+### Bug Fixes
+
+* **nuxt-vitest:** respect cwd as vite test dir ([43f2324](https://github.com/danielroe/vitest-environment-nuxt/commit/43f2324e6dd29688622aed3f3332552797477669))
+
 ## [0.8.1](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.0...0.8.1) (2023-05-30)
 
 
