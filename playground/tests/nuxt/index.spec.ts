@@ -98,6 +98,12 @@ describe('test utils', () => {
     `)
   })
 
+  it('can access exposed methods from components mounted within nuxt suspense', async () => {
+    const component = await mountSuspended(WrapperTests)
+    expect(component.vm.someRef).toBe('thing')
+    expect(component.vm.testExpose?.()).toBe('thing')
+  })
+
   it('can mock fetch requests', async () => {
     registerEndpoint('https://jsonplaceholder.typicode.com/todos/1', () => ({
       title: 'title from mocked api',

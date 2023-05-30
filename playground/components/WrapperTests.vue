@@ -9,7 +9,8 @@ function testExpose () {
 }
 
 defineExpose({
-  testExpose
+  testExpose,
+  someRef: ref('thing')
 })
 </script>
 
