@@ -36,6 +36,7 @@ export async function mountSuspended<T>(
       typeof mount<T>
     >
   >(resolve => {
+    let exposed: null | any[] = []
     const vm = mount(
       {
         setup: (props, ctx) => {
@@ -48,7 +49,16 @@ export async function mountSuspended<T>(
         render: (renderContext: any) =>
           h(
             Suspense,
-            { onResolve: () => nextTick().then(() => resolve(vm as any)) },
+            {
+              onResolve: () =>
+                nextTick().then(() => {
+                  for (const expose of exposed || []) {
+                    setupContext.expose(...expose)
+                  }
+                  exposed = null
+                  resolve(vm as any)
+                }),
+            },
             {
               default: () =>
                 h({
@@ -65,7 +75,15 @@ export async function mountSuspended<T>(
                         : undefined,
                       setup: setup
                         ? (props: Record<string, any>) =>
-                            setup(props, setupContext)
+                            setup(props, {
+                              ...setupContext,
+                              expose: (...args) => {
+                                if (exposed) {
+                                  return void exposed.push(args)
+                                }
+                                return setupContext.expose(...args)
+                              },
+                            })
                         : undefined,
                     }
 
