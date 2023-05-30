@@ -1,5 +1,13 @@
 
 
+## [0.8.1](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.0...0.8.1) (2023-05-30)
+
+
+### Bug Fixes
+
+* defer to `vue/test-utils` for the type of `mountSuspended` ([24d3f0a](https://github.com/danielroe/vitest-environment-nuxt/commit/24d3f0a165273bc40d2255f9bbf681fac6c0e9af)), closes [#191](https://github.com/danielroe/vitest-environment-nuxt/issues/191)
+* **utils:** proxy context to capture emitted events in wrapper ([8bf8037](https://github.com/danielroe/vitest-environment-nuxt/commit/8bf8037e461515a8c5ef6305351823fff9ed484b)), closes [#175](https://github.com/danielroe/vitest-environment-nuxt/issues/175)
+
 ## [0.8.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.7.2...0.8.0) (2023-05-29)
 
 
