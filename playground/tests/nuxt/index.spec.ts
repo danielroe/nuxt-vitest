@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 import { mountSuspended, registerEndpoint } from 'vitest-environment-nuxt/utils'
 
@@ -6,6 +6,8 @@ import App from '~/app.vue'
 import FetchComponent from '~/components/FetchComponent.vue'
 import OptionsComponent from '~/components/OptionsComponent.vue'
 import WrapperTests from '~/components/WrapperTests.vue'
+
+import { mount } from '@vue/test-utils'
 
 describe('client-side nuxt features', () => {
   it('can use core nuxt composables within test file', () => {
@@ -83,7 +85,7 @@ describe('test utils', () => {
 
   it('can receive emitted events from components mounted within nuxt suspense', async () => {
     const component = await mountSuspended(WrapperTests)
-    component.find('button').trigger('click')
+    component.find('button#emitCustomEvent').trigger('click')
     expect(component.emitted()).toMatchInlineSnapshot(`
       {
         "customEvent": [
@@ -96,6 +98,19 @@ describe('test utils', () => {
         ],
       }
     `)
+  })
+
+  // This test works (you can delete it later)
+  it('can receive emitted events from components using defineModel', () => {
+    const component = mount(WrapperTests)
+    component.find('button#changeModelValue').trigger('click')
+    expect(component.emitted()).toHaveProperty('update:modelValue')
+  })
+
+  it('can receive emitted events from components mounted within nuxt suspense using defineModel', async () => {
+    const component = await mountSuspended(WrapperTests)
+    component.find('button#changeModelValue').trigger('click')
+    expect(component.emitted()).toHaveProperty('update:modelValue')
   })
 
   it('can mock fetch requests', async () => {
