@@ -24,6 +24,11 @@ export default defineNuxtConfig({
           '../packages/vitest-environment-nuxt/src/index',
       },
     },
+    vue: {
+      script: {
+        defineModel: true,
+      },
+    },
   },
   runtimeConfig: {
     public: {
