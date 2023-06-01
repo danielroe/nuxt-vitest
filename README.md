@@ -204,6 +204,23 @@ mockComponent('MyComponent', async () => {
 })
 ```
 
+### `registerEndpoint`
+
+`registerEndpoint` allows you create Nitro endpoint that returns mocked data. It can come in handy if you want to test a component that makes requests to API to display some data.
+
+The first argument is the endpoint name (e.g. `/test/`).
+The second argument is a factory function that returns the mocked data.
+
+For example, to mock `/test/` endpoint, you can do:
+
+```ts
+registerEndpoint("/test/", () => {
+  test: "test-field"
+})
+```
+
+> **Note**: If your requests in a component go to external API, you can use `baseURL` and then make it empty using Nuxt Enviroment Config (`$test`) so all your requests will go to Nitro server.
+
 ### Conflict with @nuxt/test-utils
 
 `nuxt-vitest` and `@nuxt/test-utils` need to run in different testing environments and so can't be used in the same file.
