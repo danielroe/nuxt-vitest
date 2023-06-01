@@ -1,6 +1,6 @@
 {
   "name": "vitest-environment-nuxt",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "An vitest environment with support for testing code that needs a Nuxt runtime environment.",
   "repository": "danielroe/vitest-environment-nuxt",
   "keywords": [

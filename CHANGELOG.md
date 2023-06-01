@@ -1,5 +1,12 @@
 
 
+## [0.8.3](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.2...0.8.3) (2023-06-01)
+
+
+### Bug Fixes
+
+* **vitest-environment-nuxt:** register imports after context is created ([434b39b](https://github.com/danielroe/vitest-environment-nuxt/commit/434b39b0ad8b707579078b005e3ada2e791ffafe))
+
 ## [0.8.2](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.1...0.8.2) (2023-05-30)
 
 
