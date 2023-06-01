@@ -1,5 +1,12 @@
 
 
+## [0.8.4](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.3...0.8.4) (2023-06-01)
+
+
+### Bug Fixes
+
+* import `vitest/node` via file url ([2c1c928](https://github.com/danielroe/vitest-environment-nuxt/commit/2c1c92858f4574127d3d48c6bedb39d9d948fc90)), closes [#196](https://github.com/danielroe/vitest-environment-nuxt/issues/196)
+
 ## [0.8.3](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.2...0.8.3) (2023-06-01)
 
 
