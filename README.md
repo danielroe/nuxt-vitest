@@ -155,9 +155,9 @@ useStorageMock.mockImplementation(() => {
 
 ### `mockComponent`
 
-`mockComponent` allows you to mock Nuxt's component. 
+`mockComponent` allows you to mock Nuxt's component.
 The first argument can be the component name in PascalCase, or the relative path of the component.
-The second argument can is a factory function that returns the mocked component.
+The second argument is a factory function that returns the mocked component.
 
 For example, to mock `MyComponent`, you can:
 
@@ -253,8 +253,6 @@ await setup({
 
 // ...
 ```
-
-
 
 ## 💻 Development
 
