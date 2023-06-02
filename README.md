@@ -214,6 +214,8 @@ The second argument is a factory function that returns the mocked data.
 For example, to mock `/test/` endpoint, you can do:
 
 ```ts
+import { registerEndpoint } from 'nuxt-vitest/utils'
+
 registerEndpoint("/test/", () => {
   test: "test-field"
 })
