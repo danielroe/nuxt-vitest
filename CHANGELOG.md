@@ -1,5 +1,12 @@
 
 
+## [0.8.5](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.4...0.8.5) (2023-06-06)
+
+
+### Bug Fixes
+
+* don't transpile/override NODE_ENV ([c26e981](https://github.com/danielroe/vitest-environment-nuxt/commit/c26e981bbce5383ce34428289e67459f32eae815))
+
 ## [0.8.4](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.3...0.8.4) (2023-06-01)
 
 
