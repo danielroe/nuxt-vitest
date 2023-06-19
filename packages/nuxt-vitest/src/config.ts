@@ -161,6 +161,7 @@ declare module 'vitest' {
     nuxt?: {
       rootDir?: string
       overrides?: NuxtConfig
+      domEnvironment?: 'happy-dom' | 'jsdom'
     }
   }
 }
