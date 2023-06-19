@@ -13,11 +13,11 @@ import jsdom from './env/jsdom'
 export default <Environment>{
   name: 'nuxt',
   async setup(global, environmentOptions) {
-    console.log('----environmentOptions.nuxtDomEnvironment', environmentOptions.nuxtDomEnvironment)
+    console.log('----environmentOptions.nuxtDomEnvironment', environmentOptions.nuxt?.domEnvironment)
     const { window: win, teardown } = await {
       'happy-dom': happyDom,
       jsdom
-    }[environmentOptions.nuxtDomEnvironment as NuxtBuiltinEnvironment || 'happy-dom'](global, environmentOptions)
+    }[environmentOptions.nuxt.domEnvironment as NuxtBuiltinEnvironment || 'happy-dom'](global, environmentOptions)
 
     win.__NUXT__ = {
       serverRendered: false,

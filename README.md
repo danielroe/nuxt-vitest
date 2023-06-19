@@ -67,11 +67,21 @@ Finally, you can set `environment: 'nuxt'`, to enable Nuxt environment for **all
 
 ```js
 // vitest.config.ts
+import { fileURLToPath } from 'node:url'
 import { defineVitestConfig } from 'nuxt-vitest/config'
 
 export default defineVitestConfig({
   test: {
-    environment: 'nuxt'
+    environment: 'nuxt',
+    // you can optionally set nuxt-specific environment options
+    // environmentOptions: {
+    //   nuxt: {
+    //     rootDir: fileURLToPath(new URL('./playground', import.meta.url)),
+    //     overrides: {
+    //       // other nuxt config you want to pass
+    //     }
+    //   }
+    // }
   }
 })
 ```
@@ -130,7 +140,7 @@ export default useStorageMock
 ```
 
 ```ts
-import { useStorageMock } from './useStorageMock'
+import useStorageMock from './useStorageMock'
 import { mockNuxtImport } from 'nuxt-vitest/utils'
 
 mockNuxtImport('useStorage', () => {
@@ -145,9 +155,9 @@ useStorageMock.mockImplementation(() => {
 
 ### `mockComponent`
 
-`mockComponent` allows you to mock Nuxt's component. 
+`mockComponent` allows you to mock Nuxt's component.
 The first argument can be the component name in PascalCase, or the relative path of the component.
-The second argument can is a factory function that returns the mocked component.
+The second argument is a factory function that returns the mocked component.
 
 For example, to mock `MyComponent`, you can:
 
@@ -194,6 +204,25 @@ mockComponent('MyComponent', async () => {
 })
 ```
 
+### `registerEndpoint`
+
+`registerEndpoint` allows you create Nitro endpoint that returns mocked data. It can come in handy if you want to test a component that makes requests to API to display some data.
+
+The first argument is the endpoint name (e.g. `/test/`).
+The second argument is a factory function that returns the mocked data.
+
+For example, to mock `/test/` endpoint, you can do:
+
+```ts
+import { registerEndpoint } from 'nuxt-vitest/utils'
+
+registerEndpoint("/test/", () => {
+  test: "test-field"
+})
+```
+
+> **Note**: If your requests in a component go to external API, you can use `baseURL` and then make it empty using Nuxt Enviroment Config (`$test`) so all your requests will go to Nitro server.
+
 ### Conflict with @nuxt/test-utils
 
 `nuxt-vitest` and `@nuxt/test-utils` need to run in different testing environments and so can't be used in the same file.
@@ -224,8 +253,6 @@ await setup({
 
 // ...
 ```
-
-
 
 ## 💻 Development
 

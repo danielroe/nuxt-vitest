@@ -24,6 +24,8 @@ export interface MockComponentInfo {
   factory: string
 }
 
+const nuxtImportSources = ['#app', '#vue-router', 'vue-demi', '@unhead/vue']
+
 /**
  * This module is a macro that transforms `mockNuxtImport()` to `vi.mock()`,
  * which make it possible to mock Nuxt imports.
@@ -39,21 +41,11 @@ export default defineNuxtModule({
     nuxt.hook('imports:extend', _ => {
       imports = imports.concat(_)
     })
-    nuxt.hook('imports:sources', _ => {
+    nuxt.hook('imports:context', async ctx => {
       // add core nuxt composables to imports
+      const registeredImports = await ctx.getImports()
       imports = imports.concat(
-        // cast presets to imports
-        _.filter(item => item.from === '#app').flatMap(item =>
-          item.imports.flatMap(name => {
-            return name.toString().startsWith('use')
-              ? {
-                  name: name,
-                  as: name,
-                  from: item.from,
-                }
-              : []
-          })
-        ) as Import[]
+        registeredImports.filter(item => nuxtImportSources.includes(item.from))
       )
     })
     nuxt.hook('components:extend', _ => {
@@ -133,6 +125,7 @@ export default defineNuxtModule({
                 const name = call.arguments[0].value as string
                 const importItem = imports.find(_ => name === (_.as || _.name))
                 if (!importItem) {
+                  console.log({ imports })
                   return this.error(`Cannot find import "${name}" to mock`)
                 }
 

@@ -1,8 +1,9 @@
-import type { Nuxt, ViteConfig } from '@nuxt/schema'
+import type { Nuxt, NuxtConfig, ViteConfig } from '@nuxt/schema'
 import type { InlineConfig as VitestConfig } from 'vitest'
 import { InlineConfig, mergeConfig, defineConfig } from 'vite'
 import vuePlugin from '@vitejs/plugin-vue'
 import viteJsxPlugin from '@vitejs/plugin-vue-jsx'
+import { defu } from 'defu'
 
 interface GetVitestConfigOptions {
   nuxt: Nuxt
@@ -10,17 +11,23 @@ interface GetVitestConfigOptions {
 }
 
 // https://github.com/nuxt/framework/issues/6496
-async function startNuxtAndGetViteConfig(rootDir = process.cwd()) {
+async function startNuxtAndGetViteConfig(
+  rootDir = process.cwd(),
+  overrides?: Partial<NuxtConfig>
+) {
   const { loadNuxt, buildNuxt } = await import('@nuxt/kit')
   const nuxt = await loadNuxt({
     cwd: rootDir,
     dev: false,
-    overrides: {
-      ssr: false,
-      app: {
-        rootId: 'nuxt-test',
+    overrides: defu(
+      {
+        ssr: false,
+        app: {
+          rootId: 'nuxt-test',
+        },
       },
-    },
+      overrides
+    ),
   })
 
   if (
@@ -54,9 +61,11 @@ const vuePlugins = {
 } as const
 
 export async function getVitestConfigFromNuxt(
-  options?: GetVitestConfigOptions
+  options?: GetVitestConfigOptions,
+  overrides?: NuxtConfig
 ): Promise<InlineConfig & { test: VitestConfig }> {
-  if (!options) options = await startNuxtAndGetViteConfig()
+  const { rootDir = process.cwd(), ..._overrides } = overrides || {}
+  if (!options) options = await startNuxtAndGetViteConfig(rootDir, _overrides)
   options.viteConfig.plugins = options.viteConfig.plugins || []
   options.viteConfig.plugins = options.viteConfig.plugins.filter(
     p => (p as any)?.name !== 'nuxt:import-protection'
@@ -74,13 +83,16 @@ export async function getVitestConfigFromNuxt(
 
   return {
     ...options.viteConfig,
+    define: {
+      ...options.viteConfig.define,
+      ['process.env.NODE_ENV']: 'process.env.NODE_ENV'
+    },
     server: {
       ...options.viteConfig.server,
       middlewareMode: false,
     },
     plugins: [
       ...options.viteConfig.plugins,
-      // TODO: https://github.com/nuxt/nuxt/pull/20639
       {
         name: 'disable-auto-execute',
         enforce: 'pre',
@@ -96,7 +108,7 @@ export async function getVitestConfigFromNuxt(
     ],
     test: {
       ...options.viteConfig.test,
-      dir: options.nuxt.options.rootDir,
+      dir: process.cwd(),
       environmentOptions: {
         ...options.viteConfig.test?.environmentOptions,
         nuxtRuntimeConfig: options.nuxt.options.runtimeConfig,
@@ -113,7 +125,7 @@ export async function getVitestConfigFromNuxt(
             ? true
             : [
                 // vite-node defaults
-                /\/(nuxt|nuxt3)\//,
+                /\/node_modules\/(.*\/)?(nuxt|nuxt3)\//,
                 /^#/,
                 'vite',
                 // additional deps
@@ -133,6 +145,22 @@ export function defineVitestConfig(config: InlineConfig = {}) {
   return defineConfig(async () => {
     // When Nuxt module calls `startVitest`, we don't need to call `getVitestConfigFromNuxt` again
     if (process.env.__NUXT_VITEST_RESOLVED__) return config
-    return mergeConfig(await getVitestConfigFromNuxt(), config)
+
+    const overrides = config.test?.environmentOptions?.nuxt?.overrides || {}
+    overrides.rootDir = config.test?.environmentOptions?.nuxt?.rootDir
+
+    return mergeConfig(
+      await getVitestConfigFromNuxt(undefined, overrides),
+      config
+    )
   })
+}
+
+declare module 'vitest' {
+  interface EnvironmentOptions {
+    nuxt?: {
+      rootDir?: string
+      overrides?: NuxtConfig
+    }
+  }
 }

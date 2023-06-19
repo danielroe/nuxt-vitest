@@ -1,5 +1,81 @@
 
 
+## [0.8.5](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.4...0.8.5) (2023-06-06)
+
+
+### Bug Fixes
+
+* don't transpile/override NODE_ENV ([c26e981](https://github.com/danielroe/vitest-environment-nuxt/commit/c26e981bbce5383ce34428289e67459f32eae815))
+
+## [0.8.4](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.3...0.8.4) (2023-06-01)
+
+
+### Bug Fixes
+
+* import `vitest/node` via file url ([2c1c928](https://github.com/danielroe/vitest-environment-nuxt/commit/2c1c92858f4574127d3d48c6bedb39d9d948fc90)), closes [#196](https://github.com/danielroe/vitest-environment-nuxt/issues/196)
+
+## [0.8.3](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.2...0.8.3) (2023-06-01)
+
+
+### Bug Fixes
+
+* **vitest-environment-nuxt:** register imports after context is created ([434b39b](https://github.com/danielroe/vitest-environment-nuxt/commit/434b39b0ad8b707579078b005e3ada2e791ffafe))
+
+## [0.8.2](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.1...0.8.2) (2023-05-30)
+
+
+### Bug Fixes
+
+* **nuxt-vitest:** respect cwd as vite test dir ([43f2324](https://github.com/danielroe/vitest-environment-nuxt/commit/43f2324e6dd29688622aed3f3332552797477669))
+
+## [0.8.1](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.0...0.8.1) (2023-05-30)
+
+
+### Bug Fixes
+
+* defer to `vue/test-utils` for the type of `mountSuspended` ([24d3f0a](https://github.com/danielroe/vitest-environment-nuxt/commit/24d3f0a165273bc40d2255f9bbf681fac6c0e9af)), closes [#191](https://github.com/danielroe/vitest-environment-nuxt/issues/191)
+* **utils:** proxy context to capture emitted events in wrapper ([8bf8037](https://github.com/danielroe/vitest-environment-nuxt/commit/8bf8037e461515a8c5ef6305351823fff9ed484b)), closes [#175](https://github.com/danielroe/vitest-environment-nuxt/issues/175)
+
+## [0.8.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.7.2...0.8.0) (2023-05-29)
+
+
+### Features
+
+* **nuxt-vitest:** allow configuring nuxt rootDir and overrides ([#187](https://github.com/danielroe/vitest-environment-nuxt/issues/187)) ([914cee4](https://github.com/danielroe/vitest-environment-nuxt/commit/914cee4bd801d7443094b4f593024410b886ac44))
+
+
+### Bug Fixes
+
+* move nuxt overrides to `environmentOptions` ([2cc5038](https://github.com/danielroe/vitest-environment-nuxt/commit/2cc5038d58e02bb0a3ca4617da4a9f46060e7003))
+
+## [0.7.2](https://github.com/danielroe/vitest-environment-nuxt/compare/0.7.1...0.7.2) (2023-05-28)
+
+
+### Bug Fixes
+
+* allow mocking more nuxt auto-imports ([8806143](https://github.com/danielroe/vitest-environment-nuxt/commit/88061434dae082fd31e2228419ad830404b0323a)), closes [#153](https://github.com/danielroe/vitest-environment-nuxt/issues/153)
+* narrow down vitest inline patterns ([eb66dd9](https://github.com/danielroe/vitest-environment-nuxt/commit/eb66dd9495a89e23fd5948b4ac1c583ddb65765c))
+
+## [0.7.1](https://github.com/danielroe/vitest-environment-nuxt/compare/0.7.0...0.7.1) (2023-05-21)
+
+
+### Bug Fixes
+
+* move `vitest` to peer dependency ([616b721](https://github.com/danielroe/vitest-environment-nuxt/commit/616b72133d99ddb06fd7cd0699554d9834edfa3f))
+
+## [0.7.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.12...0.7.0) (2023-05-15)
+
+
+### Features
+
+* allow passing mount options in `mountSuspended` ([#159](https://github.com/danielroe/vitest-environment-nuxt/issues/159)) ([b0c478a](https://github.com/danielroe/vitest-environment-nuxt/commit/b0c478a98c8a423dacf45a264c1dc5decc1e01f8))
+* support injects, global properties (and routing!) ([#154](https://github.com/danielroe/vitest-environment-nuxt/issues/154)) ([82cdd0b](https://github.com/danielroe/vitest-environment-nuxt/commit/82cdd0b361b5e50d26d79946d5530ceede81c98f))
+
+
+### Bug Fixes
+
+* support `unobserve` method in mocked IntersectionObserver ([#150](https://github.com/danielroe/vitest-environment-nuxt/issues/150)) ([c094878](https://github.com/danielroe/vitest-environment-nuxt/commit/c0948789be59934af60b2b6f302de29a90c0655f))
+
 ## [0.6.12](https://github.com/danielroe/vitest-environment-nuxt/compare/0.6.11...0.6.12) (2023-05-03)
 
 
