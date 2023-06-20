@@ -109,7 +109,28 @@ This means you should be take particular care not to mutate the global state in 
 
 ### `mountSuspended`
 
-// TODO:
+`mountSuspended` allows you to mount any vue component. For example:
+
+```ts
+// tests/components/SomeComponents.nuxt.spec.ts
+it('can mount some component', async () => {
+    const component = await mountSuspended(SomeComponent)
+    expect(component.text()).toMatchInlineSnapshot(
+        'This is an auto-imported component'
+    )
+})
+
+// tests/App.nuxt.spec.ts
+it('can also mount an app', async () => {
+    const component = await mountSuspended(App, { route: '/test' })
+    expect(component.html()).toMatchInlineSnapshot(`
+      "<div>This is an auto-imported component</div>
+      <div> I am a global component </div>
+      <div>/</div>
+      <a href=\\"/test\\"> Test link </a>"
+    `)
+})
+```
 
 ### `mockNuxtImport`
 
