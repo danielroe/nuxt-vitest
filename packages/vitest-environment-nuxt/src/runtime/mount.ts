@@ -14,7 +14,7 @@ export type MountSuspendedOptions<T> = ComponentMountingOptions<T> & {
 }
 
 /**
- * `mountSuspended` allows you to mount any vue component. For example:
+ * `mountSuspended` allows you to mount any vue component within the Nuxt environment, allowing async setup and access to injections from your Nuxt plugins. For example:
  *
  * ```ts
  * // tests/components/SomeComponents.nuxt.spec.ts
