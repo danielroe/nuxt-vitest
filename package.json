@@ -22,7 +22,7 @@
     "@nuxt/schema": "3.5.3",
     "@release-it-plugins/workspaces": "3.2.0",
     "@release-it/conventional-changelog": "5.1.1",
-    "@vitest/coverage-c8": "0.32.2",
+    "@vitest/coverage-v8": "0.32.2",
     "conventional-changelog-conventionalcommits": "6.1.0",
     "eslint": "8.43.0",
     "eslint-config-prettier": "8.8.0",
