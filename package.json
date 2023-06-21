@@ -40,6 +40,8 @@
   },
   "pnpm": {
     "overrides": {
+      "@nuxt/kit": "latest",
+      "@nuxt/schema": "latest",
       "vitest-environment-nuxt": "workspace:*",
       "nuxt-vitest": "workspace:*"
     }

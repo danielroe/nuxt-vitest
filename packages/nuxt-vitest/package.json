@@ -55,7 +55,6 @@
     "vitest-environment-nuxt": "0.8.5"
   },
   "devDependencies": {
-    "@nuxt/kit": "3.5.3",
     "@nuxt/module-builder": "0.4.0",
     "@nuxt/schema": "3.5.3",
     "nuxt": "3.5.3",
