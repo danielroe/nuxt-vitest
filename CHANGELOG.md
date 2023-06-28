@@ -1,5 +1,15 @@
 
 
+## [0.8.6](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.5...0.8.6) (2023-06-28)
+
+
+### Bug Fixes
+
+* allow configuring default starting url, and respect `baseURL` ([23802f1](https://github.com/danielroe/vitest-environment-nuxt/commit/23802f170d997676014084b1e51e59df3a661c38))
+* ensure module is installed when getting nuxt config ([b2bcbf4](https://github.com/danielroe/vitest-environment-nuxt/commit/b2bcbf41723ffa7f5536aba2a947d4d3b4ab289d))
+* properly set default route ([#232](https://github.com/danielroe/vitest-environment-nuxt/issues/232)) ([674ede3](https://github.com/danielroe/vitest-environment-nuxt/commit/674ede32d866a34cf5c300097cc25a6012b5adaf))
+* set `rootId` when module is enabled (and set `test`) ([7c7c441](https://github.com/danielroe/vitest-environment-nuxt/commit/7c7c441c868d51363442381962a4d98a449933a4))
+
 ## [0.8.5](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.4...0.8.5) (2023-06-06)
 
 
