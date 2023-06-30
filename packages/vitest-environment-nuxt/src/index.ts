@@ -85,9 +85,7 @@ export default <Environment>{
       // called after all tests with this env have been run
       teardown() {
         teardown()
-        // @ts-expect-error
         keys.forEach(key => delete global[key])
-        // @ts-expect-error
         originals.forEach((v, k) => (global[k] = v))
       },
     }
