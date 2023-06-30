@@ -1,5 +1,6 @@
 import type { Environment } from 'vitest'
 import { createFetch } from 'ofetch'
+import { joinURL } from 'ufo'
 import { createApp, toNodeListener } from 'h3'
 import { populateGlobal } from 'vitest/environments'
 import {
@@ -13,11 +14,14 @@ import jsdom from './env/jsdom'
 export default <Environment>{
   name: 'nuxt',
   async setup(global, environmentOptions) {
-    console.log('----environmentOptions.nuxtDomEnvironment', environmentOptions.nuxt?.domEnvironment)
+    const startingURL = joinURL('http://localhost:3000', environmentOptions?.nuxtRuntimeConfig.app?.baseURL || '/')
     const { window: win, teardown } = await {
       'happy-dom': happyDom,
       jsdom
-    }[environmentOptions.nuxt.domEnvironment as NuxtBuiltinEnvironment || 'happy-dom'](global, environmentOptions)
+    }[environmentOptions.nuxt.domEnvironment as NuxtBuiltinEnvironment || 'happy-dom'](global, {
+      url: startingURL,
+      ...environmentOptions
+    })
 
     win.__NUXT__ = {
       serverRendered: false,
@@ -32,7 +36,7 @@ export default <Environment>{
 
     const app = win.document.createElement('div')
     // this is a workaround for a happy-dom bug with ids beginning with _
-    app.id = 'nuxt-test'
+    app.id = environmentOptions.nuxt.rootId
     win.document.body.appendChild(app)
 
     win.IntersectionObserver =
@@ -58,8 +62,7 @@ export default <Environment>{
       return localFetch(init, options)
     }
 
-    win.$fetch = createFetch({ fetch: win.fetch, Headers: win.Headers as any })
-    win.scrollTo = () => {}
+    win.$fetch = createFetch({ fetch: win.fetch, Headers: win.Headers })
 
     win.__registry = registry
     win.__app = h3App

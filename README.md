@@ -18,11 +18,11 @@
 1. First install `nuxt-vitest`:
 
 ```bash
-pnpm add -D nuxt-vitest
+pnpm add -D nuxt-vitest vitest
 
 # or
-yarn add --dev nuxt-vitest
-npm i -D nuxt-vitest
+yarn add --dev nuxt-vitest vitest
+npm i -D nuxt-vitest vitest
 ```
 
 2. Add `nuxt-vitest` to your `nuxt.config.js`:
@@ -109,7 +109,28 @@ This means you should be take particular care not to mutate the global state in 
 
 ### `mountSuspended`
 
-// TODO:
+`mountSuspended` allows you to mount any vue component within the Nuxt environment, allowing async setup and access to injections from your Nuxt plugins. For example:
+
+```ts
+// tests/components/SomeComponents.nuxt.spec.ts
+it('can mount some component', async () => {
+    const component = await mountSuspended(SomeComponent)
+    expect(component.text()).toMatchInlineSnapshot(
+        'This is an auto-imported component'
+    )
+})
+
+// tests/App.nuxt.spec.ts
+it('can also mount an app', async () => {
+    const component = await mountSuspended(App, { route: '/test' })
+    expect(component.html()).toMatchInlineSnapshot(`
+      "<div>This is an auto-imported component</div>
+      <div> I am a global component </div>
+      <div>/</div>
+      <a href=\\"/test\\"> Test link </a>"
+    `)
+})
+```
 
 ### `mockNuxtImport`
 
