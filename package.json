@@ -15,7 +15,7 @@
     "prepare": "husky install",
     "test": "pnpm -C playground test && pnpm test:types",
     "test:types": "vue-tsc --noEmit",
-    "release": "release-it"
+    "release": "cp README.md LICENCE packages/nuxt-vitest && cp README.md LICENCE packages/vitest-environment-nuxt && release-it"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "0.1.1",
