@@ -14,13 +14,20 @@ import jsdom from './env/jsdom'
 export default <Environment>{
   name: 'nuxt',
   async setup(global, environmentOptions) {
-    const startingURL = joinURL('http://localhost:3000', environmentOptions?.nuxtRuntimeConfig.app?.baseURL || '/')
+    const url = joinURL('http://localhost:3000', environmentOptions?.nuxtRuntimeConfig.app?.baseURL || '/')
     const { window: win, teardown } = await {
       'happy-dom': happyDom,
       jsdom
     }[environmentOptions.nuxt.domEnvironment as NuxtBuiltinEnvironment || 'happy-dom'](global, {
-      url: startingURL,
-      ...environmentOptions
+      ...environmentOptions,
+      happyDom: {
+        url,
+        ...environmentOptions?.happyDom,
+      },
+      jsdom: {
+        url,
+        ...environmentOptions?.jsdom,
+      }
     })
 
     win.__NUXT__ = {
