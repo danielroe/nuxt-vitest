@@ -3,6 +3,13 @@
   "type": "module",
   "version": "0.8.6",
   "license": "MIT",
+  "repository": "danielroe/nuxt-vitest",
+  "keywords": [
+    "nuxt",
+    "vitest",
+    "testing",
+    "unit-testing"
+  ],
   "exports": {
     "./module": {
       "types": "./dist/module.d.ts",
