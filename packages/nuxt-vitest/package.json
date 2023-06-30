@@ -1,8 +1,15 @@
 {
   "name": "nuxt-vitest",
   "type": "module",
-  "version": "0.8.6",
+  "version": "0.8.7",
   "license": "MIT",
+  "repository": "danielroe/nuxt-vitest",
+  "keywords": [
+    "nuxt",
+    "vitest",
+    "testing",
+    "unit-testing"
+  ],
   "exports": {
     "./module": {
       "types": "./dist/module.d.ts",
@@ -52,7 +59,7 @@
     "get-port-please": "^3.0.1",
     "perfect-debounce": "^1.0.0",
     "std-env": "^3.3.3",
-    "vitest-environment-nuxt": "0.8.6"
+    "vitest-environment-nuxt": "0.8.7"
   },
   "devDependencies": {
     "@nuxt/module-builder": "0.4.0",

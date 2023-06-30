@@ -1,5 +1,7 @@
 
 
+## [0.8.7](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.6...0.8.7) (2023-06-30)
+
 ## [0.8.6](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.5...0.8.6) (2023-06-28)
 
 

@@ -1,12 +1,14 @@
 {
   "name": "vitest-environment-nuxt",
-  "version": "0.8.6",
+  "version": "0.8.7",
   "description": "An vitest environment with support for testing code that needs a Nuxt runtime environment.",
-  "repository": "danielroe/vitest-environment-nuxt",
+  "repository": "danielroe/nuxt-vitest",
   "keywords": [
     "nuxt",
     "vitest",
-    "vitest-environment"
+    "vitest-environment",
+    "testing",
+    "unit-testing"
   ],
   "author": {
     "name": "Daniel Roe <daniel@roe.dev>",
@@ -52,16 +54,14 @@
     "unenv": "^1.0.2"
   },
   "devDependencies": {
+    "@types/jsdom": "^21.1.1",
+    "happy-dom": "^9.10.9",
+    "jsdom": "^22.0.0",
     "vue": "3.3.4"
   },
   "peerDependencies": {
     "vitest": "^0.24.5 || ^0.26.0 || ^0.27.0 || ^0.28.0 || ^0.29.0 || ^0.30.0",
     "vue": "^3.2.45",
     "vue-router": "^4.0.0"
-  },
-  "devDependencies": {
-    "@types/jsdom": "^21.1.1",
-    "happy-dom": "^9.10.9",
-    "jsdom": "^22.0.0"
   }
 }

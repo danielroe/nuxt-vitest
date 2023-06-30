@@ -3,3 +3,5 @@ node_modules
 dist
 
 .idea
+packages/*/README.md
+packages/*/LICENCE
