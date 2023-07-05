@@ -14,12 +14,12 @@
     "test": "pnpm test:happy-dom && pnpm test:jsdom && pnpm test:dev && pnpm test:types"
   },
   "devDependencies": {
-    "@nuxt/devtools": "0.6.4",
-    "nuxt": "3.5.3",
+    "@nuxt/devtools": "0.6.6",
+    "nuxt": "3.6.1",
     "nuxt-vitest": "0.8.7",
     "happy-dom": "^9.10.9",
     "jsdom": "^22.0.0",
-    "typescript": "5.1.3",
+    "typescript": "5.1.6",
     "vitest": "0.30.1",
     "vitest-environment-nuxt": "0.8.7",
     "vue-tsc": "1.8.3"
