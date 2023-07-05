@@ -18,11 +18,11 @@
 1. First install `nuxt-vitest`:
 
 ```bash
-pnpm add -D nuxt-vitest vitest
+pnpm add -D nuxt-vitest vitest happy-dom
 
 # or
-yarn add --dev nuxt-vitest vitest
-npm i -D nuxt-vitest vitest
+yarn add --dev nuxt-vitest vitest happy-dom
+npm i -D nuxt-vitest vitest happy-dom
 ```
 
 2. Add `nuxt-vitest` to your `nuxt.config.js`:
