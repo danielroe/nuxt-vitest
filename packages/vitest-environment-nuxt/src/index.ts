@@ -1,4 +1,5 @@
 import type { Environment } from 'vitest'
+import 'node-fetch-native/polyfill';
 import { createFetch } from 'ofetch'
 import { joinURL } from 'ufo'
 import { createApp, toNodeListener } from 'h3'
