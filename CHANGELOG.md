@@ -1,5 +1,21 @@
 
 
+## [0.9.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.7...0.9.0) (2023-07-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* you now need to explicitly add `happy-dom` or `jsdom` as a dev dependency based on which `domEnvironment` you want to be in. (`happy-dom` is set by default.)
+
+### Features
+
+* option to replace `happy-dom` with `jsdom` ([#121](https://github.com/danielroe/vitest-environment-nuxt/issues/121)) ([f14361f](https://github.com/danielroe/vitest-environment-nuxt/commit/f14361fbdb8bb085d73044c82d1aa8da238ef207))
+
+
+### Bug Fixes
+
+* remove support for `inline: true` and avoid inlining vite/vue ([d95e15f](https://github.com/danielroe/vitest-environment-nuxt/commit/d95e15fecdb28d01d52db6d4bd956370af356c75))
+
 ## [0.8.7](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.6...0.8.7) (2023-06-30)
 
 ## [0.8.6](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.5...0.8.6) (2023-06-28)
