@@ -56,7 +56,13 @@ export default <Environment>{
 
     const h3App = createApp()
 
-    if (environmentOptions.nuxt.isFetchPolyfill) {
+    // If native fetch is not supported, polyfill it.
+    // Native fetch is considered unsupported in the following cases
+    //  - versions earlier than Node 16, 
+    //  - not enabling experimental-fetch in Node 17 
+    //  - enabling no-experimental-fetch in Node 18 and later.
+    // @ts-ignore
+    if (!globalThis.fetch) {
       // @ts-ignore
       await import('node-fetch-native/polyfill')
     }
