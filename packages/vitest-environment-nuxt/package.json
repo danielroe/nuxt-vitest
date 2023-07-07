@@ -50,6 +50,7 @@
     "estree-walker": "^3.0.3",
     "h3": "^1.6.5",
     "magic-string": "^0.30.0",
+    "node-fetch-native": "^1.2.0",
     "ofetch": "^1.0.0",
     "unenv": "^1.0.2"
   },

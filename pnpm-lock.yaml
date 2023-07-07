@@ -19,7 +19,7 @@ importers:
         version: 0.1.1(eslint@8.44.0)
       '@nuxt/schema':
         specifier: latest
-        version: 3.6.1(rollup@3.26.0)
+        version: 3.6.2(rollup@3.26.0)
       '@release-it-plugins/workspaces':
         specifier: 3.2.0
         version: 3.2.0(release-it@15.11.0)
@@ -76,7 +76,7 @@ importers:
     dependencies:
       '@nuxt/kit':
         specifier: latest
-        version: 3.6.1(rollup@3.26.0)
+        version: 3.6.2(rollup@3.26.0)
       '@vitejs/plugin-vue':
         specifier: '*'
         version: 4.2.3(vite@4.3.9)(vue@3.3.4)
@@ -107,10 +107,10 @@ importers:
     devDependencies:
       '@nuxt/module-builder':
         specifier: 0.4.0
-        version: 0.4.0(@nuxt/kit@3.6.1)(nuxi@3.6.1)
+        version: 0.4.0(@nuxt/kit@3.6.2)(nuxi@3.6.1)
       '@nuxt/schema':
         specifier: latest
-        version: 3.6.1(rollup@3.26.0)
+        version: 3.6.2(rollup@3.26.0)
       nuxt:
         specifier: 3.6.1
         version: 3.6.1(@types/node@18.16.3)(eslint@8.44.0)(rollup@3.26.0)(typescript@5.1.6)(vue-tsc@1.8.3)
@@ -122,7 +122,7 @@ importers:
     dependencies:
       '@nuxt/kit':
         specifier: latest
-        version: 3.6.1(rollup@3.26.0)
+        version: 3.6.2(rollup@3.26.0)
       '@vue/test-utils':
         specifier: ^2.3.2
         version: 2.3.2(vue@3.3.4)
@@ -138,6 +138,9 @@ importers:
       magic-string:
         specifier: ^0.30.0
         version: 0.30.0
+      node-fetch-native:
+        specifier: ^1.2.0
+        version: 1.2.0
       ofetch:
         specifier: ^1.0.0
         version: 1.1.1
@@ -1151,8 +1154,8 @@ packages:
       nuxt: ^3.5.1
       vite: '*'
     dependencies:
-      '@nuxt/kit': 3.6.1(rollup@3.26.0)
-      '@nuxt/schema': 3.6.1(rollup@3.26.0)
+      '@nuxt/kit': 3.6.2(rollup@3.26.0)
+      '@nuxt/schema': 3.6.2(rollup@3.26.0)
       execa: 7.1.1
       nuxt: 3.6.1(@types/node@18.16.3)(eslint@8.44.0)(rollup@3.26.0)(typescript@5.1.6)(vue-tsc@1.8.3)
       vite: 4.3.9(@types/node@18.16.3)
@@ -1187,7 +1190,7 @@ packages:
     dependencies:
       '@nuxt/devtools-kit': 0.6.6(nuxt@3.6.1)(rollup@3.26.0)(vite@4.3.9)
       '@nuxt/devtools-wizard': 0.6.6
-      '@nuxt/kit': 3.6.1(rollup@3.26.0)
+      '@nuxt/kit': 3.6.2(rollup@3.26.0)
       birpc: 0.2.12
       boxen: 7.1.0
       consola: 3.2.2
@@ -1244,18 +1247,18 @@ packages:
       - supports-color
     dev: true
 
-  /@nuxt/kit@3.6.1(rollup@3.26.0):
-    resolution: {integrity: sha512-7AoiKV0zAtyT3ZvjMfGislMcB+JMbBZxYw68/oWtkEPXCfGQMYuiMI9Ue246/0JT2Yp2KZclEgrJEJ6NLkqFcw==}
+  /@nuxt/kit@3.6.2(rollup@3.26.0):
+    resolution: {integrity: sha512-X1WN76izsILva6TvQVTfJCHG7TXCwsB6jsxZKcU3qSog26jer5dildDb5ZmKL3e+IFD6BwK4ShO/py8VZcT6OA==}
     engines: {node: ^14.18.0 || >=16.10.0}
     dependencies:
-      '@nuxt/schema': 3.6.1(rollup@3.26.0)
+      '@nuxt/schema': 3.6.2(rollup@3.26.0)
       c12: 1.4.2
       consola: 3.2.2
       defu: 6.1.2
-      globby: 13.2.0
+      globby: 13.2.2
       hash-sum: 2.0.0
       ignore: 5.2.4
-      jiti: 1.18.2
+      jiti: 1.19.1
       knitwork: 1.0.0
       mlly: 1.4.0
       pathe: 1.1.1
@@ -1263,20 +1266,20 @@ packages:
       scule: 1.0.0
       semver: 7.5.3
       unctx: 2.3.1
-      unimport: 3.0.11(rollup@3.26.0)
+      unimport: 3.0.14(rollup@3.26.0)
       untyped: 1.3.2
     transitivePeerDependencies:
       - rollup
       - supports-color
 
-  /@nuxt/module-builder@0.4.0(@nuxt/kit@3.6.1)(nuxi@3.6.1):
+  /@nuxt/module-builder@0.4.0(@nuxt/kit@3.6.2)(nuxi@3.6.1):
     resolution: {integrity: sha512-B+UAYgFV1Hkc2ZcD7GaiKZ3SNHhyxFlXzZoBWTc9ulE0Z/+rq6RTa9fNm13BZyGhVhDCl5FN/wF/yYa1O/D2iw==}
     hasBin: true
     peerDependencies:
       '@nuxt/kit': ^3.5.0
       nuxi: ^3.5.0
     dependencies:
-      '@nuxt/kit': 3.6.1(rollup@3.26.0)
+      '@nuxt/kit': 3.6.2(rollup@3.26.0)
       consola: 3.2.2
       mlly: 1.4.0
       mri: 1.2.0
@@ -1288,8 +1291,8 @@ packages:
       - supports-color
     dev: true
 
-  /@nuxt/schema@3.6.1(rollup@3.26.0):
-    resolution: {integrity: sha512-+4pr0lkcPP5QqprYV+/ujmBkt2JHmi/v5vaxCrMhElUFgifvJAfT89BkGFn6W7pz0b8Vd3GcByFUWI7/wX/Pcw==}
+  /@nuxt/schema@3.6.2(rollup@3.26.0):
+    resolution: {integrity: sha512-wxb1/C5ozly5IwX0IRjVGml1n2KjZrTKsf6lTk3fdjUpW105kAvYX4j66PDOdBRE4vCwCsgaHJfWpUSeNBxbuA==}
     engines: {node: ^14.18.0 || >=16.10.0}
     dependencies:
       defu: 6.1.2
@@ -1299,7 +1302,7 @@ packages:
       postcss-import-resolver: 2.0.0
       std-env: 3.3.3
       ufo: 1.1.2
-      unimport: 3.0.11(rollup@3.26.0)
+      unimport: 3.0.14(rollup@3.26.0)
       untyped: 1.3.2
     transitivePeerDependencies:
       - rollup
@@ -1309,7 +1312,7 @@ packages:
     resolution: {integrity: sha512-Z2UmPkBy5WjxvHKuUcl1X6vKWnIyWSP+9UGde1F+MzzZxYgAQybFud1uL2B3KCowxZdoqT1hd2WklV7EtyCwrQ==}
     hasBin: true
     dependencies:
-      '@nuxt/kit': 3.6.1(rollup@3.26.0)
+      '@nuxt/kit': 3.6.2(rollup@3.26.0)
       chalk: 5.2.0
       ci-info: 3.8.0
       consola: 3.2.2
@@ -1344,7 +1347,7 @@ packages:
     peerDependencies:
       vue: ^3.3.4
     dependencies:
-      '@nuxt/kit': 3.6.1(rollup@3.26.0)
+      '@nuxt/kit': 3.6.2(rollup@3.26.0)
       '@rollup/plugin-replace': 5.0.2(rollup@3.26.0)
       '@vitejs/plugin-vue': 4.2.3(vite@4.3.9)(vue@3.3.4)
       '@vitejs/plugin-vue-jsx': 3.0.1(vite@4.3.9)(vue@3.3.4)
@@ -2804,7 +2807,7 @@ packages:
       defu: 6.1.2
       dotenv: 16.3.1
       giget: 1.1.2
-      jiti: 1.18.2
+      jiti: 1.19.1
       mlly: 1.4.0
       ohash: 1.1.2
       pathe: 1.1.1
@@ -4471,6 +4474,16 @@ packages:
       merge2: 1.4.1
       micromatch: 4.0.5
 
+  /fast-glob@3.3.0:
+    resolution: {integrity: sha512-ChDuvbOypPuNjO8yIDf36x7BlZX1smcUMTTcyoIjycexOxd6DFsKsg21qVBzEmr3G7fUKIRy2/psii+CIUt7FA==}
+    engines: {node: '>=8.6.0'}
+    dependencies:
+      '@nodelib/fs.stat': 2.0.5
+      '@nodelib/fs.walk': 1.2.8
+      glob-parent: 5.1.2
+      merge2: 1.4.1
+      micromatch: 4.0.5
+
   /fast-json-stable-stringify@2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
     dev: true
@@ -4969,6 +4982,17 @@ packages:
     dependencies:
       dir-glob: 3.0.1
       fast-glob: 3.2.12
+      ignore: 5.2.4
+      merge2: 1.4.1
+      slash: 4.0.0
+    dev: true
+
+  /globby@13.2.2:
+    resolution: {integrity: sha512-Y1zNGV+pzQdh7H39l9zgB4PJqjRNqydvdYCDG4HFXM4XuvSaQQlEc91IU1yALL8gUTDomgBAfz3XJdmUS+oo0w==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
+      dir-glob: 3.0.1
+      fast-glob: 3.3.0
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 4.0.0
@@ -5785,6 +5809,11 @@ packages:
 
   /jiti@1.18.2:
     resolution: {integrity: sha512-QAdOptna2NYiSSpv0O/BwoHBSmz4YhpzJHyi+fnMRTXFjp7B8i/YG5Z8IfusxB1ufjcD2Sre1F3R+nX3fvy7gg==}
+    hasBin: true
+    dev: true
+
+  /jiti@1.19.1:
+    resolution: {integrity: sha512-oVhqoRDaBXf7sjkll95LHVS6Myyyb1zaunVwk4Z0+WPSW4gjS0pl01zYKHScTuyEhQsFxV5L4DR5r+YqSyqyyg==}
     hasBin: true
 
   /joi@17.9.1:
@@ -7005,8 +7034,8 @@ packages:
         optional: true
     dependencies:
       '@nuxt/devalue': 2.0.2
-      '@nuxt/kit': 3.6.1(rollup@3.26.0)
-      '@nuxt/schema': 3.6.1(rollup@3.26.0)
+      '@nuxt/kit': 3.6.2(rollup@3.26.0)
+      '@nuxt/schema': 3.6.2(rollup@3.26.0)
       '@nuxt/telemetry': 2.2.0(rollup@3.26.0)
       '@nuxt/ui-templates': 1.2.0
       '@nuxt/vite-builder': 3.6.1(@types/node@18.16.3)(eslint@8.44.0)(rollup@3.26.0)(typescript@5.1.6)(vue-tsc@1.8.3)(vue@3.3.4)
@@ -9375,6 +9404,24 @@ packages:
       unplugin: 1.3.1
     transitivePeerDependencies:
       - rollup
+    dev: true
+
+  /unimport@3.0.14(rollup@3.26.0):
+    resolution: {integrity: sha512-67Rh/sGpEuVqdHWkXaZ6NOq+I7sKt86o+DUtKeGB6dh4Hk1A8AQrzyVGg2+LaVEYotStH7HwvV9YSaRjyT7Uqg==}
+    dependencies:
+      '@rollup/pluginutils': 5.0.2(rollup@3.26.0)
+      escape-string-regexp: 5.0.0
+      fast-glob: 3.3.0
+      local-pkg: 0.4.3
+      magic-string: 0.30.0
+      mlly: 1.4.0
+      pathe: 1.1.1
+      pkg-types: 1.0.3
+      scule: 1.0.0
+      strip-literal: 1.0.1
+      unplugin: 1.3.1
+    transitivePeerDependencies:
+      - rollup
 
   /unique-filename@2.0.1:
     resolution: {integrity: sha512-ODWHtkkdx3IAR+veKxFV+VBkUMcN+FaqzUUd7IZzt+0zhDZFPFxhlqwPF3YQvMHx1TD0tdgYl+kuPnJ8E6ql7A==}
@@ -9524,7 +9571,7 @@ packages:
       '@babel/standalone': 7.21.4
       '@babel/types': 7.22.5
       defu: 6.1.2
-      jiti: 1.18.2
+      jiti: 1.19.1
       mri: 1.2.0
       scule: 1.0.0
     transitivePeerDependencies:
