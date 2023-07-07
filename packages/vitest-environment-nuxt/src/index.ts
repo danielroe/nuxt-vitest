@@ -61,9 +61,8 @@ export default <Environment>{
     //  - versions earlier than Node 16, 
     //  - not enabling experimental-fetch in Node 17 
     //  - enabling no-experimental-fetch in Node 18 and later.
-    // @ts-ignore
     if (!globalThis.fetch) {
-      // @ts-ignore
+      // @ts-expect-error TODO: provide backwards compatible types
       await import('node-fetch-native/polyfill')
     }
 
