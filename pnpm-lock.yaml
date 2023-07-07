@@ -172,6 +172,9 @@ importers:
       '@nuxt/devtools':
         specifier: 0.6.6
         version: 0.6.6(nuxt@3.6.1)(rollup@3.26.0)(vite@4.3.9)
+      compare-versions:
+        specifier: 6.0.0-rc.3
+        version: 6.0.0-rc.3
       happy-dom:
         specifier: ^9.10.9
         version: 9.10.9
@@ -3173,6 +3176,10 @@ packages:
     dependencies:
       array-ify: 1.0.0
       dot-prop: 5.3.0
+    dev: true
+
+  /compare-versions@6.0.0-rc.3:
+    resolution: {integrity: sha512-ILowKwhKR/soRLN0ETauW4Ky+fZA2FtYNkgblDgaqnJm7GHIIEiJXy1J+OVqTZTAHORmDu/TaUB2Lhq/RIeo7w==}
     dev: true
 
   /compress-commons@4.1.1:

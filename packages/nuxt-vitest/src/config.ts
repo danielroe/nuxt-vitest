@@ -177,6 +177,14 @@ declare module 'vitest' {
        * @default {happy-dom}
        */
       domEnvironment?: 'happy-dom' | 'jsdom'
+      /**
+       * If true, polyfill the fetch.
+       *
+       * This is useful if native fetch is not available, such as for versions under Node18.
+       * 
+       * @default {false}
+       */
+      isFetchPolyfill?: boolean
     }
   }
 }

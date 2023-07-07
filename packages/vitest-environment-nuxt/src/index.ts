@@ -1,5 +1,4 @@
 import type { Environment } from 'vitest'
-import 'node-fetch-native/polyfill';
 import { createFetch } from 'ofetch'
 import { joinURL } from 'ufo'
 import { createApp, toNodeListener } from 'h3'
@@ -56,6 +55,11 @@ export default <Environment>{
       }
 
     const h3App = createApp()
+
+    if (environmentOptions.nuxt.isFetchPolyfill) {
+      // @ts-ignore
+      await import('node-fetch-native/polyfill')
+    }
 
     // @ts-expect-error TODO: fix in h3
     const localCall = createCall(toNodeListener(h3App))
