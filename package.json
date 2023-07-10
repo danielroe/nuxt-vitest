@@ -31,7 +31,7 @@
     "lint-staged": "13.2.3",
     "nuxt": "3.6.2",
     "prettier": "3.0.0",
-    "release-it": "16.0.0",
+    "release-it": "16.1.0",
     "typescript": "5.1.6",
     "unbuild": "1.2.1",
     "vitest": "0.30.1",
