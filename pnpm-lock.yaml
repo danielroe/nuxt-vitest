@@ -21,11 +21,11 @@ importers:
         specifier: latest
         version: 3.6.2(rollup@3.26.0)
       '@release-it-plugins/workspaces':
-        specifier: 3.2.0
-        version: 3.2.0(release-it@16.1.0)
+        specifier: 4.0.0
+        version: 4.0.0(release-it@16.1.0)
       '@release-it/conventional-changelog':
-        specifier: 6.0.0
-        version: 6.0.0(release-it@16.1.0)
+        specifier: 7.0.0
+        version: 7.0.0(release-it@16.1.0)
       '@vitest/coverage-c8':
         specifier: 0.30.1
         version: 0.30.1(vitest@0.30.1)
@@ -1555,11 +1555,11 @@ packages:
   /@polka/url@1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
 
-  /@release-it-plugins/workspaces@3.2.0(release-it@16.1.0):
-    resolution: {integrity: sha512-ooEIgwb4qwGFQa9kXoTaQDHgD2Vymy5Z/aKL1JefnVUg1hiKL8Lh5fEfkDXggeXetTYk+SaFm2YNLrVOarX+Kw==}
-    engines: {node: '>= 14'}
+  /@release-it-plugins/workspaces@4.0.0(release-it@16.1.0):
+    resolution: {integrity: sha512-79qsR770mvuQeTSMnOjrEJuJHQ4x1KyUkZjqCOQ/UxjK+igNYYDsLK26LpKTweeTjpbpmLYaOg6bl+28M5CO0A==}
+    engines: {node: '>= 16'}
     peerDependencies:
-      release-it: ^14.0.0 || ^15.2.0
+      release-it: ^14.0.0 || ^15.2.0 || ^16.0.0
     dependencies:
       detect-indent: 6.1.0
       detect-newline: 3.1.0
@@ -1571,11 +1571,11 @@ packages:
       yaml: 2.2.2
     dev: true
 
-  /@release-it/conventional-changelog@6.0.0(release-it@16.1.0):
-    resolution: {integrity: sha512-OOiHhDncIFaNVfKJHpNQQkvM1yI5UPvyCtS74d6BDjvqWRu74J4cBGWh8b0owY4k3TTiR2BMKHn1eZ7hrxCnrA==}
-    engines: {node: '>=14'}
+  /@release-it/conventional-changelog@7.0.0(release-it@16.1.0):
+    resolution: {integrity: sha512-DBzyVS6c4g8w+xomCsygkmLeQBUq41Wvzy0vGgbdCLOxYnwI0cDaF6HOLPkrifH1qLa1uJ9i1pYA+hNyHkNanQ==}
+    engines: {node: '>=16'}
     peerDependencies:
-      release-it: ^15.4.1
+      release-it: ^16.0.0
     dependencies:
       concat-stream: 2.0.0
       conventional-changelog: 4.0.0
