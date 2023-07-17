@@ -50,11 +50,11 @@
     "@vitejs/plugin-vue": "*",
     "@vitejs/plugin-vue-jsx": "*",
     "vite": "*",
-    "vitest": "^0.30.0"
+    "vitest": "^0.33.0"
   },
   "dependencies": {
     "@nuxt/kit": "^3.2.0",
-    "@vitest/ui": "^0.30.0",
+    "@vitest/ui": "^0.33.0",
     "defu": "^6.1.2",
     "get-port-please": "^3.0.1",
     "perfect-debounce": "^1.0.0",
@@ -63,8 +63,8 @@
   },
   "devDependencies": {
     "@nuxt/module-builder": "0.4.0",
+    "vitest": "^0.33.0",
     "@nuxt/schema": "3.6.3",
-    "nuxt": "3.6.3",
-    "vitest": "^0.30.0"
+    "nuxt": "3.6.3"
   }
 }
