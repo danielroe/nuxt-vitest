@@ -1,5 +1,18 @@
 
 
+## [0.10.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.9.0...0.10.0) (2023-07-17)
+
+
+### Features
+
+* register all auto-imports for mocking ([#254](https://github.com/danielroe/vitest-environment-nuxt/issues/254)) ([8799e6a](https://github.com/danielroe/vitest-environment-nuxt/commit/8799e6a8a4d1edc0fd6ec0019655efa9f9ebb957))
+
+
+### Bug Fixes
+
+* automatically polyfill `fetch` within tests ([#244](https://github.com/danielroe/vitest-environment-nuxt/issues/244)) ([c3edd06](https://github.com/danielroe/vitest-environment-nuxt/commit/c3edd0687419f244a7674be6c4613e8e46ab9fa3))
+* ensure vitest mocking plugin is placed last ([#263](https://github.com/danielroe/vitest-environment-nuxt/issues/263)) ([8a89fe3](https://github.com/danielroe/vitest-environment-nuxt/commit/8a89fe3c7bf8b669be00b7ccb20ff3b8393366ac))
+
 ## [0.9.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.8.7...0.9.0) (2023-07-06)
 
 
