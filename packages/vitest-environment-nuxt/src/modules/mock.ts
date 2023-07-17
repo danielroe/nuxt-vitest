@@ -53,6 +53,14 @@ export default defineNuxtModule({
       components = _
     })
 
+    // Polyfill Array.prototype.findLastIndex for legacy Node.js
+    function findLastIndex<T>(arr: T[], predicate: (item: T) => boolean) {
+      for (let i = arr.length - 1; i >= 0; i--) {
+        if (predicate(arr[i])) return i
+      }
+      return -1
+    }
+
     addVitePlugin({
       name: PLUGIN_NAME,
       enforce: 'post',
@@ -61,7 +69,7 @@ export default defineNuxtModule({
         const plugins = (config.plugins || []) as Plugin[]
         // `vite:mocks` was a typo in Vitest before v0.34.0
         const mockPluginIndex = plugins.findIndex(i => i.name === 'vite:mocks' || i.name === 'vitest:mocks')
-        const lastNuxt = plugins.findLastIndex(i => i.name?.startsWith('nuxt:'))
+        const lastNuxt = findLastIndex(plugins, i => i.name?.startsWith('nuxt:'))
         if (mockPluginIndex !== -1 && lastNuxt !== -1) {
           if (mockPluginIndex < lastNuxt) {
             const [mockPlugin] = plugins.splice(mockPluginIndex, 1)
