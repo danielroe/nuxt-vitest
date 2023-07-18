@@ -1,5 +1,12 @@
 
 
+## [0.10.1](https://github.com/danielroe/vitest-environment-nuxt/compare/0.10.0...0.10.1) (2023-07-18)
+
+
+### Bug Fixes
+
+* bump vitest peer dependency range ([77a43c1](https://github.com/danielroe/vitest-environment-nuxt/commit/77a43c173001de3dcfc8aabe25a50571dcad45c9))
+
 ## [0.10.0](https://github.com/danielroe/vitest-environment-nuxt/compare/0.9.0...0.10.0) (2023-07-17)
 
 
