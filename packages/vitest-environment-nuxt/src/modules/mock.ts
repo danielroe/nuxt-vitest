@@ -85,7 +85,7 @@ export default defineNuxtModule({
       transform: {
         handler(code, id) {
           const isFirstSetupFile = normalize(id) === resolvedFirstSetupFile
-          const shouldPrependMockHoist = isFirstSetupFile
+          const shouldPrependMockHoist = resolvedFirstSetupFile ? isFirstSetupFile : true
 
           if (!HELPERS_NAME.some(n => code.includes(n)) && isFirstSetupFile) return
           if (id.includes('/node_modules/')) return
@@ -232,7 +232,7 @@ export default defineNuxtModule({
                     `vi.mock(${JSON.stringify(
                       from
                     )}, async (importOriginal) => {`,
-                    `  const mocks = global.${HELPER_MOCK_HOIST} || {}`,
+                    `  const mocks = global.${HELPER_MOCK_HOIST}`,
                     `  if (!mocks[${JSON.stringify(from)}]) { mocks[${JSON.stringify(from)}] = { ...await import(${JSON.stringify(from)}) } }`,
                   ]
                   for (const mock of mocks) {
@@ -281,7 +281,7 @@ export default defineNuxtModule({
               s.append( `\n import ${JSON.stringify(p)};\n`)
             })
           }
-         
+
           return {
             code: s.toString(),
             map: s.generateMap(),
