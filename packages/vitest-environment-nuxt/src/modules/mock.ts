@@ -267,7 +267,7 @@ export default defineNuxtModule({
 
 
           if (shouldPrependMockHoist) {
-            s.prepend(`vi.hoisted(() => { vi.stubGlobal(${JSON.stringify(HELPER_MOCK_HOIST)}, { test:'lol' })});\n`)
+            s.prepend(`vi.hoisted(() => { vi.stubGlobal(${JSON.stringify(HELPER_MOCK_HOIST)}, {})});\n`)
           }
 
           if (!hasViImport) s.prepend(`import {vi} from "vitest";\n`)
