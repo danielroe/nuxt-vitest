@@ -12,7 +12,7 @@ mockNuxtImport<typeof useCustomModuleAutoImportedTarget>('useCustomModuleAutoImp
 mockNuxtImport<typeof useAutoImportSetupOverridenMocked>('useAutoImportSetupOverridenMocked', () => () => {
   return 'mocked in test file'
 })
-debugger
+
 it('should mock', () => {
   vi.fn()
   expect(useAutoImportedTarget()).toMatchInlineSnapshot('"mocked!"')

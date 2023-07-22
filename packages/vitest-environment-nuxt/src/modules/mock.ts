@@ -108,7 +108,7 @@ export default defineNuxtModule({
           const mocksImport: MockImportInfo[] = []
           const mocksComponent: MockComponentInfo[] = []
           const importList: ImportDeclaration[] = []
-
+          const importPathsList: Set<string> = new Set()
           walk(ast as any, {
             enter: (node, parent) => {
               // find existing vi import
@@ -227,11 +227,11 @@ export default defineNuxtModule({
             mockLines.push(
               ...Array.from(mockImportMap.entries()).flatMap(
                 ([from, mocks]) => {
+                  importPathsList.add(from)
                   const lines = [
                     `vi.mock(${JSON.stringify(
                       from
                     )}, async (importOriginal) => {`,
-                    `console.log(${JSON.stringify(id)}, "SETUPPPPPPPPPPPPPPP",  global.${HELPER_MOCK_HOIST}) `,
                     `  const mocks = global.${HELPER_MOCK_HOIST} || {}`,
                     `  if (!mocks[${JSON.stringify(from)}]) { mocks[${JSON.stringify(from)}] = { ...await import(${JSON.stringify(from)}) } }`,
                   ]
@@ -270,15 +270,18 @@ export default defineNuxtModule({
             s.prepend(`vi.hoisted(() => { vi.stubGlobal(${JSON.stringify(HELPER_MOCK_HOIST)}, { test:'lol' })});\n`)
           }
 
-
           if (!hasViImport) s.prepend(`import {vi} from "vitest";\n`)
-
 
           s.appendLeft(insertionPoint, mockLines.join('\n') + '\n')
 
-
-
-
+          // do an import to trick vite to keep it
+          // if not, the module won't be mocked
+          if(shouldPrependMockHoist) {
+            importPathsList.forEach((p) => { 
+              s.append( `\n import ${JSON.stringify(p)};\n`)
+            })
+          }
+         
           return {
             code: s.toString(),
             map: s.generateMap(),
