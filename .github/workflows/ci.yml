@@ -45,8 +45,11 @@ jobs:
       - name: 🛠 Build project
         run: pnpm build
 
-      - name: 🧪 Playground Test
+      - name: 🧪 Playground Test with Happy-DOM
         run: pnpm -C playground run test:unit --coverage
+
+      - name: 🧪 Playground Test with JSDOM
+        run: pnpm -C playground run test:jsdom --coverage
 
       - name: 🧪 Playground Test on Dev
         run: pnpm -C playground run test:dev
