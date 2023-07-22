@@ -233,7 +233,7 @@ export default defineNuxtModule({
                       from
                     )}, async (importOriginal) => {`,
                     `  const mocks = global.${HELPER_MOCK_HOIST}`,
-                    `  if (!mocks[${JSON.stringify(from)}]) { mocks[${JSON.stringify(from)}] = { ...await import(${JSON.stringify(from)}) } }`,
+                    `  if (!mocks[${JSON.stringify(from)}]) { mocks[${JSON.stringify(from)}] = { ...await importOriginal(${JSON.stringify(from)}) } }`,
                   ]
                   for (const mock of mocks) {
                     lines.push(
