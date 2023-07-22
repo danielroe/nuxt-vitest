@@ -87,7 +87,7 @@ export default defineNuxtModule({
           const isFirstSetupFile = normalize(id) === resolvedFirstSetupFile
           const shouldPrependMockHoist = resolvedFirstSetupFile ? isFirstSetupFile : true
 
-          if (!HELPERS_NAME.some(n => code.includes(n)) && isFirstSetupFile) return
+          if (!HELPERS_NAME.some(n => code.includes(n))) return
           if (id.includes('/node_modules/')) return
 
           let ast: AcornNode
