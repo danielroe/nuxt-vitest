@@ -1,7 +1,7 @@
 import type { Import, Unimport } from 'unimport'
 import { addVitePlugin, defineNuxtModule } from '@nuxt/kit'
 import { walk } from 'estree-walker'
-import type { CallExpression, ImportDeclaration } from 'estree'
+import type { CallExpression } from 'estree'
 import { AcornNode } from 'rollup'
 import MagicString from 'magic-string'
 import { Component } from '@nuxt/schema'
@@ -107,8 +107,8 @@ export default defineNuxtModule({
           const s = new MagicString(code)
           const mocksImport: MockImportInfo[] = []
           const mocksComponent: MockComponentInfo[] = []
-          const importList: ImportDeclaration[] = []
           const importPathsList: Set<string> = new Set()
+
           walk(ast as any, {
             enter: (node, parent) => {
               // find existing vi import
@@ -129,8 +129,6 @@ export default defineNuxtModule({
                   }
                   return
                 }
-
-                importList.push(node)
               }
 
               if (node.type !== 'CallExpression') return
@@ -278,7 +276,7 @@ export default defineNuxtModule({
           // if not, the module won't be mocked
           if(shouldPrependMockHoist) {
             importPathsList.forEach((p) => { 
-              s.append( `\n import ${JSON.stringify(p)};\n`)
+              s.append( `\n import ${JSON.stringify(p)};`)
             })
           }
 
