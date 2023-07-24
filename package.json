@@ -1,6 +1,6 @@
 {
   "private": true,
-  "packageManager": "pnpm@8.6.9",
+  "packageManager": "pnpm@8.6.10",
   "scripts": {
     "build": "pnpm dev:prepare && pnpm run --filter=./packages/* -r build",
     "stub": "pnpm run --filter=./packages/* -r stub",
