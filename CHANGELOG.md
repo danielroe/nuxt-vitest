@@ -1,5 +1,13 @@
 
 
+## [0.10.2](https://github.com/danielroe/vitest-environment-nuxt/compare/0.10.1...0.10.2) (2023-07-24)
+
+
+### Bug Fixes
+
+* improve fetch polyfill implementations ([#279](https://github.com/danielroe/vitest-environment-nuxt/issues/279)) ([f7ca56c](https://github.com/danielroe/vitest-environment-nuxt/commit/f7ca56c37b8443f750a8ba7745b5fda9347f6af4))
+* vue-router with jsdom ([#277](https://github.com/danielroe/vitest-environment-nuxt/issues/277)) ([4ebb670](https://github.com/danielroe/vitest-environment-nuxt/commit/4ebb67091729b22e52631435646405f49b94f8cb))
+
 ## [0.10.1](https://github.com/danielroe/vitest-environment-nuxt/compare/0.10.0...0.10.1) (2023-07-18)
 
 
