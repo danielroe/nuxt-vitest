@@ -1,3 +1,4 @@
+
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: [
@@ -8,6 +9,7 @@ export default defineNuxtConfig({
   vitest: {
     startOnBoot: true,
     logToConsole: true,
+    vitestConfigPath: './vitest.config'
   },
   imports: {
     injectAtEnd: true,

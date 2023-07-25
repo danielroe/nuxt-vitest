@@ -7,11 +7,13 @@ import { getPort } from 'get-port-please'
 import { h } from 'vue'
 import { debounce } from 'perfect-debounce'
 import { isCI } from 'std-env'
+import { resolve as pathResolve } from "path"
 
 export interface NuxtVitestOptions {
   startOnBoot?: boolean
   logToConsole?: boolean
   vitestConfig?: VitestConfig
+  vitestConfigPath?: string
 }
 
 /**
@@ -42,12 +44,17 @@ export default defineNuxtModule<NuxtVitestOptions>({
     if (process.env.TEST || process.env.VITE_TEST) return
 
     const rawViteConfigPromise = new Promise<ViteConfig>(resolve => {
-      // Wrap with app:resolve to ensure we got the final vite config
-      nuxt.hook('app:resolve', () => {
-        nuxt.hook('vite:extendConfig', (config, { isClient }) => {
-          if (isClient) resolve(config)
+      if (options.vitestConfigPath) {
+        import(pathResolve(options.vitestConfigPath)).then((c) => resolve(c))
+      } else {
+        // Wrap with app:resolve to ensure we got the final vite config
+        nuxt.hook('app:resolve', () => {
+          nuxt.hook('vite:extendConfig', (config, { isClient }) => {
+            if (isClient) resolve(config)
+          })
         })
-      })
+      }
+
     })
 
     const PORT = await getPort({ port: 15555 })
@@ -101,25 +108,25 @@ export default defineNuxtModule<NuxtVitestOptions>({
       // For testing dev mode in CI, maybe expose an option to user later
       const vitestConfig: VitestConfig = watchMode
         ? {
-            passWithNoTests: true,
-            ...options.vitestConfig,
-            reporters: options.logToConsole
-              ? [
-                  ...toArray(options.vitestConfig?.reporters ?? ['default']),
-                  customReporter,
-                ]
-              : [customReporter], // do not report to console
-            watch: true,
-            ui: true,
-            open: false,
-            api: {
-              port: PORT,
-            },
-          }
+          passWithNoTests: true,
+          ...options.vitestConfig,
+          reporters: options.logToConsole
+            ? [
+              ...toArray(options.vitestConfig?.reporters ?? ['default']),
+              customReporter,
+            ]
+            : [customReporter], // do not report to console
+          watch: true,
+          ui: true,
+          open: false,
+          api: {
+            port: PORT,
+          },
+        }
         : {
-            ...options.vitestConfig,
-            watch: false,
-          }
+          ...options.vitestConfig,
+          watch: false,
+        }
 
       // TODO: Investigate segfault when loading config file in Nuxt
       viteConfig.configFile = false
@@ -153,33 +160,33 @@ export default defineNuxtModule<NuxtVitestOptions>({
         icon: 'logos-vitest',
         view: loaded
           ? {
-              type: 'iframe',
-              src: URL,
-            }
+            type: 'iframe',
+            src: URL,
+          }
           : {
-              type: 'launch',
-              description: 'Start tests along with Nuxt',
-              actions: [
-                {
-                  label: promise ? 'Starting...' : 'Start Vitest',
-                  pending: !!promise,
-                  handle: () => {
-                    promise = promise || start()
-                    return promise
-                  },
+            type: 'launch',
+            description: 'Start tests along with Nuxt',
+            actions: [
+              {
+                label: promise ? 'Starting...' : 'Start Vitest',
+                pending: !!promise,
+                handle: () => {
+                  promise = promise || start()
+                  return promise
                 },
-              ],
-            },
+              },
+            ],
+          },
         extraTabVNode: totalCount
           ? h('div', { style: { color: failedCount ? 'orange' : 'green' } }, [
-              h('span', {}, passedCount),
-              h('span', { style: { opacity: '0.5', fontSize: '0.9em' } }, '/'),
-              h(
-                'span',
-                { style: { opacity: '0.8', fontSize: '0.9em' } },
-                totalCount
-              ),
-            ])
+            h('span', {}, passedCount),
+            h('span', { style: { opacity: '0.5', fontSize: '0.9em' } }, '/'),
+            h(
+              'span',
+              { style: { opacity: '0.8', fontSize: '0.9em' } },
+              totalCount
+            ),
+          ])
           : undefined,
       })
     })
