@@ -263,10 +263,11 @@ export default defineNuxtModule({
 
           if (!mockLines.length) return
 
-
-          if (shouldPrependMockHoist) {
-            s.prepend(`vi.hoisted(() => { vi.stubGlobal(${JSON.stringify(HELPER_MOCK_HOIST)}, {})});\n`)
-          }
+          s.prepend(`vi.hoisted(() => { 
+              if(!global.${HELPER_MOCK_HOIST}){
+                vi.stubGlobal(${JSON.stringify(HELPER_MOCK_HOIST)}, {})
+              }
+            });\n`)
 
           if (!hasViImport) s.prepend(`import {vi} from "vitest";\n`)
 
@@ -274,9 +275,9 @@ export default defineNuxtModule({
 
           // do an import to trick vite to keep it
           // if not, the module won't be mocked
-          if(shouldPrependMockHoist) {
-            importPathsList.forEach((p) => { 
-              s.append( `\n import ${JSON.stringify(p)};`)
+          if (shouldPrependMockHoist) {
+            importPathsList.forEach((p) => {
+              s.append(`\n import ${JSON.stringify(p)};`)
             })
           }
 
