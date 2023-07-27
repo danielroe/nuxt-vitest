@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   vitest: {
     startOnBoot: true,
     logToConsole: true,
+    vitestConfigPath: "./vitest.config"
   },
   imports: {
     injectAtEnd: true,

@@ -13,5 +13,6 @@ export default defineVitestConfig({
         domEnvironment: process.env.VITEST_DOM_ENV as 'happy-dom' | 'jsdom',
       },
     },
+    setupFiles: ['./tests/setup/global']
   },
 })
