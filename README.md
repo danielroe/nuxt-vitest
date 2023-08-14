@@ -148,30 +148,31 @@ mockNuxtImport('useStorage', () => {
 // your tests here
 ```
 
-> **Note**: `mockNuxtImport` can only be used once per test file. It is actually a macro that gets transformed to `vi.mock` and `vi.mock` is hoisted, as described [here](https://vitest.dev/api/vi.html#vi-mock).
+> **Note**: `mockNuxtImport` can only be used once per mocked import per test file. It is actually a macro that gets transformed to `vi.mock` and `vi.mock` is hoisted, as described [here](https://vitest.dev/api/vi.html#vi-mock).
 
-If you need to mock a Nuxt import and provide different implementations between tests, you can do it by using a global variable as the returned value of your mock function and change its implementation within each test. Be careful to [restore mocks](https://vitest.dev/api/mock.html#mockrestore) before or after each test to undo mock state changes between runs.
+If you need to mock a Nuxt import and provide different implementations between tests, you can do it by creating and exposing your mocks using [`vi.hoisted`](https://vitest.dev/api/vi.html#vi-hoisted), and then use those mocks in `mockNuxtImport`. You then have access to the mocked imports, and can change the implementation between tests. Be careful to [restore mocks](https://vitest.dev/api/mock.html#mockrestore) before or after each test to undo mock state changes between runs.
 
-```ts
-// useStorageMock.ts
-let useStorageMock = vi.fn(() => {
-  return { value: 'mocked storage' }
-})
-export default useStorageMock
-```
 
 ```ts
-import useStorageMock from './useStorageMock'
+import { vi } from 'vitest'
 import { mockNuxtImport } from 'nuxt-vitest/utils'
 
+const { useStorageMock } = vi.hoisted(() => {
+  return {
+    useStorageMock: vi.fn().mockImplementation(() => {
+      return { value: 'mocked storage'}
+    })
+  }
+})
+
 mockNuxtImport('useStorage', () => {
-  return () => useStorageMock()
+  return useStorageMock
 })
 
 // Then, inside a test
 useStorageMock.mockImplementation(() => {
   return { value: 'something else' }
-})
+}) 
 ```
 
 ### `mockComponent`
