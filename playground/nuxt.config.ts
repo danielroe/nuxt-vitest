@@ -8,7 +8,10 @@ export default defineNuxtConfig({
   vitest: {
     startOnBoot: true,
     logToConsole: true,
-    vitestConfigPath: "./vitest.config"
+    vitestConfigPath: "./vitest.config",
+    vitestConfig: {
+      setupFiles: ['./tests/setup/mocks']
+    }
   },
   imports: {
     injectAtEnd: true,
