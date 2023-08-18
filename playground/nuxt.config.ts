@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   vitest: {
     startOnBoot: true,
     logToConsole: true,
+    vitestConfigPath: "./vitest.config",
     vitestConfig: {
       setupFiles: ['./tests/setup/mocks']
     }

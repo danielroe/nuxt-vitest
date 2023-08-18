@@ -7,11 +7,13 @@ import { getPort } from 'get-port-please'
 import { h } from 'vue'
 import { debounce } from 'perfect-debounce'
 import { isCI } from 'std-env'
+import { resolve } from "path"
 
 export interface NuxtVitestOptions {
   startOnBoot?: boolean
   logToConsole?: boolean
   vitestConfig?: VitestConfig
+  vitestConfigPath?: string
 }
 
 /**
@@ -78,6 +80,7 @@ export default defineNuxtModule<NuxtVitestOptions>({
       })
 
       process.env.__NUXT_VITEST_RESOLVED__ = 'true'
+
       const { startVitest } = (await import(
         pathToFileURL(await resolvePath('vitest/node')).href
       )) as typeof import('vitest/node')
@@ -98,10 +101,14 @@ export default defineNuxtModule<NuxtVitestOptions>({
 
       const watchMode = !process.env.NUXT_VITEST_DEV_TEST && !isCI
 
+      const getUserConfig = options.vitestConfigPath ?  (await import(resolve(options.vitestConfigPath))) : () => ({})
+
+      const userConfig = await getUserConfig() 
       // For testing dev mode in CI, maybe expose an option to user later
       const vitestConfig: VitestConfig = watchMode
         ? {
             passWithNoTests: true,
+            ...userConfig.test,
             ...options.vitestConfig,
             reporters: options.logToConsole
               ? [
@@ -117,6 +124,7 @@ export default defineNuxtModule<NuxtVitestOptions>({
             },
           }
         : {
+            ...userConfig.test,
             ...options.vitestConfig,
             watch: false,
           }
