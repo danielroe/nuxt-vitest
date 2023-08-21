@@ -132,6 +132,43 @@ it('can also mount an app', async () => {
 })
 ```
 
+### `renderSuspended`
+
+`renderSuspended` allows you to render any vue component within the Nuxt environment using `@testing-library/vue`, allowing async setup and access to injections from your Nuxt plugins.
+
+This should be used together with utilities from testing-library, e.g. `screen` and `fireEvent`. Install [@testing-library/vue](https://testing-library.com/docs/vue-testing-library/intro) in your project to use these.
+Additionally testing-library also relies on testing globals for cleanup. You should turn these on in your [Vitest config](https://vitest.dev/config/#globals).
+
+The passed in component will be rendered inside a `<div id="test-wrapper"></div>`.
+
+
+Examples:
+
+```ts
+// tests/components/SomeComponents.nuxt.spec.ts
+import { renderSuspended } from 'nuxt-vitest/utils'
+import { screen } from '@testing-library/vue'
+
+it('can render some component', async () => {
+    await renderSuspended(SomeComponent)
+    expect(screen.getByText('This is an auto-imported component')).toBeDefined()
+})
+
+// tests/App.nuxt.spec.ts
+import { renderSuspended } from 'nuxt-vitest/utils'
+
+it('can also render an app', async () => {
+    const html = await renderSuspended(App, { route: '/test' })
+    expect(html()).toMatchInlineSnapshot(`
+      "<div id=\\"test-wrapper\\">
+        <div>This is an auto-imported component</div>
+        <div> I am a global component </div>
+        <div>Index page</div><a href=\\"/test\\"> Test link </a>
+      </div>"
+    `)
+})
+```
+
 ### `mockNuxtImport`
 
 `mockNuxtImport` allows you to mock Nuxt's auto import functionality. For example, to mock `useStorage`, you can do so like this:
