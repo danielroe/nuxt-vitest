@@ -58,12 +58,14 @@
     "whatwg-fetch": "3.6.17"
   },
   "devDependencies": {
+    "@testing-library/vue": "7.0.0",
     "@types/jsdom": "21.1.1",
     "happy-dom": "10.5.2",
     "jsdom": "22.1.0",
     "vue": "3.3.4"
   },
   "peerDependencies": {
+    "@testing-library/vue": "7.0.0",
     "happy-dom": "^9.10.9 || ^10.0.0",
     "jsdom": "^22.0.0",
     "vitest": "^0.24.5 || ^0.26.0 || ^0.27.0 || ^0.28.0 || ^0.29.0 || ^0.30.0 || ^0.33.0",
@@ -71,6 +73,9 @@
     "vue-router": "^4.0.0"
   },
   "peerDependenciesMeta": {
+    "@testing-library/vue": {
+      "optional": true
+    },
     "happy-dom": {
       "optional": true
     },
