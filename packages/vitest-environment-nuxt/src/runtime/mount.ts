@@ -43,7 +43,7 @@ export type MountSuspendedOptions<T> = ComponentMountingOptions<T> & {
 export async function mountSuspended<T>(
   component: T,
   options?: MountSuspendedOptions<T>
-) {
+): Promise<ReturnType<typeof mount<T>>> {
   const {
     props = {},
     attrs = {},
