@@ -47,7 +47,7 @@ export async function mountSuspended<T>(
   const {
     props = {},
     attrs = {},
-    slots = {},
+    slots = {} as ComponentMountingOptions<T>['slots'],
     route = '/',
     ..._options
   } = options || {}
@@ -58,14 +58,11 @@ export async function mountSuspended<T>(
 
   let setupContext: SetupContext
   return new Promise<
-    ReturnType<
-      // @ts-expect-error letting uncertainty flow like water
-      typeof mount<T>
-    >
+    ReturnType<typeof mount<T>>
   >(resolve => {
     const vm = mount(
       {
-        setup: (props, ctx) => {
+        setup: (props: Record<string, any>, ctx: SetupContext) => {
           setupContext = ctx
           return NuxtRoot.setup(props, {
             ...ctx,
@@ -112,7 +109,7 @@ export async function mountSuspended<T>(
           provide: vueApp._context.provides,
           components: { RouterLink },
         },
-      })
+      } satisfies ComponentMountingOptions<T>) as ComponentMountingOptions<T>
     )
   })
 }

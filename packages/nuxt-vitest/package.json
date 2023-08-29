@@ -53,18 +53,18 @@
     "vitest": "^0.24.5 || ^0.26.0 || ^0.27.0 || ^0.28.0 || ^0.29.0 || ^0.30.0 || ^0.33.0"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.2.0",
+    "@nuxt/kit": "^3.6.5",
     "@vitest/ui": "^0.33.0",
     "defu": "^6.1.2",
-    "get-port-please": "^3.0.1",
+    "get-port-please": "^3.0.2",
     "perfect-debounce": "^1.0.0",
-    "std-env": "^3.3.3",
+    "std-env": "^3.4.3",
     "vitest-environment-nuxt": "0.10.2"
   },
   "devDependencies": {
     "@nuxt/module-builder": "0.4.0",
-    "vitest": "0.33.0",
     "@nuxt/schema": "3.6.5",
-    "nuxt": "3.6.5"
+    "nuxt": "3.6.5",
+    "vitest": "0.33.0"
   }
 }

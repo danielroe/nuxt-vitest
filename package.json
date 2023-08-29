@@ -1,6 +1,6 @@
 {
   "private": true,
-  "packageManager": "pnpm@8.6.12",
+  "packageManager": "pnpm@8.7.0",
   "scripts": {
     "build": "pnpm dev:prepare && pnpm -r --filter \"./packages/**\" run build",
     "stub": "pnpm -r --filter \"./packages/**\" run stub",
@@ -24,16 +24,16 @@
     "@release-it/conventional-changelog": "7.0.0",
     "@vitest/coverage-v8": "0.33.0",
     "conventional-changelog-conventionalcommits": "7.0.1",
-    "eslint": "8.47.0",
+    "eslint": "8.48.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-prettier": "5.0.0",
     "husky": "8.0.3",
-    "lint-staged": "14.0.0",
+    "lint-staged": "14.0.1",
     "nuxt": "3.6.5",
     "prettier": "3.0.2",
     "release-it": "16.1.5",
-    "typescript": "5.1.6",
-    "unbuild": "1.2.1",
+    "typescript": "5.2.2",
+    "unbuild": "2.0.0",
     "vitest": "0.33.0",
     "vue": "3.3.4",
     "vue-tsc": "1.8.8"
