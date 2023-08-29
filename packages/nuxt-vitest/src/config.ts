@@ -121,22 +121,25 @@ export async function getVitestConfigFromNuxt(
         ['{test,tests}/nuxt/**.*', 'nuxt'],
         ...(options.viteConfig.test?.environmentMatchGlobs || []),
       ],
-      deps: {
-        ...options.viteConfig.test?.deps,
-        inline: [
-          // vite-node defaults
-          /\/node_modules\/(.*\/)?(nuxt|nuxt3)\//,
-          /^#/,
-          // additional deps
-          'vitest-environment-nuxt',
-          ...(options.nuxt.options.build.transpile.filter(
-            r => typeof r === 'string' || r instanceof RegExp
-          ) as Array<string | RegExp>),
-          ...(typeof options.viteConfig.test?.deps?.inline !== 'boolean'
-            ? typeof options.viteConfig.test?.deps?.inline
-            : []),
-        ],
-      },
+      server: {
+        ...options.viteConfig.test?.server,
+        deps: {
+          ...options.viteConfig.test?.server?.deps,
+          inline: [
+            // vite-node defaults
+            /\/node_modules\/(.*\/)?(nuxt|nuxt3)\//,
+            /^#/,
+            // additional deps
+            'vitest-environment-nuxt',
+            ...(options.nuxt.options.build.transpile.filter(
+              r => typeof r === 'string' || r instanceof RegExp
+            ) as Array<string | RegExp>),
+            ...(typeof options.viteConfig.test?.deps?.inline !== 'boolean'
+              ? typeof options.viteConfig.test?.deps?.inline
+              : []),
+          ],
+        },
+      }
     },
   }
 }
