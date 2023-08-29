@@ -18,6 +18,7 @@
   "scripts": {
     "build": "unbuild",
     "stub": "unbuild --stub",
+    "release": "changelogen --release --no-commit --no-tag",
     "prepublishOnly": "pnpm build"
   },
   "main": "./dist/index.cjs",

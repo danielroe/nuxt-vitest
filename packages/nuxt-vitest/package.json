@@ -39,6 +39,7 @@
     "prepack": "nuxt-module-build",
     "build": "nuxt-module-build",
     "prepublishOnly": "pnpm build",
+    "release": "changelogen --release --no-commit --no-tag",
     "lint": "eslint .",
     "stub": "nuxt-module-build --stub"
   },
