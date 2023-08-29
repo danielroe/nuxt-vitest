@@ -59,7 +59,7 @@
   },
   "devDependencies": {
     "@testing-library/vue": "7.0.0",
-    "@types/jsdom": "21.1.1",
+    "@types/jsdom": "21.1.2",
     "happy-dom": "10.5.2",
     "jsdom": "22.1.0",
     "vue": "3.3.4"
