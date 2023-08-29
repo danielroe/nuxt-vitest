@@ -57,9 +57,7 @@ export async function mountSuspended<T>(
   const { render, setup } = component as DefineComponent<any, any>
 
   let setupContext: SetupContext
-  return new Promise<
-    ReturnType<typeof mount<T>>
-  >(resolve => {
+  return new Promise<ReturnType<typeof mount<T>>>(resolve => {
     const vm = mount(
       {
         setup: (props: Record<string, any>, ctx: SetupContext) => {
