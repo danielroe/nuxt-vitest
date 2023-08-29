@@ -5,6 +5,7 @@ export default defineBuildConfig({
     '#imports',
     '#app/entry',
     '#build/root-component.mjs',
+    'node-fetch-native/polyfill',
     '@nuxt/schema',
     'vite',
   ],
