@@ -3,6 +3,7 @@
   "version": "0.10.5",
   "description": "An vitest environment with support for testing code that needs a Nuxt runtime environment.",
   "repository": "danielroe/nuxt-vitest",
+  "type": "module",
   "keywords": [
     "nuxt",
     "vitest",
@@ -21,25 +22,13 @@
     "release": "changelogen --release --no-commit --no-tag",
     "prepublishOnly": "pnpm build"
   },
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
-    "./utils": {
-      "types": "./dist/utils.d.ts",
-      "require": "./dist/utils.cjs",
-      "import": "./dist/utils.mjs"
-    },
-    "./module": {
-      "types": "./dist/module.d.ts",
-      "require": "./dist/module.cjs",
-      "import": "./dist/module.mjs"
-    },
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
-    }
+    "./utils": "./dist/utils.mjs",
+    "./module": "./dist/module.mjs",
+    ".": "./dist/index.mjs"
   },
   "files": [
     "dist",
