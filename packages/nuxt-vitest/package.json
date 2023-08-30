@@ -1,7 +1,7 @@
 {
   "name": "nuxt-vitest",
   "type": "module",
-  "version": "0.10.3",
+  "version": "0.10.4",
   "license": "MIT",
   "repository": "danielroe/nuxt-vitest",
   "keywords": [

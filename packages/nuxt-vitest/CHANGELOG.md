@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.10.4
+
+[compare changes](https://github.com/danielroe/nuxt-vitest/compare/v0.10.3...v0.10.4)
+
+### 🩹 Fixes
+
+- Use workspace dependency ([6669c4f](https://github.com/danielroe/nuxt-vitest/commit/6669c4f))
+
+### ❤️ Contributors
+
+- Daniel Roe <daniel@roe.dev>
+
 ## v0.10.3
 
 [compare changes](https://github.com/danielroe/nuxt-vitest/compare/0.10.2...v0.10.3)
