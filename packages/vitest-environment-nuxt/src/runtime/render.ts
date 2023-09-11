@@ -5,7 +5,6 @@ import {
   h,
   nextTick,
 } from 'vue'
-import { importModule } from 'local-pkg'
 import type {
    RenderOptions as TestingLibraryRenderOptions,
 } from '@testing-library/vue'
@@ -67,7 +66,7 @@ export async function renderSuspended<T>(
     ..._options
   } = options || {}
 
-  const { render : renderFromTestingLibrary } = await importModule<typeof import('@testing-library/vue')>('@testing-library/vue')
+  const { render : renderFromTestingLibrary } = await import('@testing-library/vue')
 
   // @ts-ignore untyped global __unctx__
   const { vueApp } = globalThis.__unctx__.get('nuxt-app').tryUse()
