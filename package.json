@@ -40,6 +40,7 @@
       "@nuxt/kit": "latest",
       "@nuxt/schema": "latest",
       "vitest-environment-nuxt": "workspace:*",
+      "nuxi": "3.7.3",
       "nuxt-vitest": "workspace:*"
     }
   },
