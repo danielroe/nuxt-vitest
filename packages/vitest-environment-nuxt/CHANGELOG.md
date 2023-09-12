@@ -1,5 +1,24 @@
 
 
+## v0.10.5
+
+[compare changes](https://github.com/danielroe/nuxt-vitest/compare/v0.10.4...v0.10.5)
+
+### 🩹 Fixes
+
+- Handle mocking composables that use default export ([cf521f4](https://github.com/danielroe/nuxt-vitest/commit/cf521f4))
+- **vitest-environment-nuxt:** Import `@testing-library/vue` within `renderSuspended` ([#331](https://github.com/danielroe/nuxt-vitest/pull/331))
+
+### ✅ Tests
+
+- Avoid depending on specific number of ticks ([99c8444](https://github.com/danielroe/nuxt-vitest/commit/99c8444))
+
+### ❤️ Contributors
+
+- Julien Huang <julien.huang@outlook.fr>
+- Niko-chaffinchicas 
+- Daniel Roe <daniel@roe.dev>
+
 ## v0.10.4
 
 [compare changes](https://github.com/danielroe/nuxt-vitest/compare/v0.10.3...v0.10.4)
