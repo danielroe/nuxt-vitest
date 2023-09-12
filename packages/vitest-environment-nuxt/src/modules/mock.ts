@@ -263,7 +263,9 @@ export default defineNuxtModule({
                   for (const mock of mocks) {
                     if (mock.import.name === 'default') {
                       lines.push(
-                        `  mocks[${JSON.stringify(from)}]["default"] = await (${mock.factory})()`
+                        `  mocks[${JSON.stringify(from)}]["default"] = await (${
+                          mock.factory
+                        })()`
                       )
                     } else {
                       lines.push(
