@@ -275,9 +275,9 @@ For example, to mock `/test/` endpoint, you can do:
 ```ts
 import { registerEndpoint } from 'nuxt-vitest/utils'
 
-registerEndpoint("/test/", () => {
+registerEndpoint("/test/", () => ({
   test: "test-field"
-})
+}))
 ```
 
 > **Note**: If your requests in a component go to external API, you can use `baseURL` and then make it empty using Nuxt Enviroment Config (`$test`) so all your requests will go to Nitro server.
