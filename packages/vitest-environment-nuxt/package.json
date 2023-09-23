@@ -22,8 +22,6 @@
     "release": "changelogen --release --no-commit --no-tag",
     "prepublishOnly": "pnpm build"
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     "./utils": "./dist/utils.mjs",
