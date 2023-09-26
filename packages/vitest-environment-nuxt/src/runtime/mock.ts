@@ -56,7 +56,7 @@ export function registerEndpoint(
 
   app.use('/_' + url, defineEventHandler(config.handler), {
     match(_, event) {
-      return config.method ? event.method === config.method : true
+      return config.method ? event?.method === config.method : true
     },
   })
 
