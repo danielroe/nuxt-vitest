@@ -131,9 +131,6 @@ export async function getVitestConfigFromNuxt(
             /^#/,
             // additional deps
             'vitest-environment-nuxt',
-            /packages\/vitest-environment-nuxt/,
-            /vitest-environment-nuxt\/dist/,
-            /vitest-environment-nuxt(?!\/node_modules)/,
             ...(options.nuxt.options.build.transpile.filter(
               r => typeof r === 'string' || r instanceof RegExp
             ) as Array<string | RegExp>),
