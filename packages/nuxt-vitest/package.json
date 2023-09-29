@@ -62,6 +62,6 @@
     "@nuxt/module-builder": "0.5.1",
     "@nuxt/schema": "3.7.1",
     "nuxt": "3.7.1",
-    "vitest": "0.34.5"
+    "vitest": "0.34.6"
   }
 }
