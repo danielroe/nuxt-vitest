@@ -33,7 +33,7 @@
     "*.d.ts"
   ],
   "dependencies": {
-    "@nuxt/kit": "^3.7.3",
+    "@nuxt/kit": "^3.7.4",
     "@vue/test-utils": "^2.4.1",
     "defu": "^6.1.2",
     "estree-walker": "^3.0.3",
