@@ -116,6 +116,16 @@ export async function getVitestConfigFromNuxt(
         },
         nuxtRuntimeConfig: options.nuxt.options.runtimeConfig,
       },
+      // TODO: remove workaround
+      deps: {
+        ...options.viteConfig.test?.deps,
+        optimizer: {
+          ...options.viteConfig.test?.deps?.optimizer,
+          web: {
+            enabled: false
+          },
+        }
+      },
       environmentMatchGlobs: [
         ['**/*.nuxt.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}', 'nuxt'],
         ['{test,tests}/nuxt/**.*', 'nuxt'],
