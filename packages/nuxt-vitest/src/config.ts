@@ -25,11 +25,6 @@ async function startNuxtAndGetViteConfig(
         ssr: false,
         test: true,
         modules: ['nuxt-vitest'],
-        appConfig: {
-          nuxt: {
-            buildId: 'test'
-          }
-        },
       },
       overrides
     ),
