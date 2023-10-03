@@ -11,7 +11,6 @@ import {
 import type { NuxtBuiltinEnvironment } from './types'
 import happyDom from './env/happy-dom'
 import jsdom from './env/jsdom'
-import { registerEndpoint } from './utils'
 
 export default <Environment>{
   name: 'nuxt',
@@ -101,16 +100,19 @@ export default <Environment>{
       createRadixRouter({ routes: environmentOptions.nuxtRouteRules || {} })
     )
     const matcher = exportMatcher(routeRulesMatcher)
-    registerEndpoint('/_nuxt/builds/latest.json', defineEventHandler(() => ({
+    h3App.use('/_/_nuxt/builds/latest.json', defineEventHandler(() => ({
       id: 'test',
       timestamp
     })))
-    registerEndpoint('/_nuxt/builds/meta/test.json', defineEventHandler(() => ({
+    h3App.use('/_/_nuxt/builds/meta/test.json', defineEventHandler(() => ({
       id: 'test',
       timestamp,
       matcher,
       prerendered: []
     })))
+
+    registry.add('/_nuxt/builds/latest.json')
+    registry.add('/_nuxt/builds/meta/test.json')
 
     // @ts-ignore
     await import('#app/entry').then(r => r.default())
