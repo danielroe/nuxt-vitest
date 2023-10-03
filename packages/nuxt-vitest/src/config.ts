@@ -25,6 +25,11 @@ async function startNuxtAndGetViteConfig(
         ssr: false,
         test: true,
         modules: ['nuxt-vitest'],
+        appConfig: {
+          nuxt: {
+            buildId: 'test'
+          }
+        },
       },
       overrides
     ),
@@ -116,6 +121,7 @@ export async function getVitestConfigFromNuxt(
           ...options.viteConfig.test?.environmentOptions?.nuxt,
         },
         nuxtRuntimeConfig: options.nuxt.options.runtimeConfig,
+        nuxtRouteRules: defu({}, options.nuxt.options.routeRules, options.nuxt.options.nitro?.routeRules)
       },
       environmentMatchGlobs: [
         ['**/*.nuxt.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}', 'nuxt'],
