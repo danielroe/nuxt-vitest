@@ -61,7 +61,8 @@ const vuePlugins = {
 
 export async function getVitestConfigFromNuxt(
   options?: GetVitestConfigOptions,
-  overrides?: NuxtConfig
+  overrides?: NuxtConfig,
+  userConfig?: InlineConfig
 ): Promise<InlineConfig & { test: VitestConfig }> {
   const { rootDir = process.cwd(), ..._overrides } = overrides || {}
   if (!options) options = await startNuxtAndGetViteConfig(rootDir, _overrides)
@@ -108,6 +109,7 @@ export async function getVitestConfigFromNuxt(
     test: {
       ...options.viteConfig.test,
       dir: process.cwd(),
+      ...userConfig?.test,
       environmentOptions: {
         ...options.viteConfig.test?.environmentOptions,
         nuxt: {
@@ -115,6 +117,7 @@ export async function getVitestConfigFromNuxt(
           ...options.viteConfig.test?.environmentOptions?.nuxt,
         },
         nuxtRuntimeConfig: options.nuxt.options.runtimeConfig,
+        ...userConfig?.test?.environmentOptions,
       },
       // TODO: remove workaround
       deps: {
@@ -122,14 +125,16 @@ export async function getVitestConfigFromNuxt(
         optimizer: {
           ...options.viteConfig.test?.deps?.optimizer,
           web: {
-            enabled: false
+            enabled: false,
           },
-        }
+        },
+        ...userConfig?.test?.deps,
       },
       environmentMatchGlobs: [
         ['**/*.nuxt.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}', 'nuxt'],
         ['{test,tests}/nuxt/**.*', 'nuxt'],
         ...(options.viteConfig.test?.environmentMatchGlobs || []),
+        ...(userConfig?.test?.environmentMatchGlobs || []),
       ],
       server: {
         ...options.viteConfig.test?.server,
@@ -149,23 +154,31 @@ export async function getVitestConfigFromNuxt(
               : []),
           ],
         },
-      }
+        ...userConfig?.test?.server,
+      },
     },
   }
 }
 
-export function defineVitestConfig(config: InlineConfig = {}) {
+export function defineVitestConfig(userConfig: InlineConfig = {}) {
   return defineConfig(async () => {
     // When Nuxt module calls `startVitest`, we don't need to call `getVitestConfigFromNuxt` again
-    if (process.env.__NUXT_VITEST_RESOLVED__) return config
+    if (process.env.__NUXT_VITEST_RESOLVED__) return userConfig
 
-    const overrides = config.test?.environmentOptions?.nuxt?.overrides || {}
-    overrides.rootDir = config.test?.environmentOptions?.nuxt?.rootDir
+    const overrides = userConfig.test?.environmentOptions?.nuxt?.overrides || {}
+    overrides.rootDir = userConfig.test?.environmentOptions?.nuxt?.rootDir
 
-    return mergeConfig(
-      await getVitestConfigFromNuxt(undefined, overrides),
-      config
+    const fromNuxt = await getVitestConfigFromNuxt(
+      undefined,
+      overrides,
+      userConfig
     )
+    const merged = mergeConfig(fromNuxt, userConfig)
+
+    // `mergeConfig` does not handle `test` merging, we resolved it in `getVitestConfigFromNuxt`
+    merged.test = fromNuxt.test
+
+    return merged
   })
 }
 
