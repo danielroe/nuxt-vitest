@@ -1,7 +1,7 @@
 {
   "name": "nuxt-vitest",
   "type": "module",
-  "version": "0.10.5",
+  "version": "0.11.0",
   "license": "MIT",
   "repository": "danielroe/nuxt-vitest",
   "keywords": [
@@ -59,7 +59,7 @@
     "vitest-environment-nuxt": "workspace:*"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "0.5.1",
+    "@nuxt/module-builder": "0.5.2",
     "@nuxt/schema": "3.7.4",
     "nuxt": "3.7.4",
     "vitest": "0.34.6"

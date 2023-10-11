@@ -1,6 +1,7 @@
 import type { Nuxt, NuxtConfig, ViteConfig } from '@nuxt/schema'
 import type { InlineConfig as VitestConfig } from 'vitest'
-import { InlineConfig, mergeConfig, defineConfig } from 'vite'
+import { mergeConfig, defineConfig } from 'vite'
+import type { InlineConfig } from 'vite'
 import vuePlugin from '@vitejs/plugin-vue'
 import viteJsxPlugin from '@vitejs/plugin-vue-jsx'
 import { defu } from 'defu'
@@ -117,6 +118,7 @@ export async function getVitestConfigFromNuxt(
           ...options.viteConfig.test?.environmentOptions?.nuxt,
         },
         nuxtRuntimeConfig: options.nuxt.options.runtimeConfig,
+        nuxtRouteRules: defu({}, options.nuxt.options.routeRules, options.nuxt.options.nitro?.routeRules),
         ...userConfig?.test?.environmentOptions,
       },
       // TODO: remove workaround

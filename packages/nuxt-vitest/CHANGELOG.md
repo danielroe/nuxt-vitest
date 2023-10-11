@@ -1,6 +1,51 @@
 # Changelog
 
 
+## v0.11.0
+
+[compare changes](https://github.com/danielroe/nuxt-vitest/compare/v0.10.5...v0.11.0)
+
+### 🚀 Enhancements
+
+- **utils:** Add method option to `registerEndpoint` ([#346](https://github.com/danielroe/nuxt-vitest/pull/346))
+
+### 🩹 Fixes
+
+- ⚠️  Ignore query params when checking if an endpoint is mocked ([a9f406e](https://github.com/danielroe/nuxt-vitest/commit/a9f406e))
+- Mock app manifest if required ([#354](https://github.com/danielroe/nuxt-vitest/pull/354))
+
+### 📖 Documentation
+
+- Fix `registerEndpoint` example ([#336](https://github.com/danielroe/nuxt-vitest/pull/336))
+
+### 🏡 Chore
+
+- Update to latest nuxi ([#335](https://github.com/danielroe/nuxt-vitest/pull/335))
+- Update to nuxt v3.7.3 ([f9d7b73](https://github.com/danielroe/nuxt-vitest/commit/f9d7b73))
+- Bump nuxt versions to v3.7.4 ([#353](https://github.com/danielroe/nuxt-vitest/pull/353))
+- Explicit type imports ([3465a25](https://github.com/danielroe/nuxt-vitest/commit/3465a25))
+- Use more explicit type imports ([21952b4](https://github.com/danielroe/nuxt-vitest/commit/21952b4))
+- More explicit types ([80ee333](https://github.com/danielroe/nuxt-vitest/commit/80ee333))
+
+### ✅ Tests
+
+- Update test to use server rather than live api ([b05c3f6](https://github.com/danielroe/nuxt-vitest/commit/b05c3f6))
+
+### 🎨 Styles
+
+- Lint ([a5c4c85](https://github.com/danielroe/nuxt-vitest/commit/a5c4c85))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Ignore query params when checking if an endpoint is mocked ([a9f406e](https://github.com/danielroe/nuxt-vitest/commit/a9f406e))
+
+### ❤️ Contributors
+
+- Daniel Roe <daniel@roe.dev>
+- Yasser Lahbibi ([@yassilah](http://github.com/yassilah))
+- Alexander Lichter ([@manniL](http://github.com/manniL))
+- Pooya Parsa <pyapar@gmail.com>
+
 ## v0.10.5
 
 [compare changes](https://github.com/danielroe/nuxt-vitest/compare/v0.10.4...v0.10.5)
