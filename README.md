@@ -103,6 +103,33 @@ When you run your tests within the Nuxt environment, they will be running in a [
 
 This means you should be take particular care not to mutate the global state in your tests (or, if you have, to reset it afterwards).
 
+## 🎭 Built-in mocks
+
+`nuxt-vitest` provides some built-in mocks for the DOM environment, both for `happy-dom` and `jsdom`.
+
+#### `intersectionObserver`
+Default `true`, creates a dummy class without any functionality for the IntersectionObserver API
+
+
+#### `indexedDB`
+Default `false`, uses [`fake-indexeddb`](https://github.com/dumbmatter/fakeIndexedDB) to create a functional mock of the IndexedDB API
+
+These can be configured in the `environmentOptions` section of your `vitest.config.mjs` file:
+
+```js
+export default defineVitestConfig({
+  test: {
+    environmentOptions: {
+        mock: {
+          intersectionObserver: true,
+          indexedDb: true,
+        },
+      },
+    },
+  },
+})
+````
+
 ## 🛠️ Helpers
 
 `nuxt-vitest` provides a number of helpers to make testing Nuxt apps easier.
