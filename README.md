@@ -120,13 +120,14 @@ These can be configured in the `environmentOptions` section of your `vitest.conf
 export default defineVitestConfig({
   test: {
     environmentOptions: {
+      nuxt: {
         mock: {
           intersectionObserver: true,
           indexedDb: true,
-        },
-      },
-    },
-  },
+        }
+      }
+    }
+  }
 })
 ````
 
