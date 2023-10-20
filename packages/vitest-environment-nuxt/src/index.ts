@@ -100,19 +100,22 @@ export default <Environment>{
       createRadixRouter({ routes: environmentOptions.nuxtRouteRules || {} })
     )
     const matcher = exportMatcher(routeRulesMatcher)
-    h3App.use('/_/_nuxt/builds/latest.json', defineEventHandler(() => ({
+    const manifestOutputPath = joinURL('/',environmentOptions?.nuxtRuntimeConfig.app?.buildAssetsDir,'/builds')
+    const manifestBaseRoutePath = joinURL('/_/',manifestOutputPath)
+
+    h3App.use(`${manifestBaseRoutePath}/latest.json`, defineEventHandler(() => ({
       id: 'test',
       timestamp
     })))
-    h3App.use('/_/_nuxt/builds/meta/test.json', defineEventHandler(() => ({
+    h3App.use(`${manifestBaseRoutePath}/meta/test.json`, defineEventHandler(() => ({
       id: 'test',
       timestamp,
       matcher,
       prerendered: []
     })))
 
-    registry.add('/_nuxt/builds/latest.json')
-    registry.add('/_nuxt/builds/meta/test.json')
+    registry.add(`${manifestOutputPath}/latest.json`)
+    registry.add(`${manifestOutputPath}/meta/test.json`)
 
     // @ts-ignore
     await import('#app/entry').then(r => r.default())
