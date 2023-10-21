@@ -36,7 +36,7 @@ export default defineNuxtConfig({
 })
 ```
 
-3. Then create a `vitest.config.mjs` with the following content:
+3. Then create a `vitest.config.ts` with the following content:
 
 ```js
 import { defineVitestConfig } from 'nuxt-vitest/config'
