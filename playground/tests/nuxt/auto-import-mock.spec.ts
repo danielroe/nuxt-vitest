@@ -20,7 +20,6 @@ mockNuxtImport<typeof useAutoImportSetupOverridenMocked>(
 )
 
 it('should mock', () => {
-  vi.fn()
   expect(useAutoImportedTarget()).toMatchInlineSnapshot('"mocked!"')
   expect(useAutoImportedNonTarget()).toMatchInlineSnapshot('"the original"')
   expect(useAutoImportSetupOverridenMocked()).toMatchInlineSnapshot(
