@@ -113,9 +113,16 @@ export default <Environment>{
       matcher,
       prerendered: []
     })))
+    h3App.use(`${manifestBaseRoutePath}/meta/dev.json`, defineEventHandler(() => ({
+      id: 'test',
+      timestamp,
+      matcher,
+      prerendered: []
+    })))
 
     registry.add(`${manifestOutputPath}/latest.json`)
     registry.add(`${manifestOutputPath}/meta/test.json`)
+    registry.add(`${manifestOutputPath}/meta/dev.json`)
 
     // @ts-ignore
     await import('#app/entry').then(r => r.default())
