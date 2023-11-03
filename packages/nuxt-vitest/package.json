@@ -36,12 +36,12 @@
     "*.d.ts"
   ],
   "scripts": {
-    "prepack": "nuxt-module-build",
-    "build": "nuxt-module-build",
+    "prepack": "nuxt-module-build build",
+    "build": "nuxt-module-build build",
     "prepublishOnly": "pnpm build",
     "release": "changelogen --release --no-commit --no-tag",
     "lint": "eslint .",
-    "stub": "nuxt-module-build --stub"
+    "stub": "nuxt-module-build build --stub"
   },
   "peerDependencies": {
     "@vitejs/plugin-vue": "*",
