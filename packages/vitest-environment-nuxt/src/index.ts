@@ -100,8 +100,8 @@ export default <Environment>{
       createRadixRouter({ routes: environmentOptions.nuxtRouteRules || {} })
     )
     const matcher = exportMatcher(routeRulesMatcher)
-    const manifestOutputPath = joinURL('/',environmentOptions?.nuxtRuntimeConfig.app?.buildAssetsDir,'/builds')
-    const manifestBaseRoutePath = joinURL('/_/',manifestOutputPath)
+    const manifestOutputPath = joinURL('/', environmentOptions?.nuxtRuntimeConfig.app?.buildAssetsDir || '_nuxt', 'builds')
+    const manifestBaseRoutePath = joinURL('/_', manifestOutputPath)
 
     h3App.use(`${manifestBaseRoutePath}/latest.json`, defineEventHandler(() => ({
       id: 'test',
