@@ -1,5 +1,26 @@
 
 
+## v0.11.1
+
+[compare changes](https://github.com/danielroe/nuxt-vitest/compare/v0.11.0...v0.11.1)
+
+### 🩹 Fixes
+
+- Add handler for `builds/meta/dev.json` as well ([7988f2e](https://github.com/danielroe/nuxt-vitest/commit/7988f2e))
+
+### 📖 Documentation
+
+- Fix typo in README ([#367](https://github.com/danielroe/nuxt-vitest/pull/367))
+
+### 🏡 Chore
+
+- Update build command ([4746a9a](https://github.com/danielroe/nuxt-vitest/commit/4746a9a))
+
+### ❤️ Contributors
+
+- Daniel Roe ([@danielroe](http://github.com/danielroe))
+- Jeffrey GONZALES
+
 ## v0.11.0
 
 [compare changes](https://github.com/danielroe/nuxt-vitest/compare/v0.10.5...v0.11.0)
