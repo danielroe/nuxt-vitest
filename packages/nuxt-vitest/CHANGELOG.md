@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.11.2
+
+[compare changes](https://github.com/danielroe/nuxt-vitest/compare/v0.11.1...v0.11.2)
+
+### 🚀 Enhancements
+
+- Allow `indexedDB` mock + disabling `IntersectionObserver` ([#361](https://github.com/danielroe/nuxt-vitest/pull/361))
+
+### 🩹 Fixes
+
+- Respect custom `buildAssetsDir` when mocking manifests ([#371](https://github.com/danielroe/nuxt-vitest/pull/371))
+
+### 📖 Documentation
+
+- Update to vitest config with `.ts` extension ([#373](https://github.com/danielroe/nuxt-vitest/pull/373))
+
+### ❤️ Contributors
+
+- Ola Alsaker ([@OlaAlsaker](http://github.com/OlaAlsaker))
+- Christian De Jesus IV 
+- Erikwu
+
 ## v0.11.1
 
 [compare changes](https://github.com/danielroe/nuxt-vitest/compare/v0.11.0...v0.11.1)
