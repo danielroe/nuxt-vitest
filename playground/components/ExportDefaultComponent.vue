@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>ExportDefineComponent</h1>
+    <h1>ExportDefaultComponent</h1>
     <pre>{{ myProp }}</pre>
     <pre>{{ setupMyProp }}</pre>
   </div>
@@ -16,7 +16,7 @@ Following script is a valid Vue 3 way to define a component
 -->
 
 <script lang="ts">
-export default defineComponent({
+export default {
   props: {
     myProp: {
       type: String,
@@ -28,5 +28,5 @@ export default defineComponent({
       setupMyProp: 'X' + props.myProp
     }
   },
-})
+}
 </script>
