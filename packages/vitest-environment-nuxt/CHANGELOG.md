@@ -1,5 +1,17 @@
 
 
+## v0.11.3
+
+[compare changes](https://github.com/danielroe/nuxt-vitest/compare/v0.11.2...v0.11.3)
+
+### 🩹 Fixes
+
+- Support components with options API style export ([#391](https://github.com/danielroe/nuxt-vitest/pull/391))
+
+### ❤️ Contributors
+
+- Juho Rutila ([@nice-game-hints](http://github.com/nice-game-hints))
+
 ## v0.11.2
 
 [compare changes](https://github.com/danielroe/nuxt-vitest/compare/v0.11.1...v0.11.2)
