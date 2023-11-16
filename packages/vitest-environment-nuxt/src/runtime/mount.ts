@@ -59,6 +59,18 @@ export async function mountSuspended<T>(
   const { render, setup } = component as DefineComponent<any, any>
 
   let setupContext: SetupContext
+  let setupScope: any
+
+  const wrappedSetup = async (
+    props: Record<string, any>,
+    setupContext: SetupContext
+  ) => {
+    if (setup) {
+      setupScope = await setup(props, setupContext)
+      return setupScope
+    }
+  }
+
   return new Promise<ReturnType<typeof mount<T>>>(resolve => {
     const vm = mount(
       {
@@ -72,7 +84,13 @@ export async function mountSuspended<T>(
         render: (renderContext: any) =>
           h(
             Suspense,
-            { onResolve: () => nextTick().then(() => resolve(vm as any)) },
+            {
+              onResolve: () =>
+                nextTick().then(() => {
+                  ;(vm as any).setupScope = setupScope
+                  resolve(vm as any)
+                }),
+            },
             {
               default: () =>
                 h({
@@ -85,17 +103,17 @@ export async function mountSuspended<T>(
                       ...component,
                       render: render
                         ? (_ctx: any, ...args: any[]) => {
-                          // add all _ctx properties to renderContext
-                          // the renderContext must remain intact, otherwise the emits don't work
-                          for (const key in _ctx) {
-                            renderContext[key] = _ctx[key]
+                            // add all _ctx properties to renderContext
+                            // the renderContext must remain intact, otherwise the emits don't work
+                            for (const key in _ctx) {
+                              renderContext[key] = _ctx[key]
+                            }
+                            return render.apply(_ctx, [renderContext, ...args])
                           }
-                          return render.apply(_ctx, [renderContext, ...args])
-                        }
                         : undefined,
                       setup: setup
                         ? (props: Record<string, any>) =>
-                            setup(props, setupContext)
+                            wrappedSetup(props, setupContext)
                         : undefined,
                     }
 
