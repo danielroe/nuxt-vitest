@@ -59,15 +59,15 @@ export async function mountSuspended<T>(
   const { render, setup } = component as DefineComponent<any, any>
 
   let setupContext: SetupContext
-  let setupScope: any
+  let setupState: any
 
   const wrappedSetup = async (
     props: Record<string, any>,
     setupContext: SetupContext
   ) => {
     if (setup) {
-      setupScope = await setup(props, setupContext)
-      return setupScope
+      setupState = await setup(props, setupContext)
+      return setupState
     }
   }
 
@@ -87,7 +87,7 @@ export async function mountSuspended<T>(
             {
               onResolve: () =>
                 nextTick().then(() => {
-                  ;(vm as any).setupScope = setupScope
+                  ;(vm as any).setupState = setupState
                   resolve(vm as any)
                 }),
             },
