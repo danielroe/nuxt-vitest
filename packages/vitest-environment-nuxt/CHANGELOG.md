@@ -1,5 +1,31 @@
 
 
+## v0.11.4
+
+[compare changes](https://github.com/danielroe/nuxt-vitest/compare/v0.11.3...v0.11.4)
+
+### 🚀 Enhancements
+
+- Expose `setupState` from `mountSuspended` ([#399](https://github.com/danielroe/nuxt-vitest/pull/399))
+
+### 📖 Documentation
+
+- Add info about `registerEndpoint` with method ([#395](https://github.com/danielroe/nuxt-vitest/pull/395))
+
+### 🎨 Styles
+
+- Lint ([66fa698](https://github.com/danielroe/nuxt-vitest/commit/66fa698))
+
+### 🤖 CI
+
+- Run tests on node 18/20 and drop node 16 ([da13901](https://github.com/danielroe/nuxt-vitest/commit/da13901))
+
+### ❤️ Contributors
+
+- Tim Van Den Eijnden 
+- Daniel Roe <daniel@roe.dev>
+- Yasser Lahbibi ([@yassilah](http://github.com/yassilah))
+
 ## v0.11.3
 
 [compare changes](https://github.com/danielroe/nuxt-vitest/compare/v0.11.2...v0.11.3)
