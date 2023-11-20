@@ -46,13 +46,16 @@ jobs:
         run: pnpm build
 
       - name: 🧪 Playground Test with Happy-DOM
-        run: pnpm -C playground run test:unit --coverage
+        run: pnpm -C playground run test:happy-dom --coverage
 
       - name: 🧪 Playground Test with JSDOM
         run: pnpm -C playground run test:jsdom --coverage
 
       - name: 🧪 Playground Test on Dev
         run: pnpm -C playground run test:dev
+
+      - name: 💪 Build project
+        run: pnpm -C playground run test:types
 
       - name: 🟩 Coverage
         uses: codecov/codecov-action@v3
