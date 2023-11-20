@@ -64,6 +64,7 @@
     "@types/jsdom": "21.1.5",
     "happy-dom": "12.1.6",
     "jsdom": "22.1.0",
+    "rollup": "3.29.4",
     "vue": "3.3.4"
   },
   "peerDependencies": {
