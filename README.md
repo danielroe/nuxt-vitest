@@ -308,6 +308,17 @@ registerEndpoint("/test/", () => ({
 }))
 ```
 
+By default, your request will be made using the `GET` method. You may use another method by setting an object as the second argument instead of a function.
+
+```ts
+import { registerEndpoint } from 'nuxt-vitest/utils'
+
+registerEndpoint("/test/", {
+  method: "POST",
+  handler: () => ({ test: "test-field" })
+})
+```
+
 > **Note**: If your requests in a component go to external API, you can use `baseURL` and then make it empty using Nuxt Enviroment Config (`$test`) so all your requests will go to Nitro server.
 
 ### Conflict with @nuxt/test-utils

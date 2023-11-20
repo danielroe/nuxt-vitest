@@ -50,7 +50,7 @@
     "@vue/test-utils": "^2.4.1",
     "defu": "^6.1.2",
     "estree-walker": "^3.0.3",
-    "fake-indexeddb": "^4.0.2",
+    "fake-indexeddb": "^5.0.0",
     "h3": "^1.8.1",
     "local-pkg": "^0.5.0",
     "magic-string": "^0.30.3",
@@ -61,7 +61,7 @@
   },
   "devDependencies": {
     "@testing-library/vue": "7.0.0",
-    "@types/jsdom": "21.1.4",
+    "@types/jsdom": "21.1.5",
     "happy-dom": "12.1.6",
     "jsdom": "22.1.0",
     "vue": "3.3.4"
