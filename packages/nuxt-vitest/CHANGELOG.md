@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.11.5
+
+[compare changes](https://github.com/danielroe/nuxt-vitest/compare/v0.11.4...v0.11.5)
+
+### 🩹 Fixes
+
+- Add `setupState` type to `mountSuspended` return type ([#400](https://github.com/danielroe/nuxt-vitest/pull/400))
+
+### ❤️ Contributors
+
+- Daniel Roe <daniel@roe.dev>
+
 ## v0.11.4
 
 [compare changes](https://github.com/danielroe/nuxt-vitest/compare/v0.11.3...v0.11.4)
