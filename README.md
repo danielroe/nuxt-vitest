@@ -1,3 +1,12 @@
+# 🚨 Migration to `@nuxt/test-utils` 🚨
+
+`nuxt-vitest` has now been incorporated directly into `@nuxt/test-utils`, which is where development is happening now.
+
+👉 See [release notes](https://github.com/nuxt/test-utils/releases/tag/v3.9.0) and migration guide.
+
+<details>
+<summary>Original README</summary>
+
 # nuxt-vitest
 
 [![npm version][npm-version-src]][npm-version-href]
@@ -359,6 +368,8 @@ await setup({
 - Install dependencies using `pnpm install`
 - Stub the library using `pnpm dev:prepare`
 - Run interactive tests using `pnpm test`
+
+</details>
 
 ## License
 
