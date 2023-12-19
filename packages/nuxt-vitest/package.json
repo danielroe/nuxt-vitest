@@ -59,9 +59,9 @@
     "vitest-environment-nuxt": "workspace:*"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "0.5.2",
-    "@nuxt/schema": "3.7.4",
-    "nuxt": "3.7.4",
+    "@nuxt/module-builder": "0.5.4",
+    "@nuxt/schema": "3.8.2",
+    "nuxt": "3.8.2",
     "vitest": "0.33.0"
   }
 }
